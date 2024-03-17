@@ -2,7 +2,7 @@ plugins {
     id("java")
 }
 
-group = "org.example"
+group = "ru.siobko.testing.tasks"
 version = "1.0-SNAPSHOT"
 
 repositories {

@@ -1,6 +1,6 @@
-package org.example;
+package ru.siobko.testing.tasks.simple;
 
-public class Main {
+public class MainTask {
     public static void main(String[] args) {
         System.out.println("Hello world!");
     }

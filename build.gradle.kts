@@ -12,6 +12,8 @@ repositories {
 dependencies {
     implementation(platform("org.junit:junit-bom:5.9.1"))
     implementation("org.junit.jupiter:junit-jupiter")
+    implementation("com.codeborne:selenide:7.2.2")
+    runtimeOnly("io.goodforgod:slf4j-simple-logger:2.0.0")
 }
 
 tasks.test {

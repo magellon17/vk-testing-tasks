@@ -1,4 +1,4 @@
-package ru.siobko.testing.tasks.selenide;
+package ru.siobko.testing.tasks.selenide.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;

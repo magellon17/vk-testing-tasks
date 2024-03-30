@@ -1,4 +1,4 @@
-package ru.siobko.testing.tasks.selenide;
+package ru.siobko.testing.tasks.selenide.tests;
 
 import org.junit.jupiter.api.Test;
 import ru.siobko.testing.tasks.selenide.pages.FeedPage;

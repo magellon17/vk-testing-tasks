@@ -4,20 +4,16 @@ import org.junit.jupiter.api.Test;
 import ru.siobko.testing.tasks.selenide.pages.FeedPage;
 import ru.siobko.testing.tasks.selenide.pages.GroupPage;
 import ru.siobko.testing.tasks.selenide.pages.GroupsPage;
-import ru.siobko.testing.tasks.selenide.pages.LoginPage;
 
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.text;
 
 public class GroupCreationTest extends BaseTest {
     @Test
     public void testGroupCreation() {
-        LoginPage loginPage = new LoginPage();
-        loginPage.open().login(email, password);
-
         FeedPage feedPage = new FeedPage();
-        GroupsPage groupsPage = feedPage.openGroupPage();
-        GroupPage groupPage = groupsPage.createGroup("myGroup1");
+        GroupsPage groupsPage = feedPage.openGroupsPage();
+        GroupPage groupPage = groupsPage.createGroup("myGroup");
 
-        groupPage.members.shouldBe(visible);
+        groupPage.groupName.shouldHave(text("myGroup"));
     }
 }

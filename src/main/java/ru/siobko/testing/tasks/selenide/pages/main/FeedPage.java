@@ -10,8 +10,9 @@ import static com.codeborne.selenide.Selenide.$;
 public class FeedPage extends BaseMainPage {
     private final SelenideElement profileAvatar = $(byId("hook_Block_Avatar"));
     private final SelenideElement onlineFriendsPanel = $(byId("online-fr_block"));
-    private final SelenideElement publishPostButton = $(byXpath(".//*[@class='item-container__7e56q']"));
     private final SelenideElement feedFilterMenu = $(byXpath(".//hybrid-feed-filter[@data-bundle-name='contents_hybrid-feed-filter']"));
+    private final SelenideElement publishPostButton = $(byXpath(".//*[@class='item-container__7e56q']"));
+
     private final SelenideElement postTextBox = $(byXpath(".//div[@data-module='postingForm/mediaText']"));
     private final SelenideElement submitButton = $(byXpath(".//button[@data-l='t,button.submit']"));
 

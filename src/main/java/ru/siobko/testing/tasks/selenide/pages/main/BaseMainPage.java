@@ -29,8 +29,7 @@ public abstract class BaseMainPage extends BasePage {
         return myProfileButton.getText();
     }
 
-    public GroupsPage openGroupsPage() {
+    public void openGroupsPage() {
         groupsButton.click();
-        return new GroupsPage();
     }
 }

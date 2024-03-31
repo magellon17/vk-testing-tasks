@@ -1,4 +1,4 @@
-package ru.siobko.testing.tasks.selenide.pages;
+package ru.siobko.testing.tasks.selenide.pages.main;
 
 import com.codeborne.selenide.SelenideElement;
 
@@ -7,13 +7,14 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selectors.byId;
 import static com.codeborne.selenide.Selenide.$;
 
-public class FeedPage extends BasePage {
+public class FeedPage extends BaseMainPage {
     private static final SelenideElement profileAvatar = $(byId("hook_Block_Avatar"));
-    private static final SelenideElement myProfileButton = $(byXpath(".//*[@data-l='t,userPage']"));
-    private static final SelenideElement publishButton = $(byXpath(".//*[@data-testid='ddm-button']"));
+    private static final SelenideElement myProfileButton = $(byXpath(".//a[@data-l='t,userPage']"));
+    private static final SelenideElement onlineFriendsPanel = $(byId("online-fr_block"));
     private static final SelenideElement publishPostButton = $(byXpath(".//*[@class='item-container__7e56q']"));
-    private static final SelenideElement postTextBox = $(byXpath(".//*[@data-module='postingForm/mediaText']"));
-    private static final SelenideElement submitButton = $(byXpath(".//*[@data-l='t,button.submit']"));
+    private static final SelenideElement feedFilterMenu = $(byXpath(".//hybrid-feed-filter[@data-bundle-name='contents_hybrid-feed-filter']"));
+    private static final SelenideElement postTextBox = $(byXpath(".//div[@data-module='postingForm/mediaText']"));
+    private static final SelenideElement submitButton = $(byXpath(".//button[@data-l='t,button.submit']"));
 
     public FeedPage() {
         checkPage();
@@ -21,6 +22,8 @@ public class FeedPage extends BasePage {
 
     private void checkPage() {
         profileAvatar.shouldBe(visible);
+        feedFilterMenu.shouldBe(visible);
+        onlineFriendsPanel.shouldBe(visible);
     }
 
     public GroupsPage openGroupsPage() {

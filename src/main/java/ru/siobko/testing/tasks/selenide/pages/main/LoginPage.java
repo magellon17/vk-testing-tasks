@@ -1,4 +1,4 @@
-package ru.siobko.testing.tasks.selenide.pages;
+package ru.siobko.testing.tasks.selenide.pages.main;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;

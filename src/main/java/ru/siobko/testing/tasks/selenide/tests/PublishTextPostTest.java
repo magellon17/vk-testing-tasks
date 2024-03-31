@@ -4,8 +4,8 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
-import ru.siobko.testing.tasks.selenide.pages.FeedPage;
-import ru.siobko.testing.tasks.selenide.pages.MyProfilePage;
+import ru.siobko.testing.tasks.selenide.pages.main.FeedPage;
+import ru.siobko.testing.tasks.selenide.pages.main.MyProfilePage;
 
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.WebDriverRunner.clearBrowserCache;
@@ -18,7 +18,7 @@ public class PublishTextPostTest extends BaseTest {
         feedPage.publishTextPost("Hello, World");
         MyProfilePage myProfilePage = feedPage.openMyProfilePage();
 
-        assertEquals(myProfilePage.getLastFeedPostText().getText(),
+        assertEquals(myProfilePage.getLastFeedPostText(),
                 "Hello, World",
                 "The post was not created."
         );

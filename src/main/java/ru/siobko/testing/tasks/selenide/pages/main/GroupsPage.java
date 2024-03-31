@@ -11,6 +11,7 @@ public class GroupsPage extends BaseMainPage {
     private final SelenideElement groupsCatalogHeader = $(byClassName("groups-catalog-header"));
     private final SelenideElement createGroupButton = $(byText("Создать группу"));
 
+    //Ниже идут поля окон, которые появляются в процессе создания группы.
     private final SelenideElement chooseGroupByInterest = $(byXpath(".//a[@data-l='t,INTEREST']"));
     private final SelenideElement groupNameField = $(byId("field_name"));
     private final SelenideElement thematicsList = $(byXpath(".//div[@class='it js-multi-select_visual-input']"));

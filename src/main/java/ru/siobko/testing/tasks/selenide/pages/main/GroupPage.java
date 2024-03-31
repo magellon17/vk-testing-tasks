@@ -13,6 +13,7 @@ public class GroupPage extends BaseMainPage {
     private final SelenideElement groupFeed = $(byXpath(".//div[@data-l='fL,group']"));
     private final SelenideElement moreActionsButton = $(byXpath(".//li[@class='u-menu_li expand-action-item']"));
 
+    //Ниже идут поля окон, которые появляются в процессе удаления группы.
     private final SelenideElement deleteButton = $(byText("Удалить"));
     private final SelenideElement confirmDeletionButton = $(byXpath(".//*[@data-l='t,confirm']"));
 

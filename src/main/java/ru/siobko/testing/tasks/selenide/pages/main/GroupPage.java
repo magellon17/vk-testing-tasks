@@ -7,14 +7,13 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 
 public class GroupPage extends BaseMainPage {
-    private static final SelenideElement aboutGroupPanel = $(byXpath(".//div[@data-module='GroupInfoPanel']"));
-    private static final SelenideElement groupMembersButton = $(byXpath(".//a[@data-l='outlandermenu,altGroupMembers']"));
-    private static final SelenideElement groupName = $(byClassName("group-name_h"));
-    private static final SelenideElement groupThematic = $(byClassName("group-name_info"));
-    private static final SelenideElement moreActionsButton = $(byXpath(".//li[@class='u-menu_li expand-action-item']"));
-    private static final SelenideElement deleteButton = $(byText("Удалить"));
-    private static final SelenideElement confirmDeletionButton = $(byXpath(".//*[@data-l='t,confirm']"));
-    private static final SelenideElement groupFeed = $(byXpath(".//div[@data-l='fL,group']"));
+    private final SelenideElement aboutGroupPanel = $(byXpath(".//div[@data-module='GroupInfoPanel']"));
+    private final SelenideElement groupMembersButton = $(byXpath(".//a[@data-l='outlandermenu,altGroupMembers']"));
+    private final SelenideElement groupName = $(byClassName("group-name_h"));
+    private final SelenideElement moreActionsButton = $(byXpath(".//li[@class='u-menu_li expand-action-item']"));
+    private final SelenideElement deleteButton = $(byText("Удалить"));
+    private final SelenideElement confirmDeletionButton = $(byXpath(".//*[@data-l='t,confirm']"));
+    private final SelenideElement groupFeed = $(byXpath(".//div[@data-l='fL,group']"));
 
     public GroupPage() {
         checkPage();
@@ -30,19 +29,9 @@ public class GroupPage extends BaseMainPage {
         return groupName.getText();
     }
 
-    public String getGroupThematic() {
-        return groupThematic.getText();
-    }
-
-    public SelenideElement getMoreActionsButton() {
-        return moreActionsButton;
-    }
-
-    public SelenideElement getDeleteButton() {
-        return deleteButton;
-    }
-
-    public SelenideElement getConfirmDeletionButton() {
-        return confirmDeletionButton;
+    public void deleteGroup() {
+        moreActionsButton.click();
+        deleteButton.click();
+        confirmDeletionButton.click();
     }
 }

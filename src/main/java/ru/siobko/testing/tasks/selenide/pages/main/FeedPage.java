@@ -8,13 +8,12 @@ import static com.codeborne.selenide.Selectors.byId;
 import static com.codeborne.selenide.Selenide.$;
 
 public class FeedPage extends BaseMainPage {
-    private static final SelenideElement profileAvatar = $(byId("hook_Block_Avatar"));
-    private static final SelenideElement myProfileButton = $(byXpath(".//a[@data-l='t,userPage']"));
-    private static final SelenideElement onlineFriendsPanel = $(byId("online-fr_block"));
-    private static final SelenideElement publishPostButton = $(byXpath(".//*[@class='item-container__7e56q']"));
-    private static final SelenideElement feedFilterMenu = $(byXpath(".//hybrid-feed-filter[@data-bundle-name='contents_hybrid-feed-filter']"));
-    private static final SelenideElement postTextBox = $(byXpath(".//div[@data-module='postingForm/mediaText']"));
-    private static final SelenideElement submitButton = $(byXpath(".//button[@data-l='t,button.submit']"));
+    private final SelenideElement profileAvatar = $(byId("hook_Block_Avatar"));
+    private final SelenideElement onlineFriendsPanel = $(byId("online-fr_block"));
+    private final SelenideElement publishPostButton = $(byXpath(".//*[@class='item-container__7e56q']"));
+    private final SelenideElement feedFilterMenu = $(byXpath(".//hybrid-feed-filter[@data-bundle-name='contents_hybrid-feed-filter']"));
+    private final SelenideElement postTextBox = $(byXpath(".//div[@data-module='postingForm/mediaText']"));
+    private final SelenideElement submitButton = $(byXpath(".//button[@data-l='t,button.submit']"));
 
     public FeedPage() {
         checkPage();
@@ -24,15 +23,6 @@ public class FeedPage extends BaseMainPage {
         profileAvatar.shouldBe(visible);
         feedFilterMenu.shouldBe(visible);
         onlineFriendsPanel.shouldBe(visible);
-    }
-
-    public GroupsPage openGroupsPage() {
-        groupsButton.click();
-        return new GroupsPage();
-    }
-
-    public SelenideElement getMyProfileButton() {
-        return myProfileButton;
     }
 
     public void publishTextPost(String postText) {

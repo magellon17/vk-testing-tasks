@@ -7,14 +7,14 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 
 public class GroupsPage extends BaseMainPage {
-    private static final SelenideElement createGroupButton = $(byText("Создать группу"));
-    private static final SelenideElement groupsCatalogHeader = $(byClassName("groups-catalog-header"));
-    private static final SelenideElement chooseGroupByInterest = $(byXpath(".//a[@data-l='t,INTEREST']"));
-    private static final SelenideElement groupNameField = $(byId("field_name"));
-    private static final SelenideElement thematicsList = $(byXpath(".//div[@class='it js-multi-select_visual-input']"));
-    private static final SelenideElement autoThematicButton = $(byText("Автомобили"));
-    private static final SelenideElement createButton = $(byXpath(".//input[@data-l='t,confirm']"));
-    private static final SelenideElement groupSearchField = $(byXpath(".//group-search-input[@data-bundle-name='search_group-search-input']"));
+    private final SelenideElement createGroupButton = $(byText("Создать группу"));
+    private final SelenideElement groupsCatalogHeader = $(byClassName("groups-catalog-header"));
+    private final SelenideElement chooseGroupByInterest = $(byXpath(".//a[@data-l='t,INTEREST']"));
+    private final SelenideElement groupNameField = $(byId("field_name"));
+    private final SelenideElement thematicsList = $(byXpath(".//div[@class='it js-multi-select_visual-input']"));
+    private final SelenideElement autoThematicButton = $(byText("Автомобили"));
+    private final SelenideElement createButton = $(byXpath(".//input[@data-l='t,confirm']"));
+    private final SelenideElement groupSearchField = $(byXpath(".//group-search-input[@data-bundle-name='search_group-search-input']"));
 
     public GroupsPage() {
         checkPage();

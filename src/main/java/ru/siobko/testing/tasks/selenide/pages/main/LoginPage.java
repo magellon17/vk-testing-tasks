@@ -8,9 +8,9 @@ import static com.codeborne.selenide.Selectors.byValue;
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage {
-    private static final SelenideElement emailField = $(By.name("st.email"));
-    private static final SelenideElement passwordField = $(By.name("st.password"));
-    private static final SelenideElement submitButton = $(byValue("Log in to OK"));
+    private final SelenideElement emailField = $(By.name("st.email"));
+    private final SelenideElement passwordField = $(By.name("st.password"));
+    private final SelenideElement submitButton = $(byValue("Log in to OK"));
 
     public LoginPage() {
         checkPage();

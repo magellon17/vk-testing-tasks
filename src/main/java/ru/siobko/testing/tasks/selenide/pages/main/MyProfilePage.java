@@ -9,12 +9,12 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MyProfilePage extends BaseMainPage {
-    private static final SelenideElement settingsButton = $(byXpath(".//li[@data-l='outlandertarget,settings,t,settings']"));
-    private static final SelenideElement profileFeed = $(byXpath(".//div[@data-block='UserFeed']"));
-    private static final SelenideElement lastFeedPost = profileFeed.$(byClassName("feed-w"));
-    private static final SelenideElement lastFeedPostText = lastFeedPost.$(byClassName("media-text_cnt"));
-    private static final SelenideElement feedFilterMenu = $(byXpath(".//div[@data-l='t,filter']"));
-    private static final SelenideElement navigationMenu = $(byXpath(".//nav[@data-l='t,horizontalNavigation']"));
+    private final SelenideElement settingsButton = $(byXpath(".//li[@data-l='outlandertarget,settings,t,settings']"));
+    private final SelenideElement profileFeed = $(byXpath(".//div[@data-block='UserFeed']"));
+    private final SelenideElement lastFeedPost = profileFeed.$(byClassName("feed-w"));
+    private final SelenideElement lastFeedPostText = lastFeedPost.$(byClassName("media-text_cnt"));
+    private final SelenideElement feedFilterMenu = $(byXpath(".//div[@data-l='t,filter']"));
+    private final SelenideElement navigationMenu = $(byXpath(".//nav[@data-l='t,horizontalNavigation']"));
 
     public MyProfilePage() {
         checkPage();

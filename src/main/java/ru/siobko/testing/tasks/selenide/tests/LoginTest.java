@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import ru.siobko.testing.tasks.selenide.pages.main.LoginPage;
 import ru.siobko.testing.tasks.selenide.pages.main.FeedPage;
 
-import static com.codeborne.selenide.Condition.text;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LoginTest extends BaseTest {
     @BeforeAll
@@ -22,6 +22,10 @@ public class LoginTest extends BaseTest {
         LoginPage loginPage = new LoginPage();
         FeedPage feedPage = loginPage.login(email, password);
 
-        feedPage.getMyProfileButton().shouldHave(text(email));
+
+        assertTrue(
+                feedPage.getMyProfileName().contains(email),
+                "Incorrect account login."
+        );
     }
 }

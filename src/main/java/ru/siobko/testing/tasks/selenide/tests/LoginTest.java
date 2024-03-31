@@ -8,10 +8,11 @@ import ru.siobko.testing.tasks.selenide.pages.LoginPage;
 import ru.siobko.testing.tasks.selenide.pages.FeedPage;
 
 import static com.codeborne.selenide.Condition.text;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LoginTest extends BaseTest {
     @BeforeAll
-    public static void setUp(){
+    public static void setUp() {
         Configuration.browser = "chrome";
         Configuration.baseUrl = "https://ok.ru";
     }
@@ -22,6 +23,6 @@ public class LoginTest extends BaseTest {
         LoginPage loginPage = new LoginPage();
         FeedPage feedPage = loginPage.login(email, password);
 
-        feedPage.userPageButton.shouldHave(text(email));
+        feedPage.getMyProfileButton().shouldHave(text(email));
     }
 }

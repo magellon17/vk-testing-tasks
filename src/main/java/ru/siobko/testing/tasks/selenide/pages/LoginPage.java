@@ -8,18 +8,20 @@ import static com.codeborne.selenide.Selectors.byValue;
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage {
-    public LoginPage() {
-        check();
-    }
-    public static final SelenideElement emailField = $(By.name("st.email"));
-    public static final SelenideElement passwordField = $(By.name("st.password"));
-    public static final SelenideElement submitButton = $(byValue("Log in to OK"));
+    private static final SelenideElement emailField = $(By.name("st.email"));
+    private static final SelenideElement passwordField = $(By.name("st.password"));
+    private static final SelenideElement submitButton = $(byValue("Log in to OK"));
 
-    private void check(){
+    public LoginPage() {
+        checkPage();
+    }
+
+    private void checkPage() {
         emailField.shouldBe(visible);
         passwordField.shouldBe(visible);
         submitButton.shouldBe(visible);
     }
+
     public FeedPage login(String email, String password) {
         emailField.setValue(email);
         passwordField.setValue(password);

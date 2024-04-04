@@ -13,7 +13,7 @@ public class FeedPage extends BaseMainPage {
     private final SelenideElement feedFilterMenu = $(byXpath(".//hybrid-feed-filter[@data-bundle-name='contents_hybrid-feed-filter']"));
     private final SelenideElement publishPostButton = $(byXpath(".//*[@class='item-container__7e56q']"));
 
-    //Ниже идут поля окон, которые появляются в процессе создания текстового поста.
+    //Поля окон, которые появляются в процессе создания текстового поста.
     private final SelenideElement postTextBox = $(byXpath(".//div[@data-module='postingForm/mediaText']"));
     private final SelenideElement submitButton = $(byXpath(".//button[@data-l='t,button.submit']"));
 

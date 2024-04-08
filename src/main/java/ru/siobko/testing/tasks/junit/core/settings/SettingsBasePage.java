@@ -1,7 +1,7 @@
 package ru.siobko.testing.tasks.junit.core.settings;
 
 import org.openqa.selenium.By;
-import ru.siobko.testing.tasks.selenide.pages.BasePage;
+import ru.siobko.testing.tasks.junit.core.BasePage;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byClassName;
@@ -23,7 +23,7 @@ public abstract class SettingsBasePage extends BasePage {
         $(navigationMenu).shouldBe(visible);
     }
 
-    public String getProfileName() {
-        return $(profileButton).getText();
+    public boolean checkProfileNameContains(String newUserName) {
+        return $(profileButton).getText().contains(newUserName);
     }
 }

@@ -4,11 +4,11 @@ import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import ru.siobko.testing.tasks.selenide.pages.main.FeedPage;
-import ru.siobko.testing.tasks.selenide.pages.main.LoginPage;
-import ru.siobko.testing.tasks.selenide.pages.main.MyProfilePage;
-import ru.siobko.testing.tasks.selenide.pages.settings.SettingsBasicPage;
-import ru.siobko.testing.tasks.selenide.pages.settings.SettingsBasicPersonalDataPage;
+import ru.siobko.testing.tasks.junit.core.main.FeedPage;
+import ru.siobko.testing.tasks.junit.core.main.LoginPage;
+import ru.siobko.testing.tasks.junit.core.main.MyProfilePage;
+import ru.siobko.testing.tasks.junit.core.settings.SettingsBasicPage;
+import ru.siobko.testing.tasks.junit.core.settings.SettingsBasicPersonalDataPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -33,7 +33,7 @@ public class ChangeUserNameTest extends BaseTest {
         Selenide.refresh();
 
         assertTrue(
-                personalDataPage.getProfileName().contains(newUserName),
+                personalDataPage.checkProfileNameContains(newUserName),
                 "Incorrect name change."
         );
     }

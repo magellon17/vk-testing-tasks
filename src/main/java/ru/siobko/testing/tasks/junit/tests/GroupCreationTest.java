@@ -3,12 +3,12 @@ package ru.siobko.testing.tasks.junit.tests;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import ru.siobko.testing.tasks.selenide.pages.main.FeedPage;
-import ru.siobko.testing.tasks.selenide.pages.main.GroupPage;
-import ru.siobko.testing.tasks.selenide.pages.main.GroupsPage;
-import ru.siobko.testing.tasks.selenide.pages.main.LoginPage;
+import ru.siobko.testing.tasks.junit.core.main.FeedPage;
+import ru.siobko.testing.tasks.junit.core.main.GroupPage;
+import ru.siobko.testing.tasks.junit.core.main.GroupsPage;
+import ru.siobko.testing.tasks.junit.core.main.LoginPage;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GroupCreationTest extends BaseTest {
     @BeforeAll
@@ -25,9 +25,8 @@ public class GroupCreationTest extends BaseTest {
         GroupsPage groupsPage = new GroupsPage();
         GroupPage groupPage = groupsPage.createGroup("myGroup");
 
-        assertEquals(
-                groupPage.getGroupName(),
-                "myGroup",
+        assertTrue(
+                groupPage.checkGroupNameEquals("myGroup"),
                 "The group was created incorrectly."
         );
     }

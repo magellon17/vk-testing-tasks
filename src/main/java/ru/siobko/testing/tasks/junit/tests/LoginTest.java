@@ -1,8 +1,8 @@
 package ru.siobko.testing.tasks.junit.tests;
 
 import org.junit.jupiter.api.Test;
-import ru.siobko.testing.tasks.selenide.pages.main.LoginPage;
-import ru.siobko.testing.tasks.selenide.pages.main.FeedPage;
+import ru.siobko.testing.tasks.junit.core.main.LoginPage;
+import ru.siobko.testing.tasks.junit.core.main.FeedPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -14,7 +14,7 @@ public class LoginTest extends BaseTest {
 
 
         assertTrue(
-                feedPage.getMyProfileName().contains(EMAIL),
+                feedPage.checkProfileNameContains(EMAIL),
                 "Incorrect account login."
         );
     }

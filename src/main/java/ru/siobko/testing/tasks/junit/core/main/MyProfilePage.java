@@ -1,7 +1,7 @@
 package ru.siobko.testing.tasks.junit.core.main;
 
 import org.openqa.selenium.By;
-import ru.siobko.testing.tasks.selenide.pages.settings.SettingsBasicPage;
+import ru.siobko.testing.tasks.junit.core.settings.SettingsBasicPage;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byClassName;
@@ -26,16 +26,12 @@ public class MyProfilePage extends BaseMainPage {
         $(profileFeed).shouldBe(visible);
     }
 
-    public By getLastFeedPost() {
-        return lastFeedPost;
-    }
-
     public SettingsBasicPage openProfileSettings() {
         $(settingsButton).click();
         return new SettingsBasicPage();
     }
 
-    public String getLastFeedPostText() {
-        return $(lastFeedPostText).getText();
+    public boolean checkLastFeedPostContains(String s) {
+        return $(lastFeedPostText).getText().contains(s);
     }
 }

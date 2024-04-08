@@ -38,4 +38,8 @@ public class FeedPage extends BaseMainPage {
         $(myProfileButton).click();
         return new MyProfilePage();
     }
+
+    public boolean checkProfileNameContains(String email) {
+        return $(myProfileButton).getText().contains(email);
+    }
 }

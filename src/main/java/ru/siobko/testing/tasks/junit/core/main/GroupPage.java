@@ -29,13 +29,13 @@ public class GroupPage extends BaseMainPage {
         $(groupMembersButton).shouldBe(visible);
     }
 
-    public String getGroupName() {
-        return $(groupName).getText();
-    }
-
     public void deleteGroup() {
         $(moreActionsButton).click();
         $(deleteButton).click();
         $(confirmDeletionButton).click();
+    }
+
+    public boolean checkGroupNameEquals(String myGroup) {
+        return $(groupName).getText().equals(myGroup);
     }
 }

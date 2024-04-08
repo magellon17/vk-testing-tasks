@@ -1,7 +1,7 @@
 package ru.siobko.testing.tasks.junit.core.main;
 
 import org.openqa.selenium.By;
-import ru.siobko.testing.tasks.selenide.pages.BasePage;
+import ru.siobko.testing.tasks.junit.core.BasePage;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.visible;
@@ -23,10 +23,6 @@ public abstract class BaseMainPage extends BasePage {
         $(paymentsMenu).shouldBe(exist);
         $(navigationMenu).shouldBe(visible);
         $(publishButton).shouldBe(visible);
-    }
-
-    public String getMyProfileName() {
-        return $(myProfileButton).getText();
     }
 
     public void openGroupsPage() {

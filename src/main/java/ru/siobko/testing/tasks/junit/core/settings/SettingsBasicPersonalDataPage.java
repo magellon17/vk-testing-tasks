@@ -1,4 +1,4 @@
-package ru.siobko.testing.tasks.junit.pages.settings;
+package ru.siobko.testing.tasks.junit.core.settings;
 
 import org.openqa.selenium.By;
 

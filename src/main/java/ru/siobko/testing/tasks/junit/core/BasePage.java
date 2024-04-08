@@ -1,4 +1,4 @@
-package ru.siobko.testing.tasks.junit.pages;
+package ru.siobko.testing.tasks.junit.core;
 
 import org.openqa.selenium.By;
 

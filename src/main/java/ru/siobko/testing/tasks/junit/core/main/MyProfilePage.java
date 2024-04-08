@@ -11,8 +11,8 @@ import static com.codeborne.selenide.Selenide.$;
 public class MyProfilePage extends BaseMainPage {
     private final By settingsButton = byXpath(".//li[@data-l='outlandertarget,settings,t,settings']");
     private final By profileFeed = byXpath(".//div[@data-block='UserFeed']");
-    private final By lastFeedPost = byClassName("feed-w");
     private final By lastFeedPostText = byClassName("media-text_cnt");
+    private final By lastFeedPostActionsMenu = byXpath(".//div[@data-l='t,feed-actions-menu']");
     private final By feedFilterMenu = byXpath(".//div[@data-l='t,filter']");
     private final By navigationMenu = byXpath(".//nav[@data-l='t,horizontalNavigation']");
 
@@ -33,5 +33,13 @@ public class MyProfilePage extends BaseMainPage {
 
     public boolean checkLastFeedPostContains(String s) {
         return $(lastFeedPostText).getText().contains(s);
+    }
+
+    public void deleteLastTextPost() {
+        $(lastFeedPostActionsMenu)
+                .shouldBe(visible)
+                .scrollIntoView("{block: \"center\"}")
+                .hover();
+        $(byXpath(".//*[text()='Удалить заметку']")).shouldBe(visible).click();
     }
 }

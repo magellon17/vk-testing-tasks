@@ -15,7 +15,7 @@ public class LoginTest extends BaseTest {
 
         assertTrue(
                 feedPage.checkProfileNameContains(EMAIL),
-                "Incorrect account login."
+                "Incorrect account login name."
         );
     }
 }

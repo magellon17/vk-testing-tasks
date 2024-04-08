@@ -7,9 +7,6 @@ import ru.siobko.testing.tasks.junit.core.main.FeedPage;
 import ru.siobko.testing.tasks.junit.core.main.LoginPage;
 import ru.siobko.testing.tasks.junit.core.main.MyProfilePage;
 
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byXpath;
-import static com.codeborne.selenide.Selenide.$;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PublishTextPostTest extends BaseTest {
@@ -33,10 +30,7 @@ public class PublishTextPostTest extends BaseTest {
 
     @AfterAll
     public static void tearDown() {
-        $(byXpath(".//div[@data-l='t,feed-actions-menu']"))
-                .shouldBe(visible)
-                .scrollIntoView("{block: \"center\"}")
-                .hover();
-        $(byXpath(".//*[text()='Удалить заметку']")).shouldBe(visible).click();
+        MyProfilePage myProfilePage = new MyProfilePage();
+        myProfilePage.deleteLastTextPost();
     }
 }

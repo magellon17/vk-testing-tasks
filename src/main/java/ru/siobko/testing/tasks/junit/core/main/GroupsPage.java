@@ -10,25 +10,26 @@ import static com.codeborne.selenide.Selectors.byId;
 import static com.codeborne.selenide.Selenide.$;
 
 public class GroupsPage extends BaseMainPage {
-    private final By groupSearchField = byXpath(".//group-search-input[@data-bundle-name='search_group-search-input']");
-    private final By groupsCatalogHeader = byClassName("groups-catalog-header");
-    private final By createGroupButton = byText("Создать группу");
+    private static final By groupSearchField = byXpath(".//group-search-input[@data-bundle-name='search_group-search-input']");
+    private static final By groupsCatalogHeader = byClassName("groups-catalog-header");
+    private static final By createGroupButton = byText("Создать группу");
 
     //Поля окон, которые появляются в процессе создания группы.
-    private final By chooseGroupByInterest = byXpath(".//a[@data-l='t,INTEREST']");
-    private final By groupNameField = byId("field_name");
-    private final By thematicsList = byXpath(".//div[@class='it js-multi-select_visual-input']");
-    private final By chooseAutoThematic = byText("Автомобили");
-    private final By createButton = byXpath(".//input[@data-l='t,confirm']");
+    private static final By chooseGroupByInterest = byXpath(".//a[@data-l='t,INTEREST']");
+    private static final By groupNameField = byId("field_name");
+    private static final By thematicsList = byXpath(".//div[@class='it js-multi-select_visual-input']");
+    private static final By chooseAutoThematic = byText("Автомобили");
+    private static final By createButton = byXpath(".//input[@data-l='t,confirm']");
 
     public GroupsPage() {
         checkPage();
     }
 
-    private void checkPage() {
+    public static boolean checkPage() {
         $(createGroupButton).shouldBe(visible);
         $(groupSearchField).shouldBe(visible);
         $(groupsCatalogHeader).shouldBe(visible);
+        return true;
     }
 
     public GroupPage createGroup(String Name) {

@@ -8,18 +8,19 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class SettingsBasicPersonalDataPage extends SettingsBasePage {
-    private final By nameField = byName("fr.name");
-    private final By surnameField = byName("fr.surname");
-    private final By submitButton = byXpath(".//input[@data-l='t,profile_form_settings']");
+    private static final By nameField = byName("fr.name");
+    private static final By surnameField = byName("fr.surname");
+    private static final By submitButton = byXpath(".//input[@data-l='t,profile_form_settings']");
 
     public SettingsBasicPersonalDataPage() {
         checkPage();
     }
 
-    private void checkPage() {
+    public static boolean checkPage() {
         $(nameField).shouldBe(visible);
         $(surnameField).shouldBe(visible);
         $(submitButton).shouldBe(visible);
+        return true;
     }
 
     public void changeName(String newName) {

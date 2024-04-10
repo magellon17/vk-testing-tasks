@@ -15,9 +15,17 @@ public class GroupPage extends BaseMainPage {
     private static final By groupFeed = byXpath(".//div[@data-l='fL,group']");
     private static final By moreActionsButton = byXpath(".//li[@class='u-menu_li expand-action-item']");
 
-    //Ниже идут поля окон, которые появляются в процессе удаления группы.
+    //Поля окон, которые появляются в процессе удаления группы.
     private static final By deleteButton = byText("Удалить");
     private static final By confirmDeletionButton = byXpath(".//*[@data-l='t,confirm']");
+
+    private static final String ABOUT_GROUP_PANEL_LOG_INFO = "Panel 'О группе' should be visible on group page.";
+    private static final String GROUP_FEED_LOG_INFO = "Group feed should be visible on group page.";
+    private static final String GROUP_MEMBERS_BUTTON_LOG_INFO = "Button 'Участники' should be visible on group page.";
+    private static final String GROUP_NAME_LOG_INFO = "Group name should be visible on group page.";
+    private static final String MORE_ACTIONS_BUTTON_LOG_INFO = "More actions button should be visible on group page.";
+    private static final String DELETE_BUTTON_LOG_INFO = "Button 'Удалить' should be visible on more actions menu.";
+    private static final String CONFIRM_DELETION_BUTTON_LOG_INFO = "Confirm deletion button should be visible while deleting a group.";
 
     public GroupPage() {
         checkPage();
@@ -25,26 +33,33 @@ public class GroupPage extends BaseMainPage {
 
     public static boolean checkPage() {
         $(aboutGroupPanel).shouldBe(
-                visible.because("Panel 'О группе' should be visible on group page.")
+                visible.because(ABOUT_GROUP_PANEL_LOG_INFO)
         );
         $(groupFeed).shouldBe(
-                visible.because("Group feed should be visible on group page.")
+                visible.because(GROUP_FEED_LOG_INFO)
         );
         $(groupMembersButton).shouldBe(
-                visible.because("Button 'Участники' should be visible on group page.")
+                visible.because(GROUP_MEMBERS_BUTTON_LOG_INFO)
         );
         return true;
     }
 
     public void deleteGroup() {
-        $(moreActionsButton).click();
-        $(deleteButton).click();
-        $(confirmDeletionButton).click();
+        $(moreActionsButton).shouldBe(
+                visible.because(MORE_ACTIONS_BUTTON_LOG_INFO)
+        ).click();
+        $(deleteButton).shouldBe(
+                visible.because(DELETE_BUTTON_LOG_INFO)
+        ).click();
+        $(confirmDeletionButton).shouldBe(
+                visible.because(CONFIRM_DELETION_BUTTON_LOG_INFO)
+        ).click();
     }
 
     public boolean checkGroupNameEquals(String myGroup) {
-        return $(groupName)
-                .getText()
+        return $(groupName).shouldBe(
+                        visible.because(GROUP_NAME_LOG_INFO)
+                ).getText()
                 .equals(myGroup);
     }
 }

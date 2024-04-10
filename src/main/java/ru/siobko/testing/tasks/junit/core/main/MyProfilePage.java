@@ -16,39 +16,53 @@ public class MyProfilePage extends BaseMainPage {
     private static final By feedFilterMenu = byXpath(".//div[@data-l='t,filter']");
     private static final By profileNavigationMenu = byXpath(".//nav[@data-l='t,horizontalNavigation']");
 
+    private static final String FEED_FILTER_MENU_LOG_INFO = "Feed filter menu should be visible on my profile page.";
+    private static final String PROFILE_NAVIGATION_MENU_LOG_INFO = "Navigation menu of profile feed should be visible on my profile page.";
+    private static final String PROFILE_FEED_LOG_INFO = "Profile feed should be visible on my profile page.";
+    private static final String LAST_FEED_POST_ACTIONS_MENU_LOG_INFO = "Actions menu of last feed post should be visible on my profile page.";
+    private static final String LAST_FEED_POST_TEXT_LOG_INFO = "Text of last feed post should be visible on my profile page.";
+    private static final String SETTINGS_BUTTON_LOG_INFO = "Button 'Настройки' should be visible on my profile page.";
+
     public MyProfilePage() {
         checkPage();
     }
 
     public static boolean checkPage() {
         $(feedFilterMenu).shouldBe(
-                visible.because("Feed filter menu should be visible on my profile page.")
+                visible.because(FEED_FILTER_MENU_LOG_INFO)
         );
         $(profileNavigationMenu).shouldBe(
-                visible.because("Profile feed navigation menu should be visible on my profile page.")
+                visible.because(PROFILE_NAVIGATION_MENU_LOG_INFO)
         );
         $(profileFeed).shouldBe(
-                visible.because("Profile feed should be visible on my profile page.")
+                visible.because(PROFILE_FEED_LOG_INFO)
         );
         return true;
     }
 
     public SettingsGeneralPage openProfileSettings() {
-        $(settingsButton).click();
+        $(settingsButton).shouldBe(
+                visible.because(SETTINGS_BUTTON_LOG_INFO)
+        ).click();
         return new SettingsGeneralPage();
     }
 
     public boolean checkLastFeedPostContains(String s) {
-        return $(lastFeedPostText)
-                .getText()
+        return $(lastFeedPostText).shouldBe(
+                        visible.because(LAST_FEED_POST_TEXT_LOG_INFO)
+                ).getText()
                 .contains(s);
     }
 
     public void deleteLastTextPost() {
         $(lastFeedPostActionsMenu)
-                .shouldBe(visible)
-                .scrollIntoView("{block: \"center\"}")
+                .shouldBe(
+                        visible.because(LAST_FEED_POST_ACTIONS_MENU_LOG_INFO)
+                ).scrollIntoView("{block: \"center\"}")
                 .hover();
-        $(byXpath(".//*[text()='Удалить заметку']")).shouldBe(visible).click();
+        $(byXpath(".//*[text()='Удалить заметку']"))
+                .shouldBe(
+                        visible.because("Button 'Удалить заметку' should be visible on post actions menu.")
+                ).click();
     }
 }

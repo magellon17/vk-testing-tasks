@@ -1,7 +1,7 @@
 package ru.siobko.testing.tasks.junit.core.main;
 
 import org.openqa.selenium.By;
-import ru.siobko.testing.tasks.junit.core.settings.SettingsBasicPage;
+import ru.siobko.testing.tasks.junit.core.settings.SettingsGeneralPage;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byClassName;
@@ -14,22 +14,28 @@ public class MyProfilePage extends BaseMainPage {
     private static final By lastFeedPostText = byClassName("media-text_cnt");
     private static final By lastFeedPostActionsMenu = byXpath(".//div[@data-l='t,feed-actions-menu']");
     private static final By feedFilterMenu = byXpath(".//div[@data-l='t,filter']");
-    private static final By navigationMenu = byXpath(".//nav[@data-l='t,horizontalNavigation']");
+    private static final By profileNavigationMenu = byXpath(".//nav[@data-l='t,horizontalNavigation']");
 
     public MyProfilePage() {
         checkPage();
     }
 
     public static boolean checkPage() {
-        $(feedFilterMenu).shouldBe(visible);
-        $(navigationMenu).shouldBe(visible);
-        $(profileFeed).shouldBe(visible);
+        $(feedFilterMenu).shouldBe(
+                visible.because("Feed filter menu should be visible on my profile page.")
+        );
+        $(profileNavigationMenu).shouldBe(
+                visible.because("Profile feed navigation menu should be visible on my profile page.")
+        );
+        $(profileFeed).shouldBe(
+                visible.because("Profile feed should be visible on my profile page.")
+        );
         return true;
     }
 
-    public SettingsBasicPage openProfileSettings() {
+    public SettingsGeneralPage openProfileSettings() {
         $(settingsButton).click();
-        return new SettingsBasicPage();
+        return new SettingsGeneralPage();
     }
 
     public boolean checkLastFeedPostContains(String s) {

@@ -24,9 +24,15 @@ public class GroupPage extends BaseMainPage {
     }
 
     public static boolean checkPage() {
-        $(aboutGroupPanel).shouldBe(visible);
-        $(groupFeed).shouldBe(visible);
-        $(groupMembersButton).shouldBe(visible);
+        $(aboutGroupPanel).shouldBe(
+                visible.because("Panel 'О группе' should be visible on group page.")
+        );
+        $(groupFeed).shouldBe(
+                visible.because("Group feed should be visible on group page.")
+        );
+        $(groupMembersButton).shouldBe(
+                visible.because("Button 'Участники' should be visible on group page.")
+        );
         return true;
     }
 

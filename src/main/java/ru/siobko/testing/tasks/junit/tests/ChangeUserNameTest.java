@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 import ru.siobko.testing.tasks.junit.core.main.FeedPage;
 import ru.siobko.testing.tasks.junit.core.main.LoginPage;
 import ru.siobko.testing.tasks.junit.core.main.MyProfilePage;
-import ru.siobko.testing.tasks.junit.core.settings.SettingsBasicPage;
-import ru.siobko.testing.tasks.junit.core.settings.SettingsBasicPersonalDataPage;
+import ru.siobko.testing.tasks.junit.core.settings.SettingsGeneralPage;
+import ru.siobko.testing.tasks.junit.core.settings.SettingsGeneralPersonalInformationPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -20,13 +20,13 @@ public class ChangeUserNameTest extends BaseTest {
 
         FeedPage feedPage = new FeedPage();
         MyProfilePage myProfilePage = feedPage.openMyProfilePage();
-        SettingsBasicPage settingsBasicPage = myProfilePage.openProfileSettings();
-        settingsBasicPage.openPersonalDataPage();
+        SettingsGeneralPage settingsGeneralPage = myProfilePage.openProfileSettings();
+        settingsGeneralPage.openPersonalInformationPage();
     }
 
     @Test
     public void testChangeUserName() {
-        SettingsBasicPersonalDataPage personalDataPage = new SettingsBasicPersonalDataPage();
+        SettingsGeneralPersonalInformationPage personalDataPage = new SettingsGeneralPersonalInformationPage();
         String newUserName = "Boris";
 
         personalDataPage.changeName(newUserName);
@@ -40,8 +40,8 @@ public class ChangeUserNameTest extends BaseTest {
 
     @AfterAll
     public static void tearDown() {
-        SettingsBasicPage settingsBasicPage = new SettingsBasicPage();
-        SettingsBasicPersonalDataPage personalDataPage = settingsBasicPage.openPersonalDataPage();
+        SettingsGeneralPage settingsGeneralPage = new SettingsGeneralPage();
+        SettingsGeneralPersonalInformationPage personalDataPage = settingsGeneralPage.openPersonalInformationPage();
         personalDataPage.changeName(EMAIL);
     }
 }

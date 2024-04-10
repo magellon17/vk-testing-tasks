@@ -26,9 +26,15 @@ public class GroupsPage extends BaseMainPage {
     }
 
     public static boolean checkPage() {
-        $(createGroupButton).shouldBe(visible);
-        $(groupSearchField).shouldBe(visible);
-        $(groupsCatalogHeader).shouldBe(visible);
+        $(createGroupButton).shouldBe(visible
+                .because("Button 'Создать группу' should be visible on page 'Группы'.")
+        );
+        $(groupSearchField).shouldBe(visible
+                .because("Group search field should be visible on page 'Группы'.")
+        );
+        $(groupsCatalogHeader).shouldBe(visible
+                .because("Groups catalog header should be visible on page 'Группы'.")
+        );
         return true;
     }
 

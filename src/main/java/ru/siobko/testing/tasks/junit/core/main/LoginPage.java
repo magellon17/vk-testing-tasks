@@ -17,9 +17,15 @@ public class LoginPage {
     }
 
     public static boolean checkPage() {
-        $(emailField).shouldBe(exist);
-        $(passwordField).shouldBe(exist);
-        $(submitButton).shouldBe(exist);
+        $(emailField).shouldBe(
+                exist.because("Email field should be exist on login page.")
+        );
+        $(passwordField).shouldBe(
+                exist.because("Password field should be exist on login page.")
+        );
+        $(submitButton).shouldBe(
+                exist.because("Submit button should be exist on login page.")
+        );
         return true;
     }
 

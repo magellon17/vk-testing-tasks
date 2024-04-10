@@ -19,9 +19,15 @@ public abstract class BaseMainPage extends BasePage {
     }
 
     private void checkPage() {
-        $(paymentsMenu).shouldBe(exist);
-        $(navigationMenu).shouldBe(visible);
-        $(publishButton).shouldBe(visible);
+        $(paymentsMenu).shouldBe(
+                visible.because("Payments menu should be exist on all main pages.")
+        );
+        $(navigationMenu).shouldBe(
+                visible.because("Navigation menu should be visible on all main pages.")
+        );
+        $(publishButton).shouldBe(
+                visible.because("Publish button should be visible on all main pages.")
+        );
     }
 
     public void openGroupsPage() {

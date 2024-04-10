@@ -17,9 +17,15 @@ public abstract class BasePage {
     }
 
     private void checkPage() {
-        $(navigationToolBar).shouldBe(visible);
-        $(queryField).shouldBe(visible);
-        $(ecosystemButton).shouldBe(visible);
+        $(navigationToolBar).shouldBe(
+                visible.because("Navigation toolbar should be visible on all pages.")
+        );
+        $(queryField).shouldBe(
+                visible.because("Query Filed should be visible on all pages.")
+        );
+        $(ecosystemButton).shouldBe(
+                visible.because("Ecosystem button should be visible on all pages.")
+        );
     }
 
 }

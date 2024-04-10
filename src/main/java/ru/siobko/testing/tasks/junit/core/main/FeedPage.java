@@ -25,9 +25,15 @@ public class FeedPage extends BaseMainPage {
     }
 
     public static boolean checkPage() {
-        $(profileAvatar).shouldBe(visible);
-        $(feedFilterMenu).shouldBe(visible);
-        $(onlineFriendsPanel).shouldBe(visible);
+        $(profileAvatar).shouldBe(
+                visible.because("Profile avatar should be visible on page 'Лента'.")
+        );
+        $(feedFilterMenu).shouldBe(
+                visible.because("Feed filter menu should be visible on page 'Лента'.")
+        );
+        $(onlineFriendsPanel).shouldBe(
+                visible.because("Panel 'Друзья на сайте' should be visible on page 'Лента'.")
+        );
         return true;
     }
 

@@ -30,8 +30,10 @@ public class ChangeUserNameTest extends BaseTest {
     public void testChangeUserName() {
         SettingsGeneralPersonalInformationPage personalDataPage = new SettingsGeneralPersonalInformationPage();
         personalDataPage.changeName(NEW_USERNAME);
+
         Selenide.refresh();
 
+        personalDataPage = new SettingsGeneralPersonalInformationPage();
         assertTrue(
                 personalDataPage.checkProfileNameContains(NEW_USERNAME),
                 "Incorrect name change."

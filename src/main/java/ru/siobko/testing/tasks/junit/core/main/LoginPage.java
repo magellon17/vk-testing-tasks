@@ -30,6 +30,25 @@ public class LoginPage {
         return true;
     }
 
+    public void enterEmail(String email) {
+        $(emailField).shouldBe(
+                visible.because("Email field should be exist on login page.")
+        ).setValue(email);
+    }
+
+    public void enterPassword(String password) {
+        $(emailField).shouldBe(
+                visible.because("Email field should be exist on login page.")
+        ).setValue(password);
+    }
+
+    public FeedPage clickSubmit() {
+        $(submitButton).shouldBe(
+                visible.because("Submit button should be exist on login page.")
+        ).click();
+        return new FeedPage();
+    }
+
     public FeedPage login(String email, String password) {
         $(emailField).shouldBe(
                 visible.because("Email field should be exist on login page.")

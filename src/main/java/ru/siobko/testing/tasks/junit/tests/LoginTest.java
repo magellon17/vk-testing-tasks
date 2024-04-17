@@ -10,8 +10,9 @@ public class LoginTest extends BaseTest {
     @Test
     public void testLogin() {
         LoginPage loginPage = new LoginPage();
-        FeedPage feedPage = loginPage.login(EMAIL, PASSWORD);
-
+        loginPage.enterEmail(EMAIL);
+        loginPage.enterPassword(PASSWORD);
+        FeedPage feedPage = loginPage.clickSubmit();
 
         assertTrue(
                 feedPage.checkProfileNameContains(EMAIL),

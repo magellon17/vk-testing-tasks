@@ -15,6 +15,7 @@ public class MyProfilePage extends BaseMainPage {
     private static final By lastFeedPostActionsMenu = byXpath(".//div[@data-l='t,feed-actions-menu']");
     private static final By feedFilterMenu = byXpath(".//div[@data-l='t,filter']");
     private static final By profileNavigationMenu = byXpath(".//nav[@data-l='t,horizontalNavigation']");
+    private static final By deleteNoteButton = byXpath(".//*[text()='Удалить заметку']");
 
     public MyProfilePage() {
         checkPage();
@@ -48,14 +49,12 @@ public class MyProfilePage extends BaseMainPage {
     }
 
     public void deleteLastTextPost() {
-        $(lastFeedPostActionsMenu)
-                .shouldBe(
+        $(lastFeedPostActionsMenu).shouldBe(
                         visible.because("Actions menu of last feed post should be visible on my profile page.")
                 ).scrollIntoView("{block: \"center\"}")
                 .hover();
-        $(byXpath(".//*[text()='Удалить заметку']"))
-                .shouldBe(
-                        visible.because("Button 'Удалить заметку' should be visible on post actions menu.")
-                ).click();
+        $(deleteNoteButton).shouldBe(
+                visible.because("Button 'Удалить заметку' should be visible on post actions menu.")
+        ).click();
     }
 }

@@ -10,6 +10,8 @@ import ru.siobko.testing.tasks.junit.core.main.MyProfilePage;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PublishTextPostTest extends BaseTest {
+    private static final String POST_TEXT = "Hello, World";
+
     @BeforeAll
     public static void setUp() {
         LoginPage loginPage = new LoginPage();
@@ -19,11 +21,11 @@ public class PublishTextPostTest extends BaseTest {
     @Test
     public void testPublishPost() {
         FeedPage feedPage = new FeedPage();
-        feedPage.publishTextPost("Hello, World");
+        feedPage.publishTextPost(POST_TEXT);
         MyProfilePage myProfilePage = feedPage.openMyProfilePage();
 
         assertTrue(
-                myProfilePage.checkLastFeedPostContains("Hello, World"),
+                myProfilePage.checkLastFeedPostContains(POST_TEXT),
                 "The post was not created."
         );
     }

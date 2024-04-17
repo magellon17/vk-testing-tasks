@@ -13,6 +13,8 @@ import ru.siobko.testing.tasks.junit.core.settings.SettingsGeneralPersonalInform
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ChangeUserNameTest extends BaseTest {
+    private static final String NEW_USERNAME = "Boris";
+
     @BeforeAll
     public static void setUp() {
         LoginPage loginPage = new LoginPage();
@@ -27,13 +29,11 @@ public class ChangeUserNameTest extends BaseTest {
     @Test
     public void testChangeUserName() {
         SettingsGeneralPersonalInformationPage personalDataPage = new SettingsGeneralPersonalInformationPage();
-        String newUserName = "Boris";
-
-        personalDataPage.changeName(newUserName);
+        personalDataPage.changeName(NEW_USERNAME);
         Selenide.refresh();
 
         assertTrue(
-                personalDataPage.checkProfileNameContains(newUserName),
+                personalDataPage.checkProfileNameContains(NEW_USERNAME),
                 "Incorrect name change."
         );
     }

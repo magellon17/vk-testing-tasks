@@ -11,6 +11,8 @@ import ru.siobko.testing.tasks.junit.core.main.LoginPage;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GroupCreationTest extends BaseTest {
+    private static final String GROUP_NAME = "myGroup";
+
     @BeforeAll
     public static void setUp() {
         LoginPage loginPage = new LoginPage();
@@ -23,10 +25,10 @@ public class GroupCreationTest extends BaseTest {
     @Test
     public void testGroupCreation() {
         GroupsPage groupsPage = new GroupsPage();
-        GroupPage groupPage = groupsPage.createGroup("myGroup");
+        GroupPage groupPage = groupsPage.createGroup(GROUP_NAME);
 
         assertTrue(
-                groupPage.checkGroupNameEquals("myGroup"),
+                groupPage.checkGroupNameEquals(GROUP_NAME),
                 "The group was created incorrectly."
         );
     }

@@ -16,40 +16,33 @@ public class MyProfilePage extends BaseMainPage {
     private static final By feedFilterMenu = byXpath(".//div[@data-l='t,filter']");
     private static final By profileNavigationMenu = byXpath(".//nav[@data-l='t,horizontalNavigation']");
 
-    private static final String FEED_FILTER_MENU_LOG_INFO = "Feed filter menu should be visible on my profile page.";
-    private static final String PROFILE_NAVIGATION_MENU_LOG_INFO = "Navigation menu of profile feed should be visible on my profile page.";
-    private static final String PROFILE_FEED_LOG_INFO = "Profile feed should be visible on my profile page.";
-    private static final String LAST_FEED_POST_ACTIONS_MENU_LOG_INFO = "Actions menu of last feed post should be visible on my profile page.";
-    private static final String LAST_FEED_POST_TEXT_LOG_INFO = "Text of last feed post should be visible on my profile page.";
-    private static final String SETTINGS_BUTTON_LOG_INFO = "Button 'Настройки' should be visible on my profile page.";
-
     public MyProfilePage() {
         checkPage();
     }
 
     public static boolean checkPage() {
         $(feedFilterMenu).shouldBe(
-                visible.because(FEED_FILTER_MENU_LOG_INFO)
+                visible.because("Feed filter menu should be visible on my profile page.")
         );
         $(profileNavigationMenu).shouldBe(
-                visible.because(PROFILE_NAVIGATION_MENU_LOG_INFO)
+                visible.because("Navigation menu of profile feed should be visible on my profile page.")
         );
         $(profileFeed).shouldBe(
-                visible.because(PROFILE_FEED_LOG_INFO)
+                visible.because("Profile feed should be visible on my profile page.")
         );
         return true;
     }
 
     public SettingsGeneralPage openProfileSettings() {
         $(settingsButton).shouldBe(
-                visible.because(SETTINGS_BUTTON_LOG_INFO)
+                visible.because("Button 'Настройки' should be visible on my profile page.")
         ).click();
         return new SettingsGeneralPage();
     }
 
     public boolean checkLastFeedPostContains(String s) {
         return $(lastFeedPostText).shouldBe(
-                        visible.because(LAST_FEED_POST_TEXT_LOG_INFO)
+                        visible.because("Text of last feed post should be visible on my profile page.")
                 ).getText()
                 .contains(s);
     }
@@ -57,7 +50,7 @@ public class MyProfilePage extends BaseMainPage {
     public void deleteLastTextPost() {
         $(lastFeedPostActionsMenu)
                 .shouldBe(
-                        visible.because(LAST_FEED_POST_ACTIONS_MENU_LOG_INFO)
+                        visible.because("Actions menu of last feed post should be visible on my profile page.")
                 ).scrollIntoView("{block: \"center\"}")
                 .hover();
         $(byXpath(".//*[text()='Удалить заметку']"))

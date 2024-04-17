@@ -11,30 +11,26 @@ public class SettingsGeneralPage extends SettingsBasePage {
     private static final By passwordForm = byXpath(".//a[@data-l='t,set_password']");
     private static final By emailForm = byXpath(".//a[@data-l='t,set_email']");
 
-    private static final String PERSONAL_INFORMATION_FORM_LOG_INFO = "Personal information form should be visible on general settings page.";
-    private static final String PASSWORD_FORM_LOG_INFO = "Password form should be visible on general settings page.";
-    private static final String EMAIL_FORM_LOG_INFO = "Email form should be visible on general settings page.";
-
     public SettingsGeneralPage() {
         checkPage();
     }
 
     public static boolean checkPage() {
         $(personaInformationForm).shouldBe(
-                visible.because(PERSONAL_INFORMATION_FORM_LOG_INFO)
+                visible.because("Personal information form should be visible on general settings page.")
         );
         $(passwordForm).shouldBe(
-                visible.because(PASSWORD_FORM_LOG_INFO)
+                visible.because("Password form should be visible on general settings page.")
         );
         $(emailForm).shouldBe(
-                visible.because(EMAIL_FORM_LOG_INFO)
+                visible.because("Email form should be visible on general settings page.")
         );
         return true;
     }
 
     public SettingsGeneralPersonalInformationPage openPersonalInformationPage() {
         $(personaInformationForm).shouldBe(
-                visible.because(PERSONAL_INFORMATION_FORM_LOG_INFO)
+                visible.because("Personal information form should be visible on general settings page.")
         ).click();
         return new SettingsGeneralPersonalInformationPage();
     }

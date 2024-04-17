@@ -12,23 +12,19 @@ public abstract class BasePage {
     protected static final By queryField = byName("st.query");
     protected static final By ecosystemButton = byXpath(".//div[@data-module='VkEcosystem']");
 
-    private static final String NAVIGATION_TOOLBAR_LOG_INFO = "Navigation toolbar should be visible on all pages.";
-    private static final String QUERY_FIELD_LOG_INFO = "Query Filed should be visible on all pages.";
-    private static final String ECOSYSTEM_BUTTON_LOG_INFO = "Ecosystem button should be visible on all pages.";
-
     protected BasePage() {
         checkPage();
     }
 
     private void checkPage() {
         $(navigationToolBar).shouldBe(
-                visible.because(NAVIGATION_TOOLBAR_LOG_INFO)
+                visible.because("Navigation toolbar should be visible on all pages.")
         );
         $(queryField).shouldBe(
-                visible.because(QUERY_FIELD_LOG_INFO)
+                visible.because("Query Filed should be visible on all pages.")
         );
         $(ecosystemButton).shouldBe(
-                visible.because(ECOSYSTEM_BUTTON_LOG_INFO)
+                visible.because("Ecosystem button should be visible on all pages.")
         );
     }
 }

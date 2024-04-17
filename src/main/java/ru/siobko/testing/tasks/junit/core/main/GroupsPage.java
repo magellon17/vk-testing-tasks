@@ -21,50 +21,41 @@ public class GroupsPage extends BaseMainPage {
     private static final By autoThematicButton = byText("Автомобили");
     private static final By createButton = byXpath(".//input[@data-l='t,confirm']");
 
-    private static final String CREATE_GROUP_BUTTON_LOG_INFO = "Button 'Создать группу' should be visible on page 'Группы'.";
-    private static final String GROUPS_SEARCH_FIELD_LOG_INFO = "Group search field should be visible on page 'Группы'.";
-    private static final String GROUPS_CATALOG_HEADER_LOG_INFO = "Groups catalog header should be visible on page 'Группы'.";
-    private static final String GROUP_BY_INTEREST_BUTTON_LOG_INFO = "Button 'Группа по интересам' should be visible after clicking button 'Создать группу'.";
-    private static final String GROUP_NAME_FIELD_LOG_INFO = "Field 'Название' should be visible while creating a group.";
-    private static final String THEMATICS_LIST_LOG_INFO = "List 'Тематика' should be visible while creating a group.";
-    private static final String AUTO_THEMATIC_BUTTON_LOG_INFO = "Thematic 'Автомобили' should be visible after opening thematic list.";
-    private static final String CREATE_BUTTON_LOG_INFO = "Button 'Создать' should be visible while creating a group.";
-
     public GroupsPage() {
         checkPage();
     }
 
     public static boolean checkPage() {
         $(createGroupButton).shouldBe(
-                visible.because(CREATE_GROUP_BUTTON_LOG_INFO)
+                visible.because("Button 'Создать группу' should be visible on page 'Группы'.")
         );
         $(groupSearchField).shouldBe(
-                visible.because(GROUPS_SEARCH_FIELD_LOG_INFO)
+                visible.because("Group search field should be visible on page 'Группы'.")
         );
         $(groupsCatalogHeader).shouldBe(
-                visible.because(GROUPS_CATALOG_HEADER_LOG_INFO)
+                visible.because("Groups catalog header should be visible on page 'Группы'.")
         );
         return true;
     }
 
     public GroupPage createGroup(String Name) {
         $(createGroupButton).shouldBe(
-                visible.because(CREATE_GROUP_BUTTON_LOG_INFO)
+                visible.because("Button 'Создать группу' should be visible on page 'Группы'.")
         ).click();
         $(groupByInterestButton).shouldBe(
-                visible.because(GROUP_BY_INTEREST_BUTTON_LOG_INFO)
+                visible.because("Button 'Группа по интересам' should be visible after clicking button 'Создать группу'.")
         ).click();
         $(groupNameField).shouldBe(
-                visible.because(GROUP_NAME_FIELD_LOG_INFO)
+                visible.because("Field 'Название' should be visible while creating a group.")
         ).setValue(Name);
         $(thematicsList).shouldBe(
-                visible.because(THEMATICS_LIST_LOG_INFO)
+                visible.because("List 'Тематика' should be visible while creating a group.")
         ).click();
         $(autoThematicButton).shouldBe(
-                visible.because(AUTO_THEMATIC_BUTTON_LOG_INFO)
+                visible.because("Thematic 'Автомобили' should be visible after opening thematic list.")
         ).click();
         $(createButton).shouldBe(
-                visible.because(CREATE_BUTTON_LOG_INFO)
+                visible.because("Button 'Создать' should be visible while creating a group.")
         ).click();
         return new GroupPage();
     }

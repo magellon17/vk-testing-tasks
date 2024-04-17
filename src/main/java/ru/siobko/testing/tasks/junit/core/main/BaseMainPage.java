@@ -22,54 +22,45 @@ public abstract class BaseMainPage extends BasePage {
     protected static final By postTextBox = byXpath(".//div[@data-module='postingForm/mediaText']");
     protected static final By submitButton = byXpath(".//button[@data-l='t,button.submit']");
 
-    protected static final String PAYMENTS_MENU_LOG_INFO = "Payments menu should be exist on all main pages.";
-    protected static final String NAVIGATION_MENU_LOG_INFO = "Navigation menu should be visible on all main pages.";
-    protected static final String PUBLISH_BUTTON_LOG_INFO = "Button 'Опубликовать' should be visible on all main pages.";
-    protected static final String GROUPS_BUTTON_LOG_INFO = "Button 'Группы' should be visible on all main pages.";
-    protected static final String MY_PROFILE_BUTTON_LOG_INFO = "My profile button should be visible on all main pages.";
-    protected static final String USER_CARD_TOOLBAR_DROPDOWN_LOG_INFO = "User card toolbar dropdown should be visible  on all main pages.";
-    protected static final String USER_CARD_TOOLBAR_LOGOUT_BUTTON_LOG_INFO = "Button 'Выйти' should be visible after open user card toolbar.";
-    protected static final String CONFIRM_LOGOUT_BUTTON_LOG_INFO = "Confirm Button 'Выйти' should be visible after clicking user card toolbar button 'Выйти''.";
-
     protected BaseMainPage() {
         checkPage();
     }
 
     private void checkPage() {
         $(paymentsMenu).shouldBe(
-                visible.because(PAYMENTS_MENU_LOG_INFO)
+                visible.because("Payments menu should be exist on all main pages.")
         );
         $(navigationMenu).shouldBe(
-                visible.because(NAVIGATION_MENU_LOG_INFO)
+                visible.because("Navigation menu should be visible on all main pages.")
         );
         $(publishButton).shouldBe(
-                visible.because(PUBLISH_BUTTON_LOG_INFO)
+                visible.because("Button 'Опубликовать' should be visible on all main pages.")
         );
     }
 
     public void openGroupsPage() {
         $(groupsButton).shouldBe(
-                visible.because(GROUPS_BUTTON_LOG_INFO)
+                visible.because("Button 'Группы' should be visible on all main pages.")
         ).click();
     }
 
     public BaseMainPage openUserCardToolbar() {
         $(userCardToolbarDropdown).shouldBe(
-                visible.because(USER_CARD_TOOLBAR_DROPDOWN_LOG_INFO)
+                visible.because("User card toolbar dropdown should be visible  on all main pages.")
         ).click();
         return this;
     }
 
     public BaseMainPage logout() {
         $(userCardToolbarLogoutButton).shouldBe(
-                visible.because(USER_CARD_TOOLBAR_LOGOUT_BUTTON_LOG_INFO)
+                visible.because("Button 'Выйти' should be visible after open user card toolbar.")
         ).click();
         return this;
     }
 
     public void confirmLogout() {
         $(confirmLogoutButton).shouldBe(
-                visible.because(CONFIRM_LOGOUT_BUTTON_LOG_INFO)
+                visible.because("Confirm Button 'Выйти' should be visible after clicking user card toolbar button 'Выйти''.")
         ).click();
     }
 }

@@ -4,7 +4,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import ru.siobko.testing.tasks.junit.core.main.FeedPage;
-import ru.siobko.testing.tasks.junit.core.main.LoginPage;
+import ru.siobko.testing.tasks.junit.core.login.LoginPage;
 import ru.siobko.testing.tasks.junit.core.main.MyProfilePage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -14,8 +14,7 @@ public class PublishTextPostTest extends BaseTest {
 
     @BeforeAll
     public static void setUp() {
-        LoginPage loginPage = new LoginPage();
-        loginPage.login(EMAIL, PASSWORD);
+        new LoginPage().login(EMAIL, PASSWORD);
     }
 
     @Test
@@ -32,7 +31,6 @@ public class PublishTextPostTest extends BaseTest {
 
     @AfterAll
     public static void tearDown() {
-        MyProfilePage myProfilePage = new MyProfilePage();
-        myProfilePage.deleteLastTextPost();
+        new MyProfilePage().deleteLastTextPost();
     }
 }

@@ -5,8 +5,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import ru.siobko.testing.tasks.junit.core.main.FeedPage;
-import ru.siobko.testing.tasks.junit.core.main.LoginPage;
-import ru.siobko.testing.tasks.junit.core.main.MyProfilePage;
+import ru.siobko.testing.tasks.junit.core.login.LoginPage;
 import ru.siobko.testing.tasks.junit.core.settings.SettingsGeneralPage;
 import ru.siobko.testing.tasks.junit.core.settings.SettingsGeneralPersonalInformationPage;
 
@@ -17,13 +16,10 @@ public class ChangeUserNameTest extends BaseTest {
 
     @BeforeAll
     public static void setUp() {
-        LoginPage loginPage = new LoginPage();
-        loginPage.login(EMAIL, PASSWORD);
-
-        FeedPage feedPage = new FeedPage();
-        MyProfilePage myProfilePage = feedPage.openMyProfilePage();
-        SettingsGeneralPage settingsGeneralPage = myProfilePage.openProfileSettings();
-        settingsGeneralPage.openPersonalInformationPage();
+        FeedPage feedPage = new LoginPage().login(EMAIL, PASSWORD);
+        feedPage.openMyProfilePage()
+                .openProfileSettings()
+                .openPersonalInformationPage();
     }
 
     @Test
@@ -33,7 +29,8 @@ public class ChangeUserNameTest extends BaseTest {
 
         Selenide.refresh();
 
-        personalDataPage = new SettingsGeneralPersonalInformationPage();
+
+        personalDataPage = new SettingsGeneralPage().openPersonalInformationPage();
         assertTrue(
                 personalDataPage.checkProfileNameContains(NEW_USERNAME),
                 "Incorrect name change."
@@ -42,8 +39,7 @@ public class ChangeUserNameTest extends BaseTest {
 
     @AfterAll
     public static void tearDown() {
-        SettingsGeneralPage settingsGeneralPage = new SettingsGeneralPage();
-        SettingsGeneralPersonalInformationPage personalDataPage = settingsGeneralPage.openPersonalInformationPage();
+        SettingsGeneralPersonalInformationPage personalDataPage = new SettingsGeneralPersonalInformationPage();
         personalDataPage.changeName(EMAIL);
     }
 }

@@ -1,6 +1,8 @@
-package ru.siobko.testing.tasks.junit.core.main;
+package ru.siobko.testing.tasks.junit.core.login;
 
 import org.openqa.selenium.By;
+import ru.siobko.testing.tasks.junit.core.BasePage;
+import ru.siobko.testing.tasks.junit.core.main.FeedPage;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.visible;
@@ -8,7 +10,7 @@ import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byValue;
 import static com.codeborne.selenide.Selenide.$;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
     private static final By emailField = byName("st.email");
     private static final By passwordField = byName("st.password");
     private static final By submitButton = byValue("Log in to OK");
@@ -37,8 +39,8 @@ public class LoginPage {
     }
 
     public void enterPassword(String password) {
-        $(emailField).shouldBe(
-                visible.because("Email field should be exist on login page.")
+        $(passwordField).shouldBe(
+                visible.because("Password field should be exist on login page.")
         ).setValue(password);
     }
 
@@ -51,13 +53,13 @@ public class LoginPage {
 
     public FeedPage login(String email, String password) {
         $(emailField).shouldBe(
-                visible.because("Email field should be exist on login page.")
+                visible.because("Email field should be visible on login page.")
         ).setValue(email);
         $(passwordField).shouldBe(
-                visible.because("Password field should be exist on login page.")
+                visible.because("Password field should be visible on login page.")
         ).setValue(password);
         $(submitButton).shouldBe(
-                visible.because("Submit button should be exist on login page.")
+                visible.because("Submit button should be visible on login page.")
         ).click();
         return new FeedPage();
     }

@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public abstract class BasePage {
-    protected static final By navigationToolBar = byXpath(".//div[@data-l='t,navigationToolbar']");
+    protected static final By toolbarOKLogo = byXpath(".//a[@data-l='t,logo']");
     protected static final By queryField = byName("st.query");
     protected static final By ecosystemButton = byXpath(".//div[@data-module='VkEcosystem']");
 
@@ -17,7 +17,7 @@ public abstract class BasePage {
     }
 
     private void checkPage() {
-        $(navigationToolBar).shouldBe(
+        $(toolbarOKLogo).shouldBe(
                 visible.because("Navigation toolbar should be visible on all pages.")
         );
         $(queryField).shouldBe(

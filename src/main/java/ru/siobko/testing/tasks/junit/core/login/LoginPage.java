@@ -32,34 +32,23 @@ public class LoginPage extends BasePage {
         return true;
     }
 
-    public void enterEmail(String email) {
+    public LoginPage enterEmail(String email) {
         $(emailField).shouldBe(
                 visible.because("Email field should be exist on login page.")
         ).setValue(email);
+        return this;
     }
 
-    public void enterPassword(String password) {
+    public LoginPage enterPassword(String password) {
         $(passwordField).shouldBe(
                 visible.because("Password field should be exist on login page.")
         ).setValue(password);
+        return this;
     }
 
     public FeedPage clickSubmit() {
         $(submitButton).shouldBe(
                 visible.because("Submit button should be exist on login page.")
-        ).click();
-        return new FeedPage();
-    }
-
-    public FeedPage login(String email, String password) {
-        $(emailField).shouldBe(
-                visible.because("Email field should be visible on login page.")
-        ).setValue(email);
-        $(passwordField).shouldBe(
-                visible.because("Password field should be visible on login page.")
-        ).setValue(password);
-        $(submitButton).shouldBe(
-                visible.because("Submit button should be visible on login page.")
         ).click();
         return new FeedPage();
     }

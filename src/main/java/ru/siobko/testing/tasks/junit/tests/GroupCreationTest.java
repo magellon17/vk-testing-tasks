@@ -14,7 +14,10 @@ public class GroupCreationTest extends BaseTest {
 
     @BeforeAll
     public static void login() {
-        FeedPage feedPage = new LoginPage().login(EMAIL, PASSWORD);
+        FeedPage feedPage = new LoginPage()
+                .enterEmail(EMAIL)
+                .enterPassword(PASSWORD)
+                .clickSubmit();
         feedPage.openGroupsPage();
     }
 
@@ -22,8 +25,7 @@ public class GroupCreationTest extends BaseTest {
     public void testGroupCreation() {
         GroupPage groupPage = new GroupsPage().createGroup(GROUP_NAME);
 
-        assertTrue(
-                groupPage.checkGroupNameEquals(GROUP_NAME),
+        assertTrue(groupPage.checkGroupNameEquals(GROUP_NAME),
                 "The group was created incorrectly."
         );
     }

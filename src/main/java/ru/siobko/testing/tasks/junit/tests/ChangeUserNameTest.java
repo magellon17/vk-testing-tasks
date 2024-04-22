@@ -2,8 +2,6 @@ package ru.siobko.testing.tasks.junit.tests;
 
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 import ru.siobko.testing.tasks.junit.core.main.FeedPage;
 import ru.siobko.testing.tasks.junit.core.login.LoginPage;
 import ru.siobko.testing.tasks.junit.core.settings.SettingsGeneralPage;
@@ -17,23 +15,22 @@ public class ChangeUserNameTest extends BaseTest {
 
     @BeforeAll
     public static void login() {
-        FeedPage feedPage = new LoginPage().login(EMAIL, PASSWORD);
+        FeedPage feedPage = new LoginPage()
+                .enterEmail(EMAIL)
+                .enterPassword(PASSWORD)
+                .clickSubmit();
         feedPage.openMyProfilePage()
                 .openProfileSettings()
                 .openPersonalInformationPage();
     }
 
-    @ParameterizedTest
-    @ValueSource(strings = {NEW_USERNAME})
-    public void testChangeUserName(String username) {
+    @Test
+    public void testChangeUserName() {
         SettingsGeneralPersonalInformationPage personalDataPage = new SettingsGeneralPersonalInformationPage();
-        personalDataPage.changeName(username);
-
+        personalDataPage.changeName(NEW_USERNAME);
         Selenide.refresh();
-
         personalDataPage = new SettingsGeneralPage().openPersonalInformationPage();
-        assertTrue(
-                personalDataPage.checkProfileNameContains(username),
+        assertTrue(personalDataPage.checkProfileNameContains(NEW_USERNAME),
                 "Incorrect name change."
         );
     }

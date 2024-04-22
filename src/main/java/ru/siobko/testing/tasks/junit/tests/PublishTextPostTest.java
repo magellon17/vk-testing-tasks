@@ -1,8 +1,6 @@
 package ru.siobko.testing.tasks.junit.tests;
 
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 import ru.siobko.testing.tasks.junit.core.main.FeedPage;
 import ru.siobko.testing.tasks.junit.core.login.LoginPage;
 import ru.siobko.testing.tasks.junit.core.main.MyProfilePage;
@@ -15,18 +13,19 @@ public class PublishTextPostTest extends BaseTest {
 
     @BeforeAll
     public static void login() {
-        new LoginPage().login(EMAIL, PASSWORD);
+        new LoginPage()
+                .enterEmail(EMAIL)
+                .enterPassword(PASSWORD)
+                .clickSubmit();
     }
 
-    @ParameterizedTest
-    @ValueSource(strings = {POST_TEXT})
-    public void testPublishPost(String postText) {
+    @Test
+    public void testPublishPost() {
         FeedPage feedPage = new FeedPage();
-        feedPage.publishTextPost(postText);
+        feedPage.publishTextPost(POST_TEXT);
         MyProfilePage myProfilePage = feedPage.openMyProfilePage();
 
-        assertTrue(
-                myProfilePage.checkLastFeedPostContains(postText),
+        assertTrue(myProfilePage.checkLastFeedPostContains(POST_TEXT),
                 "The post was not created."
         );
     }

@@ -12,7 +12,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class LogoutTest extends BaseTest {
     @BeforeAll
     public static void login() {
-        new LoginPage().login(EMAIL, PASSWORD);
+        new LoginPage()
+                .enterEmail(EMAIL)
+                .enterPassword(PASSWORD)
+                .clickSubmit();
     }
 
     @Test
@@ -21,8 +24,7 @@ public class LogoutTest extends BaseTest {
                 .logout()
                 .confirmLogout();
 
-        assertTrue(
-                new LoginPage().checkPage(),
+        assertTrue(new LoginPage().checkPage(),
                 "Login page was not found."
         );
     }

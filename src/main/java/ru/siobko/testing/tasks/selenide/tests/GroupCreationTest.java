@@ -1,50 +1,37 @@
 package ru.siobko.testing.tasks.selenide.tests;
 
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import ru.siobko.testing.tasks.selenide.pages.main.FeedPage;
 import ru.siobko.testing.tasks.selenide.pages.main.GroupPage;
 import ru.siobko.testing.tasks.selenide.pages.main.GroupsPage;
-import ru.siobko.testing.tasks.selenide.pages.main.LoginPage;
+import ru.siobko.testing.tasks.selenide.pages.login.LoginPage;
 
-import static com.codeborne.selenide.WebDriverRunner.clearBrowserCache;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GroupCreationTest extends BaseTest {
+    private static final String GROUP_NAME = "myGroup";
+
     @BeforeAll
-    public static void setUp() {
-        Configuration.browser = "chrome";
-        Configuration.baseUrl = "https://ok.ru";
-        Selenide.open("/");
-
-        LoginPage loginPage = new LoginPage();
-        loginPage.login(email, password);
-
-        FeedPage feedPage = new FeedPage();
+    public static void login() {
+        FeedPage feedPage = new LoginPage()
+                .enterEmail(EMAIL)
+                .enterPassword(PASSWORD)
+                .clickSubmit();
         feedPage.openGroupsPage();
     }
 
     @Test
     public void testGroupCreation() {
-        GroupsPage groupsPage = new GroupsPage();
-        GroupPage groupPage = groupsPage.createGroup("myGroup");
+        GroupPage groupPage = new GroupsPage().createGroup(GROUP_NAME);
 
-        assertEquals(
-                groupPage.getGroupName(),
-                "myGroup",
+        assertTrue(
+                groupPage.checkGroupNameEquals(GROUP_NAME),
                 "The group was created incorrectly."
         );
     }
 
     @AfterAll
-    public static void tearDown() {
-        GroupPage groupPage = new GroupPage();
-        groupPage.deleteGroup();
-
-        clearBrowserCache();
-        Selenide.closeWebDriver();
+    public static void deleteGroup() {
+        new GroupPage().deleteGroup();
     }
 }

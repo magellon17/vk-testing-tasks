@@ -18,7 +18,7 @@ public abstract class BasePage {
 
     private void checkPage() {
         $(toolbarOKLogo).shouldBe(
-                visible.because("Navigation toolbar should be visible on all pages.")
+                visible.because("Toolbar OK logo should be visible on all pages.")
         );
         $(queryField).shouldBe(
                 visible.because("Query Filed should be visible on all pages.")

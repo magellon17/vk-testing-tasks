@@ -25,7 +25,7 @@ public class GroupsPage extends BaseMainPage {
         checkPage();
     }
 
-    public static boolean checkPage() {
+    public boolean checkPage() {
         $(createGroupButton).shouldBe(
                 visible.because("Button 'Создать группу' should be visible on page 'Группы'.")
         );

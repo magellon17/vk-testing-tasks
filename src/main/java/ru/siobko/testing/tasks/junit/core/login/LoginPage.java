@@ -19,7 +19,7 @@ public class LoginPage extends BasePage {
         checkPage();
     }
 
-    public static boolean checkPage() {
+    public boolean checkPage() {
         $(emailField).shouldBe(
                 exist.because("Email field should be exist on login page.")
         );

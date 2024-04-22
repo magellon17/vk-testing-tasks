@@ -21,7 +21,7 @@ public class MyProfilePage extends BaseMainPage {
         checkPage();
     }
 
-    public static boolean checkPage() {
+    public boolean checkPage() {
         $(feedFilterMenu).shouldBe(
                 visible.because("Feed filter menu should be visible on my profile page.")
         );

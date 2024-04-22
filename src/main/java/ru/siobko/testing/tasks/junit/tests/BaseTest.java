@@ -14,14 +14,14 @@ public abstract class BaseTest {
     protected static final String PASSWORD = "technopolisPassword";
 
     @BeforeAll
-    public static void baseSetUp() {
+    public static void setUp() {
         Configuration.browser = BROWSER;
         Configuration.baseUrl = BASE_URL;
         Selenide.open("/");
     }
 
     @AfterAll
-    public static void baseTearDown() {
+    public static void tearDown() {
         clearBrowserCache();
         Selenide.closeWebDriver();
     }

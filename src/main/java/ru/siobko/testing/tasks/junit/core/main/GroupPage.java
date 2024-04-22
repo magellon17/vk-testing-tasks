@@ -23,7 +23,7 @@ public class GroupPage extends BaseMainPage {
         checkPage();
     }
 
-    public static boolean checkPage() {
+    public boolean checkPage() {
         $(aboutGroupPanel).shouldBe(
                 visible.because("Panel 'О группе' should be visible on group page.")
         );

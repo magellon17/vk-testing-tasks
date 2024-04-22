@@ -18,7 +18,7 @@ public abstract class SettingsBasePage extends BasePage {
         checkPage();
     }
 
-    private void checkPage() {
+    public boolean checkPage() {
         $(settingsNavigationMenu).shouldBe(
                 visible.because("Settings navigation menu should be visible on all settings pages.")
         );
@@ -28,6 +28,7 @@ public abstract class SettingsBasePage extends BasePage {
         $(generalSettingsButton).shouldBe(
                 visible.because("Button 'Основные' menu should be visible on all settings pages.")
         );
+        return true;
     }
 
     public boolean checkProfileNameContains(String newUserName) {

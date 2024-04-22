@@ -16,7 +16,7 @@ public class FeedPage extends BaseMainPage {
         checkPage();
     }
 
-    public static boolean checkPage() {
+    public boolean checkPage() {
         $(profileAvatar).shouldBe(
                 visible.because("Profile avatar should be visible on page 'Лента'.")
         );

@@ -1,15 +1,17 @@
 package ru.siobko.testing.tasks.junit.tests;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.siobko.testing.tasks.junit.core.main.FeedPage;
 import ru.siobko.testing.tasks.junit.core.login.LoginPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@Tag("auth")
 public class LogoutTest extends BaseTest {
     @BeforeAll
-    public static void setUp() {
+    public static void login() {
         new LoginPage().login(EMAIL, PASSWORD);
     }
 
@@ -20,7 +22,7 @@ public class LogoutTest extends BaseTest {
                 .confirmLogout();
 
         assertTrue(
-                LoginPage.checkPage(),
+                new LoginPage().checkPage(),
                 "Login page was not found."
         );
     }

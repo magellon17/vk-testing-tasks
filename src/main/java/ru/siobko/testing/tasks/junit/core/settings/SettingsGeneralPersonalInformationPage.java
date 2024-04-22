@@ -16,7 +16,7 @@ public class SettingsGeneralPersonalInformationPage extends SettingsBasePage {
         checkPage();
     }
 
-    public static boolean checkPage() {
+    public boolean checkPage() {
         $(nameField).shouldBe(
                 visible.because("Field 'Имя' should be visible on page 'Личные данные'.")
         );

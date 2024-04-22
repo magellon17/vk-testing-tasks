@@ -15,7 +15,7 @@ public class SettingsGeneralPage extends SettingsBasePage {
         checkPage();
     }
 
-    public static boolean checkPage() {
+    public boolean checkPage() {
         $(personaInformationForm).shouldBe(
                 visible.because("Personal information form should be visible on general settings page.")
         );

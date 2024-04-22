@@ -1,8 +1,6 @@
 package ru.siobko.testing.tasks.junit.tests;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import ru.siobko.testing.tasks.junit.core.main.FeedPage;
 import ru.siobko.testing.tasks.junit.core.main.GroupPage;
 import ru.siobko.testing.tasks.junit.core.main.GroupsPage;
@@ -10,11 +8,12 @@ import ru.siobko.testing.tasks.junit.core.login.LoginPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@Tag("groups")
 public class GroupCreationTest extends BaseTest {
     private static final String GROUP_NAME = "myGroup";
 
     @BeforeAll
-    public static void setUp() {
+    public static void login() {
         FeedPage feedPage = new LoginPage().login(EMAIL, PASSWORD);
         feedPage.openGroupsPage();
     }
@@ -30,7 +29,7 @@ public class GroupCreationTest extends BaseTest {
     }
 
     @AfterAll
-    public static void tearDown() {
+    public static void deleteGroup() {
         new GroupPage().deleteGroup();
     }
 }

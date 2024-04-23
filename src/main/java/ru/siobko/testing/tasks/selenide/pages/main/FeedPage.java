@@ -29,29 +29,6 @@ public class FeedPage extends BaseMainPage {
         return true;
     }
 
-    public void publishTextPost(String postText) {
-        $(publishButton).shouldBe(
-                visible.because("Button 'Опубликовать' should be visible on all main pages.")
-        ).click();
-        $(publishPostButton).shouldBe(
-                visible.because("Button 'Запись' should be visible after clicking button 'Опубликоать'.")
-        ).click();
-        $(postTextBox).shouldBe(
-                visible.because("Post textbox should be visible while creating post.")
-        ).setValue(postText);
-        $(submitButton).shouldBe(
-                visible.because("Button 'Поделиться' should be visible while creating post.")
-        ).click();
-    }
-
-    public MyProfilePage openMyProfilePage() {
-        $(myProfileButton).shouldBe(
-                visible.because("My profile button should be visible on all main pages.")
-        ).click();
-        return new MyProfilePage();
-    }
-
-
     public boolean checkProfileNameContains(String email) {
         return $(myProfileButton).shouldBe(
                         visible.because("My profile button should be visible on all main pages.")

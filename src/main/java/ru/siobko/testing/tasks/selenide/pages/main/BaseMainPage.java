@@ -14,9 +14,7 @@ public abstract class BaseMainPage extends BasePage {
     protected static final By paymentsMenu = byXpath(".//ul[@data-l='t,secondTierLeftMenu']");
     protected static final By publishButton = byXpath(".//button[@data-testid='ddm-button']");
     protected static final By publishPostButton = byXpath(".//*[@class='item-container__7e56q']");
-    private static final By userCardToolbarDropdown = byXpath(".//button[@aria-label='Настройки профиля']");
-    private static final By userCardToolbarLogoutButton = byXpath(".//a[@data-l='t,logout']");
-    private static final By confirmLogoutButton = byXpath(".//input[@data-l='t,logout']");
+    private static final By deleteButton = byXpath(".//a[@class='u-menu_a ']");
 
     //Поля окон, которые появляются в процессе создания текстового поста.
     protected static final By postTextBox = byXpath(".//div[@data-module='postingForm/mediaText']");
@@ -38,29 +36,52 @@ public abstract class BaseMainPage extends BasePage {
         );
     }
 
-    public void openGroupsPage() {
+    public GroupsPage openGroupsPage() {
         $(groupsButton).shouldBe(
                 visible.because("Button 'Группы' should be visible on all main pages.")
         ).click();
+        return new GroupsPage();
     }
 
-    public BaseMainPage openUserCardToolbar() {
-        $(userCardToolbarDropdown).shouldBe(
-                visible.because("User card toolbar dropdown should be visible  on all main pages.")
+    public MyProfilePage openMyProfilePage() {
+        $(myProfileButton).shouldBe(
+                visible.because("My profile button should be visible on all main pages.")
+        ).click();
+        return new MyProfilePage();
+    }
+
+    public BaseMainPage clickPublish() {
+        $(publishButton).shouldBe(
+                visible.because("Button 'Опубликовать' should be visible on all main pages.")
         ).click();
         return this;
     }
 
-    public BaseMainPage logout() {
-        $(userCardToolbarLogoutButton).shouldBe(
-                visible.because("Button 'Выйти' should be visible after open user card toolbar.")
+    public BaseMainPage clickPublishPost() {
+        $(publishPostButton).shouldBe(
+                visible.because("Button 'Запись' should be visible after clicking button 'Опубликоать'.")
         ).click();
         return this;
     }
 
-    public void confirmLogout() {
-        $(confirmLogoutButton).shouldBe(
-                visible.because("Confirm Button 'Выйти' should be visible after clicking user card toolbar button 'Выйти''.")
+    public BaseMainPage enterPostText(String postText) {
+        $(postTextBox).shouldBe(
+                visible.because("Post textbox should be visible while creating post.")
+        ).setValue(postText);
+        return this;
+    }
+
+    public BaseMainPage clickSubmit() {
+        $(submitButton).shouldBe(
+                visible.because("Button 'Поделиться' should be visible while creating post.")
         ).click();
+        return this;
+    }
+
+    public BaseMainPage clickDeleteNote() {
+        $(deleteButton).shouldBe(
+                visible.because("Button 'Удалить' should be visible on post actions menu.")
+        ).click();
+        return this;
     }
 }

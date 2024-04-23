@@ -36,13 +36,21 @@ public class GroupPage extends BaseMainPage {
         return true;
     }
 
-    public void deleteGroup() {
+    public GroupPage clickMoreActions() {
         $(moreActionsButton).shouldBe(
                 visible.because("More actions button should be visible on group page.")
         ).click();
+        return this;
+    }
+
+    public GroupPage clickDelete() {
         $(deleteButton).shouldBe(
                 visible.because("Button 'Удалить' should be visible on more actions menu.")
         ).click();
+        return this;
+    }
+
+    public void confirmDeletion() {
         $(confirmDeletionButton).shouldBe(
                 visible.because("Confirm deletion button should be visible while deleting a group.")
         ).click();

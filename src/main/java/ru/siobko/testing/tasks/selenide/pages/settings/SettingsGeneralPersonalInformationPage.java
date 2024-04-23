@@ -29,10 +29,14 @@ public class SettingsGeneralPersonalInformationPage extends SettingsBasePage {
         return true;
     }
 
-    public void changeName(String newName) {
+    public SettingsGeneralPersonalInformationPage enterName(String name) {
         $(nameField).shouldBe(
                 visible.because("Field 'Имя' should be visible on page 'Личные данные'.")
-        ).setValue(newName);
+        ).setValue(name);
+        return this;
+    }
+
+    public void clickSubmit() {
         $(submitButton).shouldBe(
                 visible.because("Submit button should be visible on page 'Личные данные'.")
         ).click();

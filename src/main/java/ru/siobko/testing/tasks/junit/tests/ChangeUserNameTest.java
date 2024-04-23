@@ -27,7 +27,9 @@ public class ChangeUserNameTest extends BaseTest {
     @Test
     public void testChangeUserName() {
         SettingsGeneralPersonalInformationPage personalDataPage = new SettingsGeneralPersonalInformationPage();
-        personalDataPage.changeName(NEW_USERNAME);
+        personalDataPage
+                .enterName(NEW_USERNAME)
+                .clickSubmit();
         Selenide.refresh();
         personalDataPage = new SettingsGeneralPage().openPersonalInformationPage();
         assertTrue(personalDataPage.checkProfileNameContains(NEW_USERNAME),
@@ -38,6 +40,8 @@ public class ChangeUserNameTest extends BaseTest {
     @AfterAll
     public static void returnUsername() {
         SettingsGeneralPersonalInformationPage personalDataPage = new SettingsGeneralPersonalInformationPage();
-        personalDataPage.changeName(EMAIL);
+        personalDataPage
+                .enterName(EMAIL)
+                .clickSubmit();
     }
 }

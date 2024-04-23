@@ -38,22 +38,42 @@ public class GroupsPage extends BaseMainPage {
         return true;
     }
 
-    public GroupPage createGroup(String Name) {
+    public GroupsPage clickCreateGroup() {
         $(createGroupButton).shouldBe(
                 visible.because("Button 'Создать группу' should be visible on page 'Группы'.")
         ).click();
+        return this;
+    }
+
+    public GroupsPage clickGroupByInterest() {
         $(groupByInterestButton).shouldBe(
                 visible.because("Button 'Группа по интересам' should be visible after clicking button 'Создать группу'.")
         ).click();
+        return this;
+    }
+
+    public GroupsPage enterGroupName(String Name) {
         $(groupNameField).shouldBe(
                 visible.because("Field 'Название' should be visible while creating a group.")
         ).setValue(Name);
+        return this;
+    }
+
+    public GroupsPage expandThematicsList() {
         $(thematicsList).shouldBe(
                 visible.because("List 'Тематика' should be visible while creating a group.")
         ).click();
+        return this;
+    }
+
+    public GroupsPage clickAutoThematic() {
         $(autoThematicButton).shouldBe(
                 visible.because("Thematic 'Автомобили' should be visible after opening thematic list.")
         ).click();
+        return this;
+    }
+
+    public GroupPage clickCreate() {
         $(createButton).shouldBe(
                 visible.because("Button 'Создать' should be visible while creating a group.")
         ).click();

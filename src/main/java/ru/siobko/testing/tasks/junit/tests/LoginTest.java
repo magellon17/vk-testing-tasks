@@ -15,7 +15,6 @@ public class LoginTest extends BaseTest {
                 .enterEmail(EMAIL)
                 .enterPassword(PASSWORD)
                 .clickSubmit();
-
         assertTrue(feedPage.checkProfileNameContains(EMAIL),
                 "Incorrect account login name."
         );

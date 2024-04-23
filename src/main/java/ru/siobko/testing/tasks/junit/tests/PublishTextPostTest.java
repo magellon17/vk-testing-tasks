@@ -21,10 +21,12 @@ public class PublishTextPostTest extends BaseTest {
 
     @Test
     public void testPublishPost() {
-        FeedPage feedPage = new FeedPage();
-        feedPage.publishTextPost(POST_TEXT);
-        MyProfilePage myProfilePage = feedPage.openMyProfilePage();
-
+        MyProfilePage myProfilePage = new FeedPage()
+                .clickPublish()
+                .clickPublishPost()
+                .enterPostText(POST_TEXT)
+                .clickSubmit()
+                .openMyProfilePage();
         assertTrue(myProfilePage.checkLastFeedPostContains(POST_TEXT),
                 "The post was not created."
         );
@@ -32,6 +34,9 @@ public class PublishTextPostTest extends BaseTest {
 
     @AfterAll
     public static void deleteTextPost() {
-        new MyProfilePage().deleteLastTextPost();
+        new MyProfilePage()
+                .hoverLastFeedPostActionsMenu()
+                .clickDeleteNote()
+                .confirmDeletion();
     }
 }

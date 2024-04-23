@@ -17,6 +17,7 @@ public abstract class BaseMainPage extends BasePage {
     private static final By userCardToolbarDropdown = byXpath(".//button[@aria-label='Настройки профиля']");
     private static final By userCardToolbarLogoutButton = byXpath(".//a[@data-l='t,logout']");
     private static final By confirmLogoutButton = byXpath(".//input[@data-l='t,logout']");
+    private static final By deleteButton = byXpath(".//a[@class='u-menu_a ']");
 
     //Поля окон, которые появляются в процессе создания текстового поста.
     protected static final By postTextBox = byXpath(".//div[@data-module='postingForm/mediaText']");
@@ -38,13 +39,49 @@ public abstract class BaseMainPage extends BasePage {
         );
     }
 
-    public void openGroupsPage() {
+    public GroupsPage openGroupsPage() {
         $(groupsButton).shouldBe(
                 visible.because("Button 'Группы' should be visible on all main pages.")
         ).click();
+        return new GroupsPage();
     }
 
-    public BaseMainPage openUserCardToolbar() {
+    public MyProfilePage openMyProfilePage() {
+        $(myProfileButton).shouldBe(
+                visible.because("My profile button should be visible on all main pages.")
+        ).click();
+        return new MyProfilePage();
+    }
+
+    public BaseMainPage clickPublish() {
+        $(publishButton).shouldBe(
+                visible.because("Button 'Опубликовать' should be visible on all main pages.")
+        ).click();
+        return this;
+    }
+
+    public BaseMainPage clickPublishPost() {
+        $(publishPostButton).shouldBe(
+                visible.because("Button 'Запись' should be visible after clicking button 'Опубликоать'.")
+        ).click();
+        return this;
+    }
+
+    public BaseMainPage enterPostText(String postText) {
+        $(postTextBox).shouldBe(
+                visible.because("Post textbox should be visible while creating post.")
+        ).setValue(postText);
+        return this;
+    }
+
+    public BaseMainPage clickSubmit() {
+        $(submitButton).shouldBe(
+                visible.because("Button 'Поделиться' should be visible while creating post.")
+        ).click();
+        return this;
+    }
+
+    public BaseMainPage expandUserCardToolbar() {
         $(userCardToolbarDropdown).shouldBe(
                 visible.because("User card toolbar dropdown should be visible  on all main pages.")
         ).click();

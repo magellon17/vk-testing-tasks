@@ -20,10 +20,10 @@ public class LogoutTest extends BaseTest {
 
     @Test
     public void testLogin() {
-        new FeedPage().openUserCardToolbar()
+        new FeedPage()
+                .expandUserCardToolbar()
                 .logout()
                 .confirmLogout();
-
         assertTrue(new LoginPage().checkPage(),
                 "Login page was not found."
         );

@@ -11,45 +11,63 @@ import static com.codeborne.selenide.Selectors.byValue;
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage extends BasePage {
-    private static final By emailField = byName("st.email");
-    private static final By passwordField = byName("st.password");
-    private static final By submitButton = byValue("Log in to OK");
+    private static final By EMAIL_FIELD = byName("st.email");
+    private static final By PASSWORD_FIELD = byName("st.password");
+    private static final By SUBMIT_BUTTON = byValue("Log in to OK");
 
     public LoginPage() {
         checkPage();
     }
 
     public boolean checkPage() {
-        $(emailField).shouldBe(
+        $(EMAIL_FIELD).shouldBe(
                 exist.because("Email field should be exist on login page.")
         );
-        $(passwordField).shouldBe(
+        $(PASSWORD_FIELD).shouldBe(
                 exist.because("Password field should be exist on login page.")
         );
-        $(submitButton).shouldBe(
+        $(SUBMIT_BUTTON).shouldBe(
                 exist.because("Submit button should be exist on login page.")
         );
         return true;
     }
 
     public LoginPage enterEmail(String email) {
-        $(emailField).shouldBe(
+        $(EMAIL_FIELD).shouldBe(
                 visible.because("Email field should be exist on login page.")
         ).setValue(email);
         return this;
     }
 
     public LoginPage enterPassword(String password) {
-        $(passwordField).shouldBe(
+        $(PASSWORD_FIELD).shouldBe(
                 visible.because("Password field should be exist on login page.")
         ).setValue(password);
         return this;
     }
 
     public FeedPage clickSubmit() {
-        $(submitButton).shouldBe(
+        $(SUBMIT_BUTTON).shouldBe(
                 visible.because("Submit button should be exist on login page.")
         ).click();
         return new FeedPage();
+    }
+
+    public boolean checkPasswordFieldContains(String password) {
+        return $(PASSWORD_FIELD).shouldBe(
+                visible.because("Password field should be visible on login page.")
+        ).getText().contains(password);
+    }
+
+    public String getEmailFieldText() {
+        return $(EMAIL_FIELD).shouldBe(
+                visible.because("Email field should be visible on login page.")
+        ).getValue();
+    }
+
+    public String getPasswordFieldText() {
+        return $(PASSWORD_FIELD).shouldBe(
+                visible.because("Password field should be visible on login page.")
+        ).getValue();
     }
 }

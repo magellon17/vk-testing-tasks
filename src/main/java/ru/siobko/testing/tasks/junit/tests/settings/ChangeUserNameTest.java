@@ -1,25 +1,21 @@
-package ru.siobko.testing.tasks.junit.tests;
+package ru.siobko.testing.tasks.junit.tests.settings;
 
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.*;
 import ru.siobko.testing.tasks.junit.core.main.FeedPage;
-import ru.siobko.testing.tasks.junit.core.login.LoginPage;
 import ru.siobko.testing.tasks.junit.core.settings.SettingsGeneralPage;
 import ru.siobko.testing.tasks.junit.core.settings.SettingsGeneralPersonalInformationPage;
+import ru.siobko.testing.tasks.junit.tests.BaseMainTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Tag("settings")
-public class ChangeUserNameTest extends BaseTest {
+public class ChangeUserNameTest extends BaseMainTest {
     private static final String NEW_USERNAME = "Boris";
 
     @BeforeAll
-    public static void login() {
-        FeedPage feedPage = new LoginPage()
-                .enterEmail(EMAIL)
-                .enterPassword(PASSWORD)
-                .clickSubmit();
-        feedPage.openMyProfilePage()
+    public static void openPersonalInformationPage() {
+        new FeedPage().openMyProfilePage()
                 .openProfileSettings()
                 .openPersonalInformationPage();
     }

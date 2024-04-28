@@ -8,29 +8,30 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class FeedPage extends BaseMainPage {
-    private static final By profileAvatar = byId("hook_Block_Avatar");
-    private static final By onlineFriendsPanel = byId("online-fr_block");
-    private static final By feedFilterMenu = byXpath(".//hybrid-feed-filter[@data-bundle-name='contents_hybrid-feed-filter']");
+    private static final By PROFILE_AVATAR = byId("hook_Block_Avatar");
+    private static final By ONLINE_FRIENDS_PANEL = byId("online-fr_block");
+    private static final By FEED_FILTER_MENU = byXpath(".//hybrid-feed-filter[@data-bundle-name='contents_hybrid-feed-filter']");
 
     public FeedPage() {
         checkPage();
     }
 
+    @Override
     public boolean checkPage() {
-        $(profileAvatar).shouldBe(
+        $(PROFILE_AVATAR).shouldBe(
                 visible.because("Profile avatar should be visible on page 'Лента'.")
         );
-        $(feedFilterMenu).shouldBe(
+        $(FEED_FILTER_MENU).shouldBe(
                 visible.because("Feed filter menu should be visible on page 'Лента'.")
         );
-        $(onlineFriendsPanel).shouldBe(
+        $(ONLINE_FRIENDS_PANEL).shouldBe(
                 visible.because("Panel 'Друзья на сайте' should be visible on page 'Лента'.")
         );
         return true;
     }
 
     public boolean checkProfileNameContains(String email) {
-        return $(myProfileButton).shouldBe(
+        return $(MY_PROFILE_BUTTON).shouldBe(
                         visible.because("My profile button should be visible on all main pages.")
                 ).getText()
                 .contains(email);

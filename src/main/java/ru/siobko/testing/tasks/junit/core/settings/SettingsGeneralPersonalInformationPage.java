@@ -8,36 +8,37 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class SettingsGeneralPersonalInformationPage extends SettingsBasePage {
-    private static final By nameField = byName("fr.name");
-    private static final By surnameField = byName("fr.surname");
-    private static final By submitButton = byXpath(".//input[@data-l='t,profile_form_settings']");
+    private static final By NAME_FIELD = byName("fr.name");
+    private static final By SURNAME_FIELD = byName("fr.surname");
+    private static final By SUBMIT_BUTTON = byXpath(".//input[@data-l='t,profile_form_settings']");
 
     public SettingsGeneralPersonalInformationPage() {
         checkPage();
     }
 
+    @Override
     public boolean checkPage() {
-        $(nameField).shouldBe(
+        $(NAME_FIELD).shouldBe(
                 visible.because("Field 'Имя' should be visible on page 'Личные данные'.")
         );
-        $(surnameField).shouldBe(
+        $(SURNAME_FIELD).shouldBe(
                 visible.because("Field 'Фамилия' should be visible on page 'Личные данные'.")
         );
-        $(submitButton).shouldBe(
+        $(SUBMIT_BUTTON).shouldBe(
                 visible.because("Submit button should be visible on page 'Личные данные'.")
         );
         return true;
     }
 
     public SettingsGeneralPersonalInformationPage enterName(String name) {
-        $(nameField).shouldBe(
+        $(NAME_FIELD).shouldBe(
                 visible.because("Field 'Имя' should be visible on page 'Личные данные'.")
         ).setValue(name);
         return this;
     }
 
     public void clickSubmit() {
-        $(submitButton).shouldBe(
+        $(SUBMIT_BUTTON).shouldBe(
                 visible.because("Submit button should be visible on page 'Личные данные'.")
         ).click();
     }

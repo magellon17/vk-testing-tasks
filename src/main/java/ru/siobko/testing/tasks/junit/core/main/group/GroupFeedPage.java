@@ -1,4 +1,4 @@
-package ru.siobko.testing.tasks.junit.core.main;
+package ru.siobko.testing.tasks.junit.core.main.group;
 
 import org.openqa.selenium.By;
 
@@ -8,56 +8,52 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
-public class GroupPage extends BaseMainPage {
-    private static final By aboutGroupPanel = byXpath(".//div[@data-module='GroupInfoPanel']");
-    private static final By groupMembersButton = byXpath(".//a[@data-l='outlandermenu,altGroupMembers']");
-    private static final By groupName = byClassName("group-name_h");
-    private static final By groupFeed = byXpath(".//div[@data-l='fL,group']");
-    private static final By moreActionsButton = byXpath(".//li[@class='u-menu_li expand-action-item']");
+public class GroupFeedPage extends BaseGroupPage {
+    private static final By ABOUT_GROUP_PANEL = byXpath(".//div[@data-module='GroupInfoPanel']");
+    private static final By GROUP_NAME = byClassName("group-name_h");
+    private static final By GROUP_FEED = byXpath(".//div[@data-l='fL,group']");
+    private static final By MORE_ACTIONS_BUTTON = byXpath(".//li[@class='u-menu_li expand-action-item']");
 
     //Поля окон, которые появляются в процессе удаления группы.
-    private static final By deleteButton = byText("Удалить");
-    private static final By confirmDeletionButton = byXpath(".//*[@data-l='t,confirm']");
+    private static final By DELETE_BUTTON = byText("Удалить");
+    private static final By CONFIRM_DELETION_BUTTON = byXpath(".//*[@data-l='t,confirm']");
 
-    public GroupPage() {
+    public GroupFeedPage() {
         checkPage();
     }
 
     public boolean checkPage() {
-        $(aboutGroupPanel).shouldBe(
+        $(ABOUT_GROUP_PANEL).shouldBe(
                 visible.because("Panel 'О группе' should be visible on group page.")
         );
-        $(groupFeed).shouldBe(
+        $(GROUP_FEED).shouldBe(
                 visible.because("Group feed should be visible on group page.")
-        );
-        $(groupMembersButton).shouldBe(
-                visible.because("Button 'Участники' should be visible on group page.")
         );
         return true;
     }
 
-    public GroupPage clickMoreActions() {
-        $(moreActionsButton).shouldBe(
+    public GroupFeedPage clickMoreActions() {
+        $(MORE_ACTIONS_BUTTON).shouldBe(
                 visible.because("More actions button should be visible on group page.")
         ).click();
         return this;
     }
 
-    public GroupPage clickDelete() {
-        $(deleteButton).shouldBe(
+    public GroupFeedPage clickDelete() {
+        $(DELETE_BUTTON).shouldBe(
                 visible.because("Button 'Удалить' should be visible on more actions menu.")
         ).click();
         return this;
     }
 
     public void confirmDeletion() {
-        $(confirmDeletionButton).shouldBe(
+        $(CONFIRM_DELETION_BUTTON).shouldBe(
                 visible.because("Confirm deletion button should be visible while deleting a group.")
         ).click();
     }
 
     public boolean checkGroupNameEquals(String myGroup) {
-        return $(groupName).shouldBe(
+        return $(GROUP_NAME).shouldBe(
                         visible.because("Group name should be visible on group page.")
                 ).getText()
                 .equals(myGroup);

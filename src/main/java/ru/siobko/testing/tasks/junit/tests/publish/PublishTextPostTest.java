@@ -1,23 +1,15 @@
-package ru.siobko.testing.tasks.junit.tests;
+package ru.siobko.testing.tasks.junit.tests.publish;
 
 import org.junit.jupiter.api.*;
 import ru.siobko.testing.tasks.junit.core.main.FeedPage;
-import ru.siobko.testing.tasks.junit.core.login.LoginPage;
 import ru.siobko.testing.tasks.junit.core.main.MyProfilePage;
+import ru.siobko.testing.tasks.junit.tests.BaseMainTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Tag("publish")
-public class PublishTextPostTest extends BaseTest {
+public class PublishTextPostTest extends BaseMainTest {
     private static final String POST_TEXT = "Hello, World";
-
-    @BeforeAll
-    public static void login() {
-        new LoginPage()
-                .enterEmail(EMAIL)
-                .enterPassword(PASSWORD)
-                .clickSubmit();
-    }
 
     @Test
     public void testPublishPost() {

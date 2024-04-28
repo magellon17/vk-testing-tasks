@@ -1,4 +1,4 @@
-package ru.siobko.testing.tasks.junit.tests.groups;
+package ru.siobko.testing.tasks.junit.tests.main.groups;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.BeforeAll;
@@ -11,7 +11,7 @@ import ru.siobko.testing.tasks.junit.core.main.group.GroupFeedPage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@Tag("group")
+@Tag("groups")
 public class GroupCreationTest extends BaseGroupTest {
     @BeforeAll
     public static void openGroupsPage() {

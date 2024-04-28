@@ -1,11 +1,11 @@
-package ru.siobko.testing.tasks.junit.tests.publish;
+package ru.siobko.testing.tasks.junit.tests.main.publish;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterAll;
 import ru.siobko.testing.tasks.junit.core.main.FeedPage;
 import ru.siobko.testing.tasks.junit.core.main.MyProfilePage;
-import ru.siobko.testing.tasks.junit.tests.BaseMainTest;
+import ru.siobko.testing.tasks.junit.tests.main.BaseMainTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

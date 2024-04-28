@@ -1,4 +1,4 @@
-package ru.siobko.testing.tasks.junit.tests.groups.groupPage;
+package ru.siobko.testing.tasks.junit.tests.main.groups.groupPage;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import ru.siobko.testing.tasks.junit.core.main.groups.GroupsPage;
 import ru.siobko.testing.tasks.junit.core.main.group.GroupFeedPage;
 import ru.siobko.testing.tasks.junit.core.main.group.GroupPhotosPage;
-import ru.siobko.testing.tasks.junit.tests.groups.BaseGroupTest;
+import ru.siobko.testing.tasks.junit.tests.main.groups.BaseGroupTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

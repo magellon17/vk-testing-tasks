@@ -8,7 +8,7 @@ import ru.siobko.testing.tasks.junit.tests.BaseTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@Tag("loginPage")
+@Tag("login")
 public class LoginTest extends BaseTest {
     @Test
     public void testLogin() {

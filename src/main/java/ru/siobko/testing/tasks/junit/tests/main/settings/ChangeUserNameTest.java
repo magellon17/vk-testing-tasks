@@ -1,4 +1,4 @@
-package ru.siobko.testing.tasks.junit.tests.settings;
+package ru.siobko.testing.tasks.junit.tests.main.settings;
 
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.AfterAll;
 import ru.siobko.testing.tasks.junit.core.main.FeedPage;
 import ru.siobko.testing.tasks.junit.core.settings.SettingsGeneralPage;
 import ru.siobko.testing.tasks.junit.core.settings.SettingsGeneralPersonalInformationPage;
-import ru.siobko.testing.tasks.junit.tests.BaseMainTest;
+import ru.siobko.testing.tasks.junit.tests.main.BaseMainTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

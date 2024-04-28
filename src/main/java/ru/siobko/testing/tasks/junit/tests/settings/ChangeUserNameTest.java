@@ -1,7 +1,10 @@
 package ru.siobko.testing.tasks.junit.tests.settings;
 
 import com.codeborne.selenide.Selenide;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterAll;
 import ru.siobko.testing.tasks.junit.core.main.FeedPage;
 import ru.siobko.testing.tasks.junit.core.settings.SettingsGeneralPage;
 import ru.siobko.testing.tasks.junit.core.settings.SettingsGeneralPersonalInformationPage;

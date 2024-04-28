@@ -52,10 +52,9 @@ public class GroupFeedPage extends BaseGroupPage {
         ).click();
     }
 
-    public boolean checkGroupNameEquals(String myGroup) {
+    public String getGroupName() {
         return $(GROUP_NAME).shouldBe(
-                        visible.because("Group name should be visible on group page.")
-                ).getText()
-                .equals(myGroup);
+                visible.because("Group name should be visible on group page.")
+        ).getText();
     }
 }

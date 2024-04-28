@@ -1,13 +1,15 @@
 package ru.siobko.testing.tasks.junit.tests.group;
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import ru.siobko.testing.tasks.junit.core.main.FeedPage;
 import ru.siobko.testing.tasks.junit.core.main.GroupsPage;
 import ru.siobko.testing.tasks.junit.core.main.group.GroupFeedPage;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Tag("group")
 public class GroupCreationTest extends BaseGroupTest {
@@ -26,7 +28,7 @@ public class GroupCreationTest extends BaseGroupTest {
                 .expandThematicsList()
                 .clickAutoThematic()
                 .clickCreate();
-        assertTrue(groupFeedPage.checkGroupNameEquals(groupName),
+        assertEquals(groupFeedPage.getGroupName(),groupName,
                 "The group was created incorrectly."
         );
     }

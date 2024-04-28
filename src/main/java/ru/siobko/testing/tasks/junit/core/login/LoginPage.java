@@ -3,6 +3,7 @@ package ru.siobko.testing.tasks.junit.core.login;
 import org.openqa.selenium.By;
 import ru.siobko.testing.tasks.junit.core.BasePage;
 import ru.siobko.testing.tasks.junit.core.main.FeedPage;
+import ru.siobko.testing.tasks.junit.models.TestBot;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.visible;
@@ -53,10 +54,19 @@ public class LoginPage extends BasePage {
         return new FeedPage();
     }
 
-    public boolean checkPasswordFieldContains(String password) {
-        return $(PASSWORD_FIELD).shouldBe(
-                visible.because("Password field should be visible on login page.")
-        ).getText().contains(password);
+    public FeedPage login(TestBot bot) {
+        $(EMAIL_FIELD).shouldBe(
+                visible.because("Email field should be exist on login page.")
+        ).setValue(bot.getEmail());
+
+        $(PASSWORD_FIELD).shouldBe(
+                visible.because("Password field should be exist on login page.")
+        ).setValue(bot.getPassword());
+
+        $(SUBMIT_BUTTON).shouldBe(
+                visible.because("Submit button should be exist on login page.")
+        ).click();
+        return new FeedPage();
     }
 
     public String getEmailFieldText() {

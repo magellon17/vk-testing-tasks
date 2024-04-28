@@ -2,12 +2,13 @@ package ru.siobko.testing.tasks.junit.core.main;
 
 import org.openqa.selenium.By;
 import ru.siobko.testing.tasks.junit.core.BasePage;
+import ru.siobko.testing.tasks.junit.core.main.groups.GroupsPage;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
-public class BaseMainPage extends BasePage {
+public abstract class BaseMainPage extends BasePage {
     protected static final By GROUPS_BUTTON = byXpath(".//a[@data-l='t,userAltGroup']");
     protected static final By MY_PROFILE_BUTTON = byXpath(".//a[@data-l='t,userPage']");
     protected static final By NAVIGATION_MENU = byXpath(".//div[@data-l='t,navigation']");

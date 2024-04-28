@@ -1,18 +1,15 @@
-package ru.siobko.testing.tasks.junit.core.main;
+package ru.siobko.testing.tasks.junit.core.main.groups;
 
 import org.openqa.selenium.By;
 import ru.siobko.testing.tasks.junit.core.main.group.GroupFeedPage;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byClassName;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.byId;
 import static com.codeborne.selenide.Selenide.$;
 
-public class GroupsPage extends BaseMainPage {
-    private static final By GROUP_SEARCH_FIELD = byXpath(".//group-search-input[@data-bundle-name='search_group-search-input']");
-    private static final By GROUPS_CATALOG_HEADER = byClassName("groups-catalog-header");
+public class GroupsPage extends BaseGroupsPage {
     private static final By CREATE_GROUP_BUTTON = byText("Создать группу");
 
     //Поля окон, которые появляются в процессе создания группы.
@@ -21,24 +18,6 @@ public class GroupsPage extends BaseMainPage {
     private static final By THEMATICS_LIST = byXpath(".//div[@class='it js-multi-select_visual-input']");
     private static final By AUTO_THEMATIC_BUTTON = byText("Автомобили");
     private static final By CREATE_BUTTON = byXpath(".//input[@data-l='t,confirm']");
-
-    public GroupsPage() {
-        checkPage();
-    }
-
-    @Override
-    public boolean checkPage() {
-        $(CREATE_GROUP_BUTTON).shouldBe(
-                visible.because("Button 'Создать группу' should be visible on page 'Группы'.")
-        );
-        $(GROUP_SEARCH_FIELD).shouldBe(
-                visible.because("Group search field should be visible on page 'Группы'.")
-        );
-        $(GROUPS_CATALOG_HEADER).shouldBe(
-                visible.because("Groups catalog header should be visible on page 'Группы'.")
-        );
-        return true;
-    }
 
     public GroupsPage clickCreateGroup() {
         $(CREATE_GROUP_BUTTON).shouldBe(

@@ -1,4 +1,4 @@
-package ru.siobko.testing.tasks.junit.tests.group;
+package ru.siobko.testing.tasks.junit.tests.groups;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.BeforeAll;
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import ru.siobko.testing.tasks.junit.core.main.FeedPage;
-import ru.siobko.testing.tasks.junit.core.main.GroupsPage;
+import ru.siobko.testing.tasks.junit.core.main.groups.GroupsPage;
 import ru.siobko.testing.tasks.junit.core.main.group.GroupFeedPage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

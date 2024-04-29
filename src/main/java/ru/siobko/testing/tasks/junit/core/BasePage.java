@@ -1,6 +1,8 @@
 package ru.siobko.testing.tasks.junit.core;
 
 import org.openqa.selenium.By;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byName;
@@ -18,10 +20,10 @@ public abstract class BasePage {
 
     protected boolean checkPage() {
         $(QUERY_FIELD).shouldBe(
-                visible.because("Query Filed should be visible on all pages.")
+                visible.because("Не отобразился поисковик по сайту.")
         );
         $(ECOSYSTEM_BUTTON).shouldBe(
-                visible.because("Ecosystem button should be visible on all pages.")
+                visible.because("Не отобразилась кнопка экосистемы.")
         );
         return true;
     }

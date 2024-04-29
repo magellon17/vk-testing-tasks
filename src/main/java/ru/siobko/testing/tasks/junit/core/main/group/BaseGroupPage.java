@@ -1,7 +1,9 @@
 package ru.siobko.testing.tasks.junit.core.main.group;
 
 import org.openqa.selenium.By;
-import ru.siobko.testing.tasks.selenide.pages.main.BaseMainPage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import ru.siobko.testing.tasks.junit.core.main.BaseMainPage;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byXpath;
@@ -14,32 +16,34 @@ public class BaseGroupPage extends BaseMainPage {
     protected static final By GROUP_PRODUCTS_BUTTON = byXpath(".//a[@data-l='outlandermenu,altGroupAdvertsPage']");
     protected static final By GROUP_MUSIC_BUTTON = byXpath(".//a[@data-l='outlandermenu,altGroupMusic']");
 
-    public BaseGroupPage() {
+    protected BaseGroupPage() {
         checkPage();
     }
 
-    private void checkPage() {
+    @Override
+    protected boolean checkPage() {
         $(GROUP_MEMBERS_BUTTON).shouldBe(
-                visible.because("Button 'Участники' should be visible on group page.")
+                visible.because("Не отобразилась кнопка участников группы.")
         );
         $(GROUP_PHOTOS_BUTTON).shouldBe(
-                visible.because("Navigation menu should be visible on all main pages.")
+                visible.because("Не отобразилась кнопка фотографий группы.")
         );
         $(GROUP_FEED_BUTTON).shouldBe(
-                visible.because("Button 'Опубликовать' should be visible on all main pages.")
+                visible.because("Не отобразилась кнопка ленты группы.")
         );
+        return true;
     }
 
     public GroupMembersPage openGroupMembersPage() {
         $(GROUP_MEMBERS_BUTTON).shouldBe(
-                visible.because("Button 'Участники' should be visible on group page.")
+                visible.because("Не отобразилась кнопка участников группы.")
         ).click();
         return new GroupMembersPage();
     }
 
     public GroupPhotosPage openGroupPhotosPage() {
         $(GROUP_PHOTOS_BUTTON).shouldBe(
-                visible.because("Button 'Участники' should be visible on group page.")
+                visible.because("Не отобразилась кнопка фотографий группы.")
         ).click();
         return new GroupPhotosPage();
     }

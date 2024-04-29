@@ -8,12 +8,12 @@ import ru.siobko.testing.tasks.junit.tests.BaseTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Tag("loginPage")
-public class EnterEmailTest extends BaseTest {
+public class EnterLoginTest extends BaseTest {
     @Test
-    public void testEnterEmail() {
+    public void testEnterLogin() {
         LoginPage loginPage = new LoginPage()
-                .enterEmail(EMAIL);
-        assertEquals(loginPage.getEmailFieldText(), EMAIL,
+                .enterLogin(EMAIL);
+        assertEquals(loginPage.getLoginFieldText(), EMAIL,
                 "Incorrect account login name."
         );
     }

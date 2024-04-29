@@ -1,6 +1,8 @@
 package ru.siobko.testing.tasks.junit.core.main.groups;
 
 import org.openqa.selenium.By;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.siobko.testing.tasks.junit.core.main.group.GroupFeedPage;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -10,6 +12,7 @@ import static com.codeborne.selenide.Selectors.byId;
 import static com.codeborne.selenide.Selenide.$;
 
 public class GroupsPage extends BaseGroupsPage {
+    private static final Logger LOGGER = LoggerFactory.getLogger(GroupsPage.class);
     private static final By CREATE_GROUP_BUTTON = byText("Создать группу");
 
     //Поля окон, которые появляются в процессе создания группы.
@@ -19,44 +22,63 @@ public class GroupsPage extends BaseGroupsPage {
     private static final By AUTO_THEMATIC_BUTTON = byText("Автомобили");
     private static final By CREATE_BUTTON = byXpath(".//input[@data-l='t,confirm']");
 
-    public GroupsPage clickCreateGroup() {
+    public GroupsPage() {
+        checkPage();
+    }
+
+    @Override
+    public boolean checkPage() {
         $(CREATE_GROUP_BUTTON).shouldBe(
-                visible.because("Button 'Создать группу' should be visible on page 'Группы'.")
+                visible.because("Не отобразилась кнопка создания группы.")
+        );
+        LOGGER.info("Перешли на страницу актуальных групп.");
+        return true;
+    }
+
+    public GroupsPage clickCreateGroup() {
+        LOGGER.info("Кликаем на кнопку создания группы.");
+        $(CREATE_GROUP_BUTTON).shouldBe(
+                visible.because("Не отобразилась кнопка создания группы.")
         ).click();
         return this;
     }
 
     public GroupsPage clickGroupByInterest() {
+        LOGGER.info("Выбираем группу по интересам.");
         $(GROUP_BY_INTEREST_BUTTON).shouldBe(
-                visible.because("Button 'Группа по интересам' should be visible after clicking button 'Создать группу'.")
+                visible.because("Нет варианта создать группу по интересам.")
         ).click();
         return this;
     }
 
     public GroupsPage enterGroupName(String Name) {
+        LOGGER.info("Выбираем название группы.");
         $(GROUP_NAME_FIELD).shouldBe(
-                visible.because("Field 'Название' should be visible while creating a group.")
+                visible.because("Не отобразилось поле ввода названия группы.")
         ).setValue(Name);
         return this;
     }
 
     public GroupsPage expandThematicsList() {
+        LOGGER.info("Раскрываем список групповых тематик.");
         $(THEMATICS_LIST).shouldBe(
-                visible.because("List 'Тематика' should be visible while creating a group.")
+                visible.because("Не отобразился список групповых тематик.")
         ).click();
         return this;
     }
 
     public GroupsPage clickAutoThematic() {
+        LOGGER.info("Выбираем автомобильную тематику.");
         $(AUTO_THEMATIC_BUTTON).shouldBe(
-                visible.because("Thematic 'Автомобили' should be visible after opening thematic list.")
+                visible.because("Автомобильной тематики нет в списке.")
         ).click();
         return this;
     }
 
     public GroupFeedPage clickCreate() {
+        LOGGER.info("Подтверждаем создание группы.");
         $(CREATE_BUTTON).shouldBe(
-                visible.because("Button 'Создать' should be visible while creating a group.")
+                visible.because("Не отобразилась кнопка создания группы.")
         ).click();
         return new GroupFeedPage();
     }

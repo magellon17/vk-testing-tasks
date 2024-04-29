@@ -1,6 +1,8 @@
 package ru.siobko.testing.tasks.junit.core.main;
 
 import org.openqa.selenium.By;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 import ru.siobko.testing.tasks.junit.core.settings.SettingsGeneralPage;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -9,6 +11,7 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MyProfilePage extends BaseMainPage {
+    private static final Logger LOGGER = LoggerFactory.getLogger(MyProfilePage.class);
     private static final By SETTINGS_BUTTON = byXpath(".//li[@data-l='outlandertarget,settings,t,settings']");
     private static final By PROFILE_FEED = byXpath(".//div[@data-block='UserFeed']");
     private static final By LAST_FEED_POST_TEXT = byClassName("media-text_cnt");
@@ -33,32 +36,36 @@ public class MyProfilePage extends BaseMainPage {
         $(PROFILE_FEED).shouldBe(
                 visible.because("Profile feed should be visible on my profile page.")
         );
+        LOGGER.info("Перешли на страницу профиля");
         return true;
     }
 
     public SettingsGeneralPage openProfileSettings() {
+        LOGGER.info("Открываем настройки профиля.");
         $(SETTINGS_BUTTON).shouldBe(
-                visible.because("Button 'Настройки' should be visible on my profile page.")
+                visible.because("Не отобразилась кнопка настроек.")
         ).click();
         return new SettingsGeneralPage();
     }
 
-    public boolean checkLastFeedPostContains(String s) {
+    public boolean checkLastFeedPostContains(String text) {
         return $(LAST_FEED_POST_TEXT).shouldBe(
-                        visible.because("Text of last feed post should be visible on my profile page.")
+                        visible.because("Нет последнего текстового поста.")
                 ).getText()
-                .contains(s);
+                .contains(text);
     }
 
     public MyProfilePage hoverLastFeedPostActionsMenu() {
+        LOGGER.info("Наводим курсор на меню действий текстового поста.");
         $(LAST_FEED_POST_ACTIONS_MENU).shouldBe(
-                        visible.because("Actions menu of last feed post should be visible on my profile page.")
+                        visible.because("Не отобразилось меню действий текстового поста.")
                 ).scrollIntoView("{block: \"center\"}")
                 .hover();
         return this;
     }
 
     public MyProfilePage clickDeleteNote() {
+        LOGGER.info("Удаляем заметку.");
         $(DELETE_NOTE_BUTTON).shouldBe(
                 visible.because("Button 'Удалить заметку' should be visible on post actions menu.")
         ).click();
@@ -66,8 +73,9 @@ public class MyProfilePage extends BaseMainPage {
     }
 
     public void confirmDeletion() {
+        LOGGER.info("Подтверждаем удаление заметки.");
         $(CONFIRM_DELETION_BUTTON).shouldBe(
-                visible.because("Button 'Удалить заметку' should be visible.")
+                visible.because("Не отобразилась кнопка подтверждения удаления.")
         ).click();
     }
 }

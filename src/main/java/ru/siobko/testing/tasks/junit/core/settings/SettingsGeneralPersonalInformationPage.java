@@ -1,6 +1,8 @@
 package ru.siobko.testing.tasks.junit.core.settings;
 
 import org.openqa.selenium.By;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byName;
@@ -8,6 +10,8 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class SettingsGeneralPersonalInformationPage extends SettingsBasePage {
+    private static final Logger LOGGER = LoggerFactory.getLogger(SettingsGeneralPersonalInformationPage.class);
+
     private static final By NAME_FIELD = byName("fr.name");
     private static final By SURNAME_FIELD = byName("fr.surname");
     private static final By SUBMIT_BUTTON = byXpath(".//input[@data-l='t,profile_form_settings']");
@@ -19,27 +23,30 @@ public class SettingsGeneralPersonalInformationPage extends SettingsBasePage {
     @Override
     public boolean checkPage() {
         $(NAME_FIELD).shouldBe(
-                visible.because("Field 'Имя' should be visible on page 'Личные данные'.")
+                visible.because("Не отобразилось поле имени.")
         );
         $(SURNAME_FIELD).shouldBe(
-                visible.because("Field 'Фамилия' should be visible on page 'Личные данные'.")
+                visible.because("Не отобразилось поле фамилии.")
         );
         $(SUBMIT_BUTTON).shouldBe(
-                visible.because("Submit button should be visible on page 'Личные данные'.")
+                visible.because("Не отобразилась кнопка сохранения изменений.")
         );
+        LOGGER.info("Перешли на страницу персональных настроек.");
         return true;
     }
 
     public SettingsGeneralPersonalInformationPage enterName(String name) {
+        LOGGER.info("Вводим новое имя профиля: {}", name);
         $(NAME_FIELD).shouldBe(
-                visible.because("Field 'Имя' should be visible on page 'Личные данные'.")
+                visible.because("Не отобразилось поле имени.")
         ).setValue(name);
         return this;
     }
 
     public void clickSubmit() {
+        LOGGER.info("Подтверждаем изменения");
         $(SUBMIT_BUTTON).shouldBe(
-                visible.because("Submit button should be visible on page 'Личные данные'.")
+                visible.because("Не отобразилась кнопка сохранения изменений.")
         ).click();
     }
 }

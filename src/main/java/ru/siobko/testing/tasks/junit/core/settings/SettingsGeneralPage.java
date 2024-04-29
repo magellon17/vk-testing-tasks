@@ -1,13 +1,16 @@
 package ru.siobko.testing.tasks.junit.core.settings;
 
 import org.openqa.selenium.By;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class SettingsGeneralPage extends SettingsBasePage {
-    private static final By PERSONA_INFORMATION_FORM = byXpath(".//a[@data-l='t,profile_form']");
+    private static final Logger LOGGER = LoggerFactory.getLogger(SettingsGeneralPage.class);
+    private static final By PERSONAL_INFORMATION_FORM = byXpath(".//a[@data-l='t,profile_form']");
     private static final By PASSWORD_FORM = byXpath(".//a[@data-l='t,set_password']");
     private static final By EMAIL_FORM = byXpath(".//a[@data-l='t,set_email']");
 
@@ -17,21 +20,23 @@ public class SettingsGeneralPage extends SettingsBasePage {
 
     @Override
     public boolean checkPage() {
-        $(PERSONA_INFORMATION_FORM).shouldBe(
-                visible.because("Personal information form should be visible on general settings page.")
+        $(PERSONAL_INFORMATION_FORM).shouldBe(
+                visible.because("Не отобразилась форма персональной информации.")
         );
         $(PASSWORD_FORM).shouldBe(
-                visible.because("Password form should be visible on general settings page.")
+                visible.because("Не отобразилась форма пароля.")
         );
         $(EMAIL_FORM).shouldBe(
-                visible.because("Email form should be visible on general settings page.")
+                visible.because("Не отобразилась форма почты.")
         );
+        LOGGER.info("Перешли на страницу основных настроек.");
         return true;
     }
 
     public SettingsGeneralPersonalInformationPage openPersonalInformationPage() {
-        $(PERSONA_INFORMATION_FORM).shouldBe(
-                visible.because("Personal information form should be visible on general settings page.")
+        LOGGER.info("Открываем страницу с персональными настройками.");
+        $(PERSONAL_INFORMATION_FORM).shouldBe(
+                visible.because("Не отобразилась форма персональной информации.")
         ).click();
         return new SettingsGeneralPersonalInformationPage();
     }

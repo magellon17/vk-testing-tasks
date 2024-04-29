@@ -1,6 +1,8 @@
 package ru.siobko.testing.tasks.junit.core.login;
 
 import org.openqa.selenium.By;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.siobko.testing.tasks.junit.core.BasePage;
 import ru.siobko.testing.tasks.junit.core.main.FeedPage;
 import ru.siobko.testing.tasks.junit.models.TestBot;
@@ -12,7 +14,8 @@ import static com.codeborne.selenide.Selectors.byValue;
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage extends BasePage {
-    private static final By EMAIL_FIELD = byName("st.email");
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoginPage.class);
+    private static final By LOGIN_FIELD = byName("st.email");
     private static final By PASSWORD_FIELD = byName("st.password");
     private static final By SUBMIT_BUTTON = byValue("Log in to OK");
 
@@ -21,63 +24,66 @@ public class LoginPage extends BasePage {
     }
 
     public boolean checkPage() {
-        $(EMAIL_FIELD).shouldBe(
-                exist.because("Email field should be exist on login page.")
+        $(LOGIN_FIELD).shouldBe(
+                exist.because("Не отобразилось поле логина.")
         );
         $(PASSWORD_FIELD).shouldBe(
-                exist.because("Password field should be exist on login page.")
+                exist.because("Не отобразилось поле пароля.")
         );
         $(SUBMIT_BUTTON).shouldBe(
-                exist.because("Submit button should be exist on login page.")
+                exist.because("Не отобразилась кнопка входа.")
         );
+        LOGGER.info("Перешли на страницу входа.");
         return true;
     }
 
-    public LoginPage enterEmail(String email) {
-        $(EMAIL_FIELD).shouldBe(
-                visible.because("Email field should be exist on login page.")
-        ).setValue(email);
+    public LoginPage enterLogin(String login) {
+        LOGGER.info("Вводим логин.");
+        $(LOGIN_FIELD).shouldBe(
+                visible.because("Не отобразилось поле логина.")
+        ).setValue(login);
         return this;
     }
 
     public LoginPage enterPassword(String password) {
+        LOGGER.info("Вводим пароль.");
         $(PASSWORD_FIELD).shouldBe(
-                visible.because("Password field should be exist on login page.")
+                visible.because("Не отобразилось поле пароля.")
         ).setValue(password);
         return this;
     }
 
     public FeedPage clickSubmit() {
+        LOGGER.info("Кликаем на кнопку входа.");
         $(SUBMIT_BUTTON).shouldBe(
-                visible.because("Submit button should be exist on login page.")
+                visible.because("Не отобразилась кнопка входа.")
         ).click();
         return new FeedPage();
     }
 
     public FeedPage login(TestBot bot) {
-        $(EMAIL_FIELD).shouldBe(
-                visible.because("Email field should be exist on login page.")
+        LOGGER.info("Выполняем вход в аккаунт.");
+        $(LOGIN_FIELD).shouldBe(
+                visible.because("Не отобразилось поле логина.")
         ).setValue(bot.getEmail());
-
         $(PASSWORD_FIELD).shouldBe(
-                visible.because("Password field should be exist on login page.")
+                visible.because("Не отобразилось поле пароля.")
         ).setValue(bot.getPassword());
-
         $(SUBMIT_BUTTON).shouldBe(
-                visible.because("Submit button should be exist on login page.")
+                visible.because("Не отобразилась кнопка входа.")
         ).click();
         return new FeedPage();
     }
 
-    public String getEmailFieldText() {
-        return $(EMAIL_FIELD).shouldBe(
-                visible.because("Email field should be visible on login page.")
+    public String getLoginFieldText() {
+        return $(LOGIN_FIELD).shouldBe(
+                visible.because("Не отобразилось поле логина.")
         ).getValue();
     }
 
     public String getPasswordFieldText() {
         return $(PASSWORD_FIELD).shouldBe(
-                visible.because("Password field should be visible on login page.")
+                visible.because("Не отобразилось поле пароля.")
         ).getValue();
     }
 }

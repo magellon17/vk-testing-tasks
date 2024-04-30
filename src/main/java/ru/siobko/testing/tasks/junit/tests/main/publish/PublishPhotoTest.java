@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Tag("publish")
 public class PublishPhotoTest extends BaseMainTest {
-    private static final Logger TESTLOG = LoggerFactory.getLogger(PublishStatusTest.class);
+    private static final Logger TESTLOG = LoggerFactory.getLogger(PublishPhotoTest.class);
 
     private static final String JPG_PHOTO = "src/main/java/ru/siobko/testing/tasks/junit/tests/data/bestPhoto.jpg";
     private static final String PNG_PHOTO = "src/main/java/ru/siobko/testing/tasks/junit/tests/data/lovelyPhoto.png";

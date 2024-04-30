@@ -3,13 +3,13 @@ package ru.siobko.testing.tasks.junit.core.main.profile.myProfile;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.junit.core.main.profile.BaseProfilePage;
+import ru.siobko.testing.tasks.junit.core.main.BaseMainPage;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
-public class MyProfileFriendsPage extends BaseProfilePage {
+public class MyProfileFriendsPage extends BaseMainPage {
     private static final Logger LOG = LoggerFactory.getLogger(MyProfileFriendsPage.class);
 
     private static final By FRIEND_REQUESTS_BUTTON = byXpath(".//a[@data-l='t,userFriendRequest']");

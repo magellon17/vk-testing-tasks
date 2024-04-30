@@ -3,7 +3,7 @@ package ru.siobko.testing.tasks.junit.core.main.profile.myProfile;
 import org.openqa.selenium.By;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
-import ru.siobko.testing.tasks.junit.core.main.profile.BaseProfilePage;
+import ru.siobko.testing.tasks.junit.core.main.BaseMainPage;
 import ru.siobko.testing.tasks.junit.core.settings.SettingsGeneralPage;
 
 import java.io.File;
@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 
-public class MyProfilePage extends BaseProfilePage {
+public class MyProfilePage extends BaseMainPage {
     private static final Logger LOG = LoggerFactory.getLogger(MyProfilePage.class);
 
     private static final By SETTINGS_BUTTON = byXpath(".//li[@data-l='outlandertarget,settings,t,settings']");

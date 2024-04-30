@@ -13,6 +13,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class GroupsPage extends BaseGroupsPage {
     private static final Logger LOG = LoggerFactory.getLogger(GroupsPage.class);
+
     private static final By CREATE_GROUP_BUTTON = byText("Создать группу");
 
     //Поля окон, которые появляются в процессе создания группы.

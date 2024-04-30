@@ -10,6 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class SettingsGeneralPage extends SettingsBasePage {
     private static final Logger LOG = LoggerFactory.getLogger(SettingsGeneralPage.class);
+
     private static final By PERSONAL_INFORMATION_FORM = byXpath(".//a[@data-l='t,profile_form']");
     private static final By PASSWORD_FORM = byXpath(".//a[@data-l='t,set_password']");
     private static final By EMAIL_FORM = byXpath(".//a[@data-l='t,set_email']");

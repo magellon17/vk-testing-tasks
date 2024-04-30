@@ -7,7 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.junit.core.main.FeedPage;
+import ru.siobko.testing.tasks.junit.core.main.profile.myProfile.MyProfileFeedPage;
 import ru.siobko.testing.tasks.junit.core.main.groups.GroupsPage;
 import ru.siobko.testing.tasks.junit.core.main.group.GroupFeedPage;
 import ru.siobko.testing.tasks.junit.tests.main.groups.BaseGroupsTest;
@@ -21,7 +21,7 @@ public class GroupCreationTest extends BaseGroupsTest {
     @BeforeAll
     public static void openGroupsPage() {
         TESTLOG.info("Откроем страницу с группами.");
-        new FeedPage().openGroupsPage();
+        new MyProfileFeedPage().openGroupsPage();
     }
 
     @ParameterizedTest

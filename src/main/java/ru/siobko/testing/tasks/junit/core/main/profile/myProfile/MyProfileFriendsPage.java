@@ -10,7 +10,8 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MyProfileFriendsPage extends BaseProfilePage {
-    private static final Logger LOG = LoggerFactory.getLogger(MyProfilePage.class);
+    private static final Logger LOG = LoggerFactory.getLogger(MyProfileFriendsPage.class);
+
     private static final By FRIEND_REQUESTS_BUTTON = byXpath(".//a[@data-l='t,userFriendRequest']");
     private static final By FRIEND_SUGGESTS_BUTTON = byXpath(".//a[@data-l='t,userFriendSuggest']");
 

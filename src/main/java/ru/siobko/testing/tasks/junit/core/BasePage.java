@@ -8,7 +8,6 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public abstract class BasePage {
-    protected static final By TOOLBAR_OK_LOGO = byXpath(".//a[@data-l='t,logo']");
     protected static final By QUERY_FIELD = byName("st.query");
     protected static final By ECOSYSTEM_BUTTON = byXpath(".//div[@data-module='VkEcosystem']");
 

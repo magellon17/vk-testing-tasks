@@ -150,12 +150,18 @@ public abstract class BaseMainPage extends BasePage {
     }
 
     public StatusPage openStatus() {
-        $(OPEN_PUBLISHED_STATUS_BUTTON).click();
+        LOG.info("Открываем статус.");
+        $(OPEN_PUBLISHED_STATUS_BUTTON).shouldBe(
+                visible.because("Не найден статус.")
+        ).click();
         return new StatusPage();
     }
 
     public PhotoPage openPhoto() {
-        $(OPEN_PUBLISHED_PHOTO_BUTTON).click();
+        LOG.info("Открываем фото.");
+        $(OPEN_PUBLISHED_PHOTO_BUTTON).shouldBe(
+                visible.because("Не найдено фото.")
+        ).click();
         return new PhotoPage();
     }
 }

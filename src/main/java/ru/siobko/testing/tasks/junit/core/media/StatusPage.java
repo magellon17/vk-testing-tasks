@@ -12,7 +12,6 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 public class StatusPage {
     private static final Logger LOG = LoggerFactory.getLogger(StatusPage.class);
 
-    private static final By MORE_ACTIONS_PUBLISHED_POST_BUTTON = byXpath(".//div[@data-l='t,shortcutMenuIcon']");
     private static final By DELETE_PUBLISHED_POST_BUTTON = byXpath(".//a[contains(@hrefattrs, 'deleteButton')]");
     private static final By CLOSE_PUBLISHED_POST_BUTTON = byXpath(".//button[@data-l='t,mtLayerClose']");
     private static final By AUTHOR_REF =byXpath(".//div[@data-l='t,author']");
@@ -34,7 +33,9 @@ public class StatusPage {
     }
 
     public String getText() {
-        return $(TEXT_BOX).getText();
+        return $(TEXT_BOX).shouldBe(
+                visible.because("Не отобразился текст статуса.")
+        ).getText();
     }
 
     public StatusPage deleteStatus() {

@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.siobko.testing.tasks.junit.core.BasePage;
-import ru.siobko.testing.tasks.junit.core.main.FeedPage;
+import ru.siobko.testing.tasks.junit.core.main.profile.myProfile.MyProfileFeedPage;
 import ru.siobko.testing.tasks.junit.models.TestBot;
 
 import static com.codeborne.selenide.Condition.exist;
@@ -53,26 +53,19 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public FeedPage clickSubmit() {
+    public MyProfileFeedPage clickSubmit() {
         LOG.info("Кликаем на кнопку входа.");
         $(SUBMIT_BUTTON).shouldBe(
                 visible.because("Не отобразилась кнопка входа.")
         ).click();
-        return new FeedPage();
+        return new MyProfileFeedPage();
     }
 
-    public FeedPage login(TestBot bot) {
+    public MyProfileFeedPage login(TestBot bot) {
         LOG.info("Выполняем вход в аккаунт.");
-        $(LOGIN_FIELD).shouldBe(
-                visible.because("Не отобразилось поле логина.")
-        ).setValue(bot.getLogin());
-        $(PASSWORD_FIELD).shouldBe(
-                visible.because("Не отобразилось поле пароля.")
-        ).setValue(bot.getPassword());
-        $(SUBMIT_BUTTON).shouldBe(
-                visible.because("Не отобразилась кнопка входа.")
-        ).click();
-        return new FeedPage();
+        return enterLogin(bot.getLogin())
+                .enterPassword(bot.getPassword())
+                .clickSubmit();
     }
 
     public String getLoginFieldText() {

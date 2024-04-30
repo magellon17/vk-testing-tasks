@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.AfterAll;
-import ru.siobko.testing.tasks.junit.core.main.FeedPage;
+import ru.siobko.testing.tasks.junit.core.main.profile.myProfile.MyProfileFeedPage;
 import ru.siobko.testing.tasks.junit.core.settings.SettingsGeneralPage;
 import ru.siobko.testing.tasks.junit.core.settings.SettingsGeneralPersonalInformationPage;
 import ru.siobko.testing.tasks.junit.tests.main.BaseMainTest;
@@ -18,7 +18,7 @@ public class ChangeUserNameTest extends BaseMainTest {
 
     @BeforeAll
     public static void openPersonalInformationPage() {
-        new FeedPage().openMyProfilePage()
+        new MyProfileFeedPage().openMyProfilePage()
                 .openProfileSettings()
                 .openPersonalInformationPage();
     }

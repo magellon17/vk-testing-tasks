@@ -6,7 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.junit.core.main.FeedPage;
+import ru.siobko.testing.tasks.junit.core.main.profile.myProfile.MyProfileFeedPage;
 import ru.siobko.testing.tasks.junit.core.media.PhotoPage;
 import ru.siobko.testing.tasks.junit.tests.main.BaseMainTest;
 
@@ -23,7 +23,7 @@ public class PublishPhotoTest extends BaseMainTest {
     @ValueSource(strings = {JPG_PHOTO, PNG_PHOTO})
     public void testPublishPhoto(String filename) {
         TESTLOG.info("Публикуем фото.");
-        PhotoPage photoPage = new FeedPage()
+        PhotoPage photoPage = new MyProfileFeedPage()
                 .clickPublish()
                 .clickPublishPhoto(filename)
                 .openPhoto();

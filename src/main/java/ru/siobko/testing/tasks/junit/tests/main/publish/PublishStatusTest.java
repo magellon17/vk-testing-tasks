@@ -6,7 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.junit.core.main.FeedPage;
+import ru.siobko.testing.tasks.junit.core.main.profile.myProfile.MyProfileFeedPage;
 import ru.siobko.testing.tasks.junit.core.media.StatusPage;
 import ru.siobko.testing.tasks.junit.tests.main.BaseMainTest;
 
@@ -23,7 +23,7 @@ public class PublishStatusTest extends BaseMainTest {
     @ValueSource(strings = {ENGLISH_TEXT, RUSSIAN_TEXT})
     public void testPublishStatus(String text) {
         TESTLOG.info("Публикуем статус.");
-        StatusPage statusPage = new FeedPage()
+        StatusPage statusPage = new MyProfileFeedPage()
                 .clickPublish()
                 .clickPublishStatus()
                 .enterPostText(text)

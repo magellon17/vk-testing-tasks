@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public abstract class BaseGroupsPage extends BaseMainPage {
-    private static final Logger LOGGER = LoggerFactory.getLogger(BaseGroupsPage.class);
+    private static final Logger LOG = LoggerFactory.getLogger(BaseGroupsPage.class);
 
     protected static final By GROUP_SEARCH_FIELD = byXpath(".//group-search-input[@data-bundle-name='search_group-search-input']");
     protected static final By OFFICIAL_GROUPS_BUTTON = byXpath(".//a[@aria-label='Официальные']");
@@ -28,7 +28,7 @@ public abstract class BaseGroupsPage extends BaseMainPage {
     }
 
     public OfficialGroupsPage openOfficialGroupsCatalog() {
-        LOGGER.info("Открываем страницу с официальными группами.");
+        LOG.info("Открываем страницу с официальными группами.");
         $(OFFICIAL_GROUPS_BUTTON).shouldBe(
                 visible.because("Не отобразилась кнопка для перехода к официальным группам.")
         ).click();

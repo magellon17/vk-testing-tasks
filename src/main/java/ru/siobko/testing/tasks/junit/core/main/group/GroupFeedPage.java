@@ -12,6 +12,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class GroupFeedPage extends BaseGroupPage {
     private static final Logger LOG = LoggerFactory.getLogger(GroupFeedPage.class);
+
     private static final By ABOUT_GROUP_PANEL = byXpath(".//div[@data-module='GroupInfoPanel']");
     private static final By GROUP_NAME = byClassName("group-name_h");
     private static final By GROUP_FEED = byXpath(".//div[@data-l='fL,group']");
@@ -37,7 +38,7 @@ public class GroupFeedPage extends BaseGroupPage {
     }
 
     public GroupFeedPage clickMoreActions() {
-        LOG.info("Кликаем на кнопку ");
+        LOG.info("Кликаем на кнопку дополнитльных действий с группой ('Еще').");
         $(MORE_ACTIONS_BUTTON).shouldBe(
                 visible.because("Кнопка 'Ещё' должны быть видимой на странице ленты группы.")
         ).click();
@@ -45,21 +46,23 @@ public class GroupFeedPage extends BaseGroupPage {
     }
 
     public GroupFeedPage clickDelete() {
+        LOG.info("Кликаем на кнопку 'Удалить' для удаления группы.");
         $(DELETE_BUTTON).shouldBe(
-                visible.because("Button 'Удалить' should be visible on more actions menu.")
+                visible.because("Не появилась кнопка 'Удалить'.")
         ).click();
         return this;
     }
 
     public void confirmDeletion() {
+        LOG.info("Подтверждаем удаление группы.");
         $(CONFIRM_DELETION_BUTTON).shouldBe(
-                visible.because("Confirm deletion button should be visible while deleting a group.")
+                visible.because("Не появилась кнопка пожтверждения удаления.")
         ).click();
     }
 
     public String getGroupName() {
         return $(GROUP_NAME).shouldBe(
-                visible.because("Group name should be visible on group page.")
+                visible.because("Не отобразилось название группы.")
         ).getText();
     }
 }

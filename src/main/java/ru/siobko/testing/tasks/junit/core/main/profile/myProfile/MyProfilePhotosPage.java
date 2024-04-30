@@ -10,7 +10,8 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MyProfilePhotosPage extends BaseMainPage {
-    private static final Logger LOG = LoggerFactory.getLogger(MyProfilePage.class);
+    private static final Logger LOG = LoggerFactory.getLogger(MyProfilePhotosPage.class);
+
     private static final By ALBUMS_BUTTON = byXpath(".//a[@data-l='t,albums_new']");
     private static final By SHARED_ALBUMS_BUTTON = byXpath(".//a[@data-l='t,shared-albums']");
 
@@ -26,7 +27,7 @@ public class MyProfilePhotosPage extends BaseMainPage {
         $(SHARED_ALBUMS_BUTTON).shouldBe(
                 visible.because("Navigation menu of profile feed should be visible on my profile page.")
         );
-        LOG.info("Перешли на страницу фоток моего профиля.");
+        LOG.info("Перешли на страницу фотографий моего профиля.");
         return true;
     }
 }

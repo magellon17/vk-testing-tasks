@@ -13,9 +13,11 @@ public class PhotoPage {
 
     private static final By IMAGE_CONTAINER = byXpath(".//div[@data-l='t,main']");
     private static final By IMAGE = byTagName("img");
+    private static final By CLOSE_PHOTO_PAGE = byXpath(".//button[@class='panel_close__ugpyu close__ugpyu']");
+
+    // Элементы для удаления фото
     private static final By MORE_ACTIONS_MENU = byXpath(".//button[@class='button-clean__0wfyv action-button-container__czsac']");
     private static final By DELETE_PHOTO_BUTTON = byXpath(".//span[text()='Удалить фотографию']");
-    private static final By CLOSE_PHOTO_PAGE = byXpath(".//button[@class='panel_close__ugpyu close__ugpyu']");
 
     public PhotoPage() {
         checkPage();
@@ -30,6 +32,7 @@ public class PhotoPage {
     }
 
     public boolean checkImage() {
+        LOG.info("Делаем проверку на наличие изображения.");
         return $(IMAGE).shouldBe(
                 visible.because("Не появилось фото.")
         ).isImage();
@@ -41,13 +44,15 @@ public class PhotoPage {
                 visible.because("Не отобразилось меню дополнитлеьных действий с фото (3 точки).")
         ).click();
         $(DELETE_PHOTO_BUTTON).shouldBe(
-                visible.because("Не появилась для удаления фото.")
+                visible.because("Не появилась кнопка для удаления фото.")
         ).click();
         return this;
     }
 
     public void closePhoto() {
         LOG.info("Закрываем станицу с фото.");
-        $(CLOSE_PHOTO_PAGE).click();
+        $(CLOSE_PHOTO_PAGE).shouldBe(
+                visible.because("Не отобразился крестик для закрытия страницы с фото.")
+        ).click();
     }
 }

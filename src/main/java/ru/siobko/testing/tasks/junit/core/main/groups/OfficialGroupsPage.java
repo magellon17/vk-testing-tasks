@@ -10,6 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class OfficialGroupsPage extends BaseGroupsPage {
     private static final Logger LOG = LoggerFactory.getLogger(OfficialGroupsPage.class);
+
     private static final By PORTLET_TITLE = byClassName("portlet_h_title");
 
     public OfficialGroupsPage() {

@@ -94,9 +94,11 @@ public abstract class BaseMainPage extends BasePage {
         return this;
     }
 
-    public BaseMainPage clickPublishPhoto(String file) {
+    public BaseMainPage clickPublishPhoto(String filename) {
         LOG.info("Публикуем фотку.");
-        $(PUBLISH_PHOTO_BUTTON).uploadFile(new File(file));
+        $(PUBLISH_PHOTO_BUTTON).shouldBe(
+                visible.because("Не отобразилась кнопка для загрузки фото.")
+        ).uploadFile(new File(filename));
         return this;
     }
 

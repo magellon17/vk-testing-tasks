@@ -1,4 +1,4 @@
-package ru.siobko.testing.tasks.junit.tests.main.groups.groupPage;
+package ru.siobko.testing.tasks.junit.tests.main.groups.suites;
 
 import org.junit.platform.suite.api.IncludeTags;
 import org.junit.platform.suite.api.SelectPackages;

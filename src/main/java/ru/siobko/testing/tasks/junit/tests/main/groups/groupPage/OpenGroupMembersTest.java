@@ -9,6 +9,7 @@ import ru.siobko.testing.tasks.junit.core.main.group.GroupMembersPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@Tag("groups")
 @Tag("groupPage")
 public class OpenGroupMembersTest extends BaseGroupPageTest {
     private static final Logger TESTLOG = LoggerFactory.getLogger(OpenGroupMembersTest.class);

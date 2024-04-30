@@ -10,6 +10,7 @@ import ru.siobko.testing.tasks.junit.tests.main.groups.BaseGroupsTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@Tag("groups")
 @Tag("groupsPage")
 public class OpenOfficialGroupsCatalogTest extends BaseGroupsTest {
     private static final Logger TESTLOG = LoggerFactory.getLogger(OpenOfficialGroupsCatalogTest.class);

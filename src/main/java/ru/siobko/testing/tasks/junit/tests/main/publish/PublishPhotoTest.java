@@ -1,6 +1,7 @@
 package ru.siobko.testing.tasks.junit.tests.main.publish;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -19,7 +20,8 @@ public class PublishPhotoTest extends BaseMainTest {
     private static final String JPG_PHOTO = "src/main/java/ru/siobko/testing/tasks/junit/tests/data/bestPhoto.jpg";
     private static final String PNG_PHOTO = "src/main/java/ru/siobko/testing/tasks/junit/tests/data/lovelyPhoto.png";
 
-    @ParameterizedTest
+    @DisplayName("Публикация фото")
+    @ParameterizedTest(name = "Фото: {0}")
     @ValueSource(strings = {JPG_PHOTO, PNG_PHOTO})
     public void testPublishPhoto(String filename) {
         TESTLOG.info("Публикуем фото.");

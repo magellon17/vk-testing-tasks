@@ -11,13 +11,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Tag("loginPage")
 public class EnterLoginTest extends BaseTest {
+    private static final Logger TESTLOG = LoggerFactory.getLogger(EnterPasswordTest.class);
 
     @Test
     public void testEnterLogin() {
+        TESTLOG.info("Вводим пароль.");
         LoginPage loginPage = new LoginPage()
                 .enterLogin(BOT.getLogin());
         assertEquals(loginPage.getLoginFieldText(), BOT.getLogin(),
-                "Incorrect account login name."
+                "Значение текстового поля логина не совпадает с ожидаемым."
         );
     }
 }

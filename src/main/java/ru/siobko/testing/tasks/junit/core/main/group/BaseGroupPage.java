@@ -15,8 +15,6 @@ public abstract class BaseGroupPage extends BaseMainPage {
     protected static final By GROUP_MEMBERS_BUTTON = byXpath(".//a[@data-l='outlandermenu,altGroupMembers']");
     protected static final By GROUP_PHOTOS_BUTTON = byXpath(".//a[@data-l='outlandermenu,altGroupAlbums']");
     protected static final By GROUP_FEED_BUTTON = byXpath(".//a[@data-l='outlandermenu,altGroupMain']");
-    protected static final By GROUP_PRODUCTS_BUTTON = byXpath(".//a[@data-l='outlandermenu,altGroupAdvertsPage']");
-    protected static final By GROUP_MUSIC_BUTTON = byXpath(".//a[@data-l='outlandermenu,altGroupMusic']");
 
     protected BaseGroupPage() {
         checkPage();

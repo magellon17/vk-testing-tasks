@@ -1,5 +1,6 @@
 package ru.siobko.testing.tasks.junit.tests.main.groups.actions;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.AfterEach;
@@ -14,6 +15,7 @@ import ru.siobko.testing.tasks.junit.tests.main.groups.BaseGroupsTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@DisplayName("Создание группы")
 @Tag("groups")
 public class GroupCreationTest extends BaseGroupsTest {
     private static final Logger TESTLOG = LoggerFactory.getLogger(GroupCreationTest.class);
@@ -24,7 +26,8 @@ public class GroupCreationTest extends BaseGroupsTest {
         new MyProfileFeedPage().openGroupsPage();
     }
 
-    @ParameterizedTest
+    @DisplayName("Тест на создание группы")
+    @ParameterizedTest(name = "Группы с именем: {0}")
     @ValueSource(strings = {GROUP_NAME_ON_ENGLISH, GROUP_NAME_ON_RUSSIAN})
     public void testGroupCreation(String groupName) {
         TESTLOG.info("Создаем группу.");

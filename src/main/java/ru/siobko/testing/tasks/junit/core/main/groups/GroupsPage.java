@@ -16,7 +16,7 @@ public class GroupsPage extends BaseGroupsPage {
 
     private static final By CREATE_GROUP_BUTTON = byText("Создать группу");
 
-    //Поля окон, которые появляются в процессе создания группы.
+    //Элементы для создания группы.
     private static final By GROUP_BY_INTEREST_BUTTON = byXpath(".//a[@data-l='t,INTEREST']");
     private static final By GROUP_NAME_FIELD = byId("field_name");
     private static final By THEMATICS_LIST = byXpath(".//div[@class='it js-multi-select_visual-input']");

@@ -1,6 +1,7 @@
 package ru.siobko.testing.tasks.junit.tests.main.publish;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -19,7 +20,8 @@ public class PublishStatusTest extends BaseMainTest {
     private static final String ENGLISH_TEXT = "Hello, World";
     private static final String RUSSIAN_TEXT = "Лена Пранова самая лучшая!!!";
 
-    @ParameterizedTest
+    @DisplayName("Публикация статуса")
+    @ParameterizedTest(name = "Статус: {0}")
     @ValueSource(strings = {ENGLISH_TEXT, RUSSIAN_TEXT})
     public void testPublishStatus(String text) {
         TESTLOG.info("Публикуем статус.");

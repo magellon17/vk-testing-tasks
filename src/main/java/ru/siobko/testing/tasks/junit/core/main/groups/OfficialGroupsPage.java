@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selectors.byClassName;
 import static com.codeborne.selenide.Selenide.$;
 
 public class OfficialGroupsPage extends BaseGroupsPage {
-    private static final Logger LOGGER = LoggerFactory.getLogger(OfficialGroupsPage.class);
+    private static final Logger LOG = LoggerFactory.getLogger(OfficialGroupsPage.class);
     private static final By PORTLET_TITLE = byClassName("portlet_h_title");
 
     public OfficialGroupsPage() {
@@ -21,7 +21,7 @@ public class OfficialGroupsPage extends BaseGroupsPage {
         $(PORTLET_TITLE).shouldBe(
                 visible.because("Не отобразился заголовок 'Официальные'.")
         );
-        LOGGER.info("Перешли на страницу официальных групп.");
+        LOG.info("Перешли на страницу официальных групп.");
         return true;
     }
 }

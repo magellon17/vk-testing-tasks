@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class FeedPage extends BaseMainPage {
-    private static final Logger LOGGER = LoggerFactory.getLogger(FeedPage.class);
+    private static final Logger LOG = LoggerFactory.getLogger(FeedPage.class);
     private static final By PROFILE_AVATAR = byId("hook_Block_Avatar");
     private static final By ONLINE_FRIENDS_PANEL = byId("online-fr_block");
     private static final By FEED_FILTER_MENU = byXpath(".//hybrid-feed-filter[@data-bundle-name='contents_hybrid-feed-filter']");
@@ -30,7 +30,7 @@ public class FeedPage extends BaseMainPage {
         $(ONLINE_FRIENDS_PANEL).shouldBe(
                 visible.because("Не отобразилась панель друзей на сайте.")
         );
-        LOGGER.info("Перешли на страницу ленты");
+        LOG.info("Перешли на страницу ленты");
         return true;
     }
 

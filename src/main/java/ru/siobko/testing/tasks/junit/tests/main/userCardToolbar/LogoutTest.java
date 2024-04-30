@@ -17,7 +17,7 @@ public class LogoutTest extends BaseMainTest {
                 .logout()
                 .confirmLogout();
         assertTrue(new LoginPage().checkPage(),
-                "Login page was not found."
+                "Не вышли из аккаунта, т.е. не попали на страницу входа."
         );
     }
 }

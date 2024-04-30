@@ -40,7 +40,7 @@ public class ChangeUserNameTest extends BaseMainTest {
     public static void returnUsername() {
         SettingsGeneralPersonalInformationPage personalDataPage = new SettingsGeneralPersonalInformationPage();
         personalDataPage
-                .enterName(EMAIL)
+                .enterName(BOT.getLogin())
                 .clickSubmit();
     }
 }

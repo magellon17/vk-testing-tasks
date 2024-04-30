@@ -9,9 +9,8 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class GroupMembersPage extends BaseGroupPage {
-    private static final Logger LOGGER = LoggerFactory.getLogger(GroupMembersPage.class);
-    private static final By GROUP_MEMBERS_MENU = byXpath(".//div[@id='GroupMembersMenu']");
-    private static final By GROUP_MEMBERS_PAGING_BLOCK = byXpath(".//div[@id='hook_Block_GroupMembersPagingBlock']");
+    private static final Logger LOG = LoggerFactory.getLogger(GroupMembersPage.class);
+    private static final By GROUP_MEMBERS_NAVI = byXpath(".//div[@id='GroupMembersMenu']");
     private static final By GROUP_MEMBERS_QUERY = byXpath(".//input[@placeholder='Поиск среди участников группы']");
 
     public GroupMembersPage() {
@@ -19,16 +18,13 @@ public class GroupMembersPage extends BaseGroupPage {
     }
 
     public boolean checkPage() {
-        $(GROUP_MEMBERS_MENU).shouldBe(
-                visible.because("Query Filed should be visible on all pages.")
-        );
-        $(GROUP_MEMBERS_PAGING_BLOCK).shouldBe(
-                visible.because("Ecosystem button should be visible on all pages.")
+        $(GROUP_MEMBERS_NAVI).shouldBe(
+                visible.because("Не отобразилась навигация по участникам.")
         );
         $(GROUP_MEMBERS_QUERY).shouldBe(
-                visible.because("Ecosystem button should be visible on all pages.")
+                visible.because("Не отобразился поисковик по учатсникам группы.")
         );
-        LOGGER.info("Перешли на страницу участников группы");
+        LOG.info("Перешли на страницу участников группы");
         return true;
     }
 }

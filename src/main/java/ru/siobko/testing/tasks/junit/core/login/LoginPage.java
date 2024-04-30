@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selectors.byValue;
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage extends BasePage {
-    private static final Logger LOGGER = LoggerFactory.getLogger(LoginPage.class);
+    private static final Logger LOG = LoggerFactory.getLogger(LoginPage.class);
     private static final By LOGIN_FIELD = byName("st.email");
     private static final By PASSWORD_FIELD = byName("st.password");
     private static final By SUBMIT_BUTTON = byValue("Log in to OK");
@@ -33,12 +33,12 @@ public class LoginPage extends BasePage {
         $(SUBMIT_BUTTON).shouldBe(
                 exist.because("Не отобразилась кнопка входа.")
         );
-        LOGGER.info("Перешли на страницу входа.");
+        LOG.info("Перешли на страницу входа.");
         return true;
     }
 
     public LoginPage enterLogin(String login) {
-        LOGGER.info("Вводим логин.");
+        LOG.info("Вводим логин.");
         $(LOGIN_FIELD).shouldBe(
                 visible.because("Не отобразилось поле логина.")
         ).setValue(login);
@@ -46,7 +46,7 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage enterPassword(String password) {
-        LOGGER.info("Вводим пароль.");
+        LOG.info("Вводим пароль.");
         $(PASSWORD_FIELD).shouldBe(
                 visible.because("Не отобразилось поле пароля.")
         ).setValue(password);
@@ -54,7 +54,7 @@ public class LoginPage extends BasePage {
     }
 
     public FeedPage clickSubmit() {
-        LOGGER.info("Кликаем на кнопку входа.");
+        LOG.info("Кликаем на кнопку входа.");
         $(SUBMIT_BUTTON).shouldBe(
                 visible.because("Не отобразилась кнопка входа.")
         ).click();
@@ -62,10 +62,10 @@ public class LoginPage extends BasePage {
     }
 
     public FeedPage login(TestBot bot) {
-        LOGGER.info("Выполняем вход в аккаунт.");
+        LOG.info("Выполняем вход в аккаунт.");
         $(LOGIN_FIELD).shouldBe(
                 visible.because("Не отобразилось поле логина.")
-        ).setValue(bot.getEmail());
+        ).setValue(bot.getLogin());
         $(PASSWORD_FIELD).shouldBe(
                 visible.because("Не отобразилось поле пароля.")
         ).setValue(bot.getPassword());

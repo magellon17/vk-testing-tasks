@@ -13,11 +13,11 @@ public class LoginTest extends BaseTest {
     @Test
     public void testLogin() {
         FeedPage feedPage = new LoginPage()
-                .enterEmail(EMAIL)
-                .enterPassword(PASSWORD)
+                .enterLogin(BOT.getLogin())
+                .enterPassword(BOT.getPassword())
                 .clickSubmit();
-        assertTrue(feedPage.checkProfileNameContains(EMAIL),
-                "Incorrect account login name."
+        assertTrue(feedPage.checkProfileNameContains(BOT.getLogin()),
+                "Имя профиля, в который выполнен вход, не совпадает с ожидаемым."
         );
     }
 }

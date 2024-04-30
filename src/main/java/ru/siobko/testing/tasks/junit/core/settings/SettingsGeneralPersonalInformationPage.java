@@ -11,7 +11,6 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class SettingsGeneralPersonalInformationPage extends SettingsBasePage {
     private static final Logger LOGGER = LoggerFactory.getLogger(SettingsGeneralPersonalInformationPage.class);
-
     private static final By NAME_FIELD = byName("fr.name");
     private static final By SURNAME_FIELD = byName("fr.surname");
     private static final By SUBMIT_BUTTON = byXpath(".//input[@data-l='t,profile_form_settings']");

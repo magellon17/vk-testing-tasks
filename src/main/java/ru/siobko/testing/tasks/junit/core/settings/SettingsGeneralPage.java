@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class SettingsGeneralPage extends SettingsBasePage {
-    private static final Logger LOGGER = LoggerFactory.getLogger(SettingsGeneralPage.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SettingsGeneralPage.class);
     private static final By PERSONAL_INFORMATION_FORM = byXpath(".//a[@data-l='t,profile_form']");
     private static final By PASSWORD_FORM = byXpath(".//a[@data-l='t,set_password']");
     private static final By EMAIL_FORM = byXpath(".//a[@data-l='t,set_email']");
@@ -29,12 +29,12 @@ public class SettingsGeneralPage extends SettingsBasePage {
         $(EMAIL_FORM).shouldBe(
                 visible.because("Не отобразилась форма почты.")
         );
-        LOGGER.info("Перешли на страницу основных настроек.");
+        LOG.info("Перешли на страницу основных настроек.");
         return true;
     }
 
     public SettingsGeneralPersonalInformationPage openPersonalInformationPage() {
-        LOGGER.info("Открываем страницу с персональными настройками.");
+        LOG.info("Открываем страницу с персональными настройками.");
         $(PERSONAL_INFORMATION_FORM).shouldBe(
                 visible.because("Не отобразилась форма персональной информации.")
         ).click();

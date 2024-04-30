@@ -9,5 +9,4 @@ import org.junit.platform.suite.api.Suite;
 @SelectPackages("ru.siobko.testing.tasks.junit.tests.main.groups.groupPage")
 @IncludeTags("groupPage")
 public class GroupPageSuiteTest {
-
 }

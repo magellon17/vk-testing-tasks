@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selectors.byId;
 import static com.codeborne.selenide.Selenide.$;
 
 public class GroupsPage extends BaseGroupsPage {
-    private static final Logger LOGGER = LoggerFactory.getLogger(GroupsPage.class);
+    private static final Logger LOG = LoggerFactory.getLogger(GroupsPage.class);
     private static final By CREATE_GROUP_BUTTON = byText("Создать группу");
 
     //Поля окон, которые появляются в процессе создания группы.
@@ -31,12 +31,12 @@ public class GroupsPage extends BaseGroupsPage {
         $(CREATE_GROUP_BUTTON).shouldBe(
                 visible.because("Не отобразилась кнопка создания группы.")
         );
-        LOGGER.info("Перешли на страницу актуальных групп.");
+        LOG.info("Перешли на страницу актуальных групп.");
         return true;
     }
 
     public GroupsPage clickCreateGroup() {
-        LOGGER.info("Кликаем на кнопку создания группы.");
+        LOG.info("Кликаем на кнопку создания группы.");
         $(CREATE_GROUP_BUTTON).shouldBe(
                 visible.because("Не отобразилась кнопка создания группы.")
         ).click();
@@ -44,7 +44,7 @@ public class GroupsPage extends BaseGroupsPage {
     }
 
     public GroupsPage clickGroupByInterest() {
-        LOGGER.info("Выбираем группу по интересам.");
+        LOG.info("Выбираем группу по интересам.");
         $(GROUP_BY_INTEREST_BUTTON).shouldBe(
                 visible.because("Нет варианта создать группу по интересам.")
         ).click();
@@ -52,7 +52,7 @@ public class GroupsPage extends BaseGroupsPage {
     }
 
     public GroupsPage enterGroupName(String Name) {
-        LOGGER.info("Выбираем название группы.");
+        LOG.info("Выбираем название группы.");
         $(GROUP_NAME_FIELD).shouldBe(
                 visible.because("Не отобразилось поле ввода названия группы.")
         ).setValue(Name);
@@ -60,7 +60,7 @@ public class GroupsPage extends BaseGroupsPage {
     }
 
     public GroupsPage expandThematicsList() {
-        LOGGER.info("Раскрываем список групповых тематик.");
+        LOG.info("Раскрываем список групповых тематик.");
         $(THEMATICS_LIST).shouldBe(
                 visible.because("Не отобразился список групповых тематик.")
         ).click();
@@ -68,7 +68,7 @@ public class GroupsPage extends BaseGroupsPage {
     }
 
     public GroupsPage clickAutoThematic() {
-        LOGGER.info("Выбираем автомобильную тематику.");
+        LOG.info("Выбираем автомобильную тематику.");
         $(AUTO_THEMATIC_BUTTON).shouldBe(
                 visible.because("Автомобильной тематики нет в списке.")
         ).click();
@@ -76,7 +76,7 @@ public class GroupsPage extends BaseGroupsPage {
     }
 
     public GroupFeedPage clickCreate() {
-        LOGGER.info("Подтверждаем создание группы.");
+        LOG.info("Подтверждаем создание группы.");
         $(CREATE_BUTTON).shouldBe(
                 visible.because("Не отобразилась кнопка создания группы.")
         ).click();

@@ -11,7 +11,8 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public abstract class SettingsBasePage extends BasePage {
-    protected static final Logger LOGGER = LoggerFactory.getLogger(SettingsBasePage.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SettingsBasePage.class);
+
     protected static final By PROFILE_BUTTON = byClassName("compact-profile_a");
     protected static final By SETTINGS_NAVIGATION_MENU = byXpath(".//div[@data-l='eueContainer,settings']");
     protected static final By PRIVACY_SETTINGS_BUTTON = byXpath(".//a[@data-l='t,privacy']");
@@ -36,7 +37,7 @@ public abstract class SettingsBasePage extends BasePage {
     }
 
     public boolean checkProfileNameContains(String newUserName) {
-        LOGGER.info("Проверяем, что имя профиля содержит {}", newUserName);
+        LOG.info("Проверяем, что имя профиля содержит {}", newUserName);
         return $(PROFILE_BUTTON).shouldBe(
                         visible.because("Не отобразилась кнопка профиля.")
                 ).getText()

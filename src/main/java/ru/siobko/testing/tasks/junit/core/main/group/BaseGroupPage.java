@@ -1,8 +1,6 @@
 package ru.siobko.testing.tasks.junit.core.main.group;
 
 import org.openqa.selenium.By;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import ru.siobko.testing.tasks.junit.core.main.BaseMainPage;
 
 import static com.codeborne.selenide.Condition.visible;

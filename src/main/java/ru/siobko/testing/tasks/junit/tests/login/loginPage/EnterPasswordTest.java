@@ -12,8 +12,8 @@ public class EnterPasswordTest extends BaseTest {
     @Test
     public void testEnterPassword() {
         LoginPage loginPage = new LoginPage()
-                .enterPassword(PASSWORD);
-        assertEquals(loginPage.getPasswordFieldText(), PASSWORD,
+                .enterPassword(BOT.getPassword());
+        assertEquals(loginPage.getPasswordFieldText(), BOT.getPassword(),
                 "Incorrect account login name."
         );
     }

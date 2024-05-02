@@ -1,5 +1,6 @@
 package ru.siobko.testing.tasks.junit.tests.login.loginPage;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -14,6 +15,7 @@ public class EnterPasswordTest extends BaseTest {
     private static final Logger TESTLOG = LoggerFactory.getLogger(EnterPasswordTest.class);
 
     @Test
+    @DisplayName("Проверка ввода пароля")
     public void testEnterPassword() {
         TESTLOG.info("Вводим пароль.");
         LoginPage loginPage = new LoginPage()

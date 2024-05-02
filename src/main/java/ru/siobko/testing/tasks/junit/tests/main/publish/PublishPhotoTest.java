@@ -20,7 +20,7 @@ public class PublishPhotoTest extends BaseMainTest {
     private static final String JPG_PHOTO = "src/main/java/ru/siobko/testing/tasks/junit/tests/data/bestPhoto.jpg";
     private static final String PNG_PHOTO = "src/main/java/ru/siobko/testing/tasks/junit/tests/data/lovelyPhoto.png";
 
-    @DisplayName("Публикация фото")
+    @DisplayName("Провека публикации фото")
     @ParameterizedTest(name = "Фото: {0}")
     @ValueSource(strings = {JPG_PHOTO, PNG_PHOTO})
     public void testPublishPhoto(String filename) {

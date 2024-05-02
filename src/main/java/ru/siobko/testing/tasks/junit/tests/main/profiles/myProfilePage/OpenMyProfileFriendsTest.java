@@ -1,5 +1,6 @@
 package ru.siobko.testing.tasks.junit.tests.main.profiles.myProfilePage;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -15,6 +16,7 @@ public class OpenMyProfileFriendsTest extends BaseMyProfilePageTest {
     private static final Logger TESTLOG = LoggerFactory.getLogger(OpenMyProfileFriendsTest.class);
 
     @Test
+    @DisplayName("Проверка открытия страницы друзей моего профиля.")
     public void testOpenProfileFriends() {
         TESTLOG.info("Открываем страницу с друзьями моего профиля.");
         MyProfileFriendsPage myProfileFriendsPage = new MyProfilePage()

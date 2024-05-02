@@ -1,5 +1,6 @@
 package ru.siobko.testing.tasks.junit.tests.main.groups.groupPage;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -15,6 +16,7 @@ public class OpenGroupPhotosTest extends BaseGroupPageTest {
     private static final Logger TESTLOG = LoggerFactory.getLogger(OpenGroupPhotosTest.class);
 
     @Test
+    @DisplayName("Проверка открытия страницы фото группы")
     public void testOpenPhotos() {
         TESTLOG.info("Открываем страницу с фотками группы.");
         GroupPhotosPage groupPhotosPage = new GroupFeedPage()

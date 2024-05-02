@@ -26,7 +26,7 @@ public class GroupCreationTest extends BaseGroupsTest {
         new MyProfileFeedPage().openGroupsPage();
     }
 
-    @DisplayName("Тест на создание группы")
+    @DisplayName("Проверка создания группы")
     @ParameterizedTest(name = "Группы с именем: {0}")
     @ValueSource(strings = {GROUP_NAME_ON_ENGLISH, GROUP_NAME_ON_RUSSIAN})
     public void testGroupCreation(String groupName) {

@@ -1,5 +1,6 @@
 package ru.siobko.testing.tasks.junit.tests.login;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -15,6 +16,7 @@ public class LoginTest extends BaseTest {
     private static final Logger TESTLOG = LoggerFactory.getLogger(LoginTest.class);
 
     @Test
+    @DisplayName("Проверка входа в аккаунт")
     public void testLogin() {
         TESTLOG.info("Логинимся в аккаунт.");
         MyProfileFeedPage myProfileFeedPage = new LoginPage()

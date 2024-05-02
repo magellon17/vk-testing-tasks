@@ -20,7 +20,7 @@ public class PublishStatusTest extends BaseMainTest {
     private static final String ENGLISH_TEXT = "Hello, World";
     private static final String RUSSIAN_TEXT = "Лена Пранова самая лучшая!!!";
 
-    @DisplayName("Публикация статуса")
+    @DisplayName("Проверка публикации статуса")
     @ParameterizedTest(name = "Статус: {0}")
     @ValueSource(strings = {ENGLISH_TEXT, RUSSIAN_TEXT})
     public void testPublishStatus(String text) {

@@ -11,6 +11,7 @@ import ru.siobko.testing.tasks.junit.core.media.StatusPage;
 
 import java.io.File;
 
+import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -96,7 +97,9 @@ public abstract class BaseMainPage extends BasePage {
 
     public BaseMainPage clickPublishPhoto(String filename) {
         LOG.info("Публикуем фотку.");
-        $(PUBLISH_PHOTO_BUTTON).uploadFile(new File(filename));
+        $(PUBLISH_PHOTO_BUTTON).shouldBe(
+                exist.because("Не отобразилась кнопка загрзуки фото.")
+        ).uploadFile(new File(filename));
         return this;
     }
 

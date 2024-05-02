@@ -1,5 +1,6 @@
 package ru.siobko.testing.tasks.junit.tests.main.profiles.myProfilePage;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -15,6 +16,7 @@ public class OpenMyProfilePhotosTest extends BaseMyProfilePageTest {
     private static final Logger TESTLOG = LoggerFactory.getLogger(OpenMyProfilePhotosTest.class);
 
     @Test
+    @DisplayName("Проверка открытия страницы фото моего профиля.")
     public void testOpenMyProfilePhotos() {
         TESTLOG.info("Открываем страницу с фотографиями моего профиля.");
         MyProfilePhotosPage myProfilePhotosPage = new MyProfilePage()

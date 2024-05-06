@@ -7,7 +7,7 @@ import ru.siobko.testing.tasks.junit.core.BasePage;
 import ru.siobko.testing.tasks.junit.core.main.groups.GroupsPage;
 import ru.siobko.testing.tasks.junit.core.main.profile.myProfile.MyProfilePage;
 import ru.siobko.testing.tasks.junit.core.media.PhotoPage;
-import ru.siobko.testing.tasks.junit.core.media.StatusPage;
+import ru.siobko.testing.tasks.junit.core.media.PostPage;
 
 import java.io.File;
 
@@ -103,7 +103,7 @@ public abstract class BaseMainPage extends BasePage {
         return this;
     }
 
-    public BaseMainPage clickPublishStatus() {
+    public BaseMainPage clickPublishPost() {
         LOG.info("Кликаем на кнопку публикации поста.");
         $(PUBLISH_POST_BUTTON).shouldBe(
                 visible.because("Не отобразилась кнопка публикации поста.")
@@ -150,12 +150,12 @@ public abstract class BaseMainPage extends BasePage {
         ).click();
     }
 
-    public StatusPage openStatus() {
-        LOG.info("Открываем статус.");
+    public PostPage openPost() {
+        LOG.info("Открываем пост.");
         $(OPEN_PUBLISHED_STATUS_BUTTON).shouldBe(
-                visible.because("Не найден статус.")
+                visible.because("Не найден пост.")
         ).click();
-        return new StatusPage();
+        return new PostPage();
     }
 
     public PhotoPage openPhoto() {

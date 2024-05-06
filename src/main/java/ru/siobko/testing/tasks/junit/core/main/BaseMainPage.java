@@ -15,7 +15,6 @@ import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
-import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byXpath;
 
 public abstract class BaseMainPage extends BasePage {
@@ -37,19 +36,13 @@ public abstract class BaseMainPage extends BasePage {
     protected static final By USER_CARD_TOOLBAR_LOGOUT_BUTTON = byXpath(".//a[@data-l='t,logout']");
     protected static final By CONFIRM_LOGOUT_BUTTON = byXpath(".//input[@data-l='t,logout']");
 
-    //Страница статуса
-    protected static final By OPEN_PUBLISHED_STATUS_BUTTON = byXpath(".//a[@class='js-tip-block-url al']");
+    //Страница поста
+    protected static final By OPEN_PUBLISHED_POST_BUTTON = byXpath(".//a[@class='js-tip-block-url al']");
 
     //Страница фото
     protected static final By OPEN_PUBLISHED_PHOTO_BUTTON = byXpath(".//up-photo-midget[@data-l='t,view-photo']");
 
-    //Страница фотографии
-    protected static final By VIEW_PUBLISHED_PHOTO_BUTTON = byXpath(".//up-photo-midget[@data-l='t,view-photo']");
-    protected static final By MORE_ACTIONS_PUBLISHED_PHOTO_BUTTON = byName("ico_more_vertical_16");
-    protected static final By DELETE_PUBLISHED_PHOTO_BUTTON = byXpath(".//span[text()='Удалить фотографию']");
-    protected static final By CLOSE_PUBLISHED_PHOTO_BUTTON = byXpath(".//button[@class='panel_close__ugpyu close__ugpyu']");
-
-    //Создание статуса
+    //Публикация поста
     protected static final By POST_TEXT_BOX = byXpath(".//div[@data-module='postingForm/mediaText']");
     protected static final By SUBMIT_BUTTON = byXpath(".//button[@data-l='t,button.submit']");
 
@@ -152,7 +145,7 @@ public abstract class BaseMainPage extends BasePage {
 
     public PostPage openPost() {
         LOG.info("Открываем пост.");
-        $(OPEN_PUBLISHED_STATUS_BUTTON).shouldBe(
+        $(OPEN_PUBLISHED_POST_BUTTON).shouldBe(
                 visible.because("Не найден пост.")
         ).click();
         return new PostPage();

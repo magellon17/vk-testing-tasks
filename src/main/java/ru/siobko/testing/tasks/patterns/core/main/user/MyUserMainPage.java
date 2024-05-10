@@ -1,15 +1,12 @@
-package ru.siobko.testing.tasks.patterns.core.main;
+package ru.siobko.testing.tasks.patterns.core.main.user;
 
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.patterns.core.BasePage;
-import ru.siobko.testing.tasks.patterns.core.login.LoginPage;
 import ru.siobko.testing.tasks.patterns.core.main.elements.SideNavigationBlock;
 import ru.siobko.testing.tasks.patterns.core.main.elements.UserCardToolBar;
 import ru.siobko.testing.tasks.patterns.core.main.groups.GroupsPage;
-import ru.siobko.testing.tasks.patterns.core.main.user.feed.MyProfilePage;
-import ru.siobko.testing.tasks.patterns.core.media.PhotoLayer;
+import ru.siobko.testing.tasks.patterns.core.media.photo.PhotoLayer;
 import ru.siobko.testing.tasks.patterns.core.media.PostLayer;
 
 import java.io.File;
@@ -20,10 +17,10 @@ import static com.codeborne.selenide.Selenide.$;
 
 import static com.codeborne.selenide.Selectors.byXpath;
 
-public abstract class BaseMainPage extends BasePage {
-    private static final Logger LOG = LoggerFactory.getLogger(BaseMainPage.class);
+public class MyUserMainPage {
+    private static final Logger LOG = LoggerFactory.getLogger(MyUserMainPage.class);
     private final SideNavigationBlock sideNavigationBlock = new SideNavigationBlock();
-    private final UserCardToolBar userCardToolBar = new UserCardToolBar();
+    private static final By USER_CARD_TOOLBAR_DROPDOWN = byXpath(".//button[@aria-label='Настройки профиля']");
 
     // Публикация
     protected static final By PUBLISH_BUTTON = byXpath(".//button[@data-testid='ddm-button']");
@@ -40,11 +37,11 @@ public abstract class BaseMainPage extends BasePage {
     protected static final By POST_TEXT_BOX = byXpath(".//div[@data-module='postingForm/mediaText']");
     protected static final By SUBMIT_BUTTON = byXpath(".//button[@data-l='t,button.submit']");
 
-    protected BaseMainPage() {
+    public MyUserMainPage() {
+        checkPage();
     }
 
-    @Override
-    protected boolean checkPage() {
+    public boolean checkPage() {
         $(PUBLISH_BUTTON).shouldBe(
                 visible.because("Не отобразилась кнопка публикации.")
         );
@@ -57,13 +54,13 @@ public abstract class BaseMainPage extends BasePage {
         return new GroupsPage();
     }
 
-    public MyProfilePage openMyProfilePage() {
+    public MyUserProfilePage openProfilePage() {
         LOG.info("Переходим на страницу профиля.");
         sideNavigationBlock.clickOnMyProfile();
-        return new MyProfilePage();
+        return new MyUserProfilePage();
     }
 
-    public BaseMainPage clickPublish() {
+    public MyUserMainPage clickPublish() {
         LOG.info("Кликаем на кнопку 'Опубликовать'.");
         $(PUBLISH_BUTTON).shouldBe(
                 visible.because("Нет кнопки 'Опубликовать'.")
@@ -71,7 +68,7 @@ public abstract class BaseMainPage extends BasePage {
         return this;
     }
 
-    public BaseMainPage clickPublishPhoto(String filename) {
+    public MyUserMainPage clickPublishPhoto(String filename) {
         LOG.info("Публикуем фотку.");
         $(PUBLISH_PHOTO_BUTTON).shouldBe(
                 exist.because("Не отобразилась кнопка загрзуки фото.")
@@ -79,7 +76,7 @@ public abstract class BaseMainPage extends BasePage {
         return this;
     }
 
-    public BaseMainPage clickPublishPost() {
+    public MyUserMainPage clickPublishPost() {
         LOG.info("Кликаем на кнопку публикации поста.");
         $(PUBLISH_POST_BUTTON).shouldBe(
                 visible.because("Не отобразилась кнопка публикации поста.")
@@ -87,7 +84,7 @@ public abstract class BaseMainPage extends BasePage {
         return this;
     }
 
-    public BaseMainPage enterPostText(String postText) {
+    public MyUserMainPage enterPostText(String postText) {
         LOG.info("Вводим текст поста.");
         $(POST_TEXT_BOX).shouldBe(
                 visible.because("Не отобразилось поле ввода текста поста.")
@@ -95,7 +92,7 @@ public abstract class BaseMainPage extends BasePage {
         return this;
     }
 
-    public BaseMainPage clickSubmit() {
+    public MyUserMainPage clickSubmit() {
         LOG.info("Публикуем пост.");
         $(SUBMIT_BUTTON).shouldBe(
                 visible.because("Не отобразилась кнопка подтвержденря публикации поста.")
@@ -103,22 +100,12 @@ public abstract class BaseMainPage extends BasePage {
         return this;
     }
 
-    public BaseMainPage expandUserCardToolbar() {
+    public UserCardToolBar expandUserCardToolbar() {
         LOG.info("Открываем карточку пользователя");
-        userCardToolBar.expand();
-        return this;
-    }
-
-    public BaseMainPage logout() {
-        LOG.info("Выходим из аккаунта.");
-        userCardToolBar.clickOnLogout();
-        return this;
-    }
-
-    public LoginPage confirmLogout() {
-        LOG.info("Подтвеждаем выход из аккаунта");
-        userCardToolBar.confirmLogout();
-        return new LoginPage();
+        $(USER_CARD_TOOLBAR_DROPDOWN).shouldBe(
+                visible.because("Нет карточки пользователя на странице.")
+        ).click();
+        return new UserCardToolBar();
     }
 
     public PostLayer openPost() {

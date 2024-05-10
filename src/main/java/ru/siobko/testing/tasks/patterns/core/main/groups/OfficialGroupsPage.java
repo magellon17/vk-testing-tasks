@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byClassName;
 import static com.codeborne.selenide.Selenide.$;
 
-public class OfficialGroupsPage extends BaseGroupsPage {
+public class OfficialGroupsPage {
     private static final Logger LOG = LoggerFactory.getLogger(OfficialGroupsPage.class);
 
     private static final By PORTLET_TITLE = byClassName("portlet_h_title");
@@ -17,7 +17,6 @@ public class OfficialGroupsPage extends BaseGroupsPage {
         checkPage();
     }
 
-    @Override
     public boolean checkPage() {
         $(PORTLET_TITLE).shouldBe(
                 visible.because("Не отобразился заголовок 'Официальные'.")

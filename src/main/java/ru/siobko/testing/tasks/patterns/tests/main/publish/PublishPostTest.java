@@ -7,7 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.patterns.core.main.user.feed.MyProfileMainPage;
+import ru.siobko.testing.tasks.patterns.core.main.user.MyProfileMainPage;
 import ru.siobko.testing.tasks.patterns.core.media.PostLayer;
 import ru.siobko.testing.tasks.patterns.tests.main.BaseMainTest;
 

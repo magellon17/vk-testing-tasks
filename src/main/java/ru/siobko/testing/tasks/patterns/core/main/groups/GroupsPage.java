@@ -3,19 +3,19 @@ package ru.siobko.testing.tasks.patterns.core.main.groups;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.patterns.core.main.group.feed.GroupFeedPage;
+import ru.siobko.testing.tasks.patterns.core.main.group.MyGroupMainPage;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byXpath;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selectors.byId;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 
-public class GroupsPage extends BaseGroupsPage {
+public class GroupsPage {
     private static final Logger LOG = LoggerFactory.getLogger(GroupsPage.class);
 
-    private static final By CREATE_GROUP_BUTTON = byText("Создать группу");
+    protected static final By GROUP_SEARCH_FIELD = byXpath(".//group-search-input[@data-bundle-name='search_group-search-input']");
+    protected static final By OFFICIAL_GROUPS_BUTTON = byXpath(".//a[@aria-label='Официальные']");
 
+    private static final By CREATE_GROUP_BUTTON = byText("Создать группу");
     //Элементы для создания группы.
     private static final By GROUP_BY_INTEREST_BUTTON = byXpath(".//a[@data-l='t,INTEREST']");
     private static final By GROUP_NAME_FIELD = byId("field_name");
@@ -23,17 +23,24 @@ public class GroupsPage extends BaseGroupsPage {
     private static final By AUTO_THEMATIC_BUTTON = byText("Автомобили");
     private static final By CREATE_BUTTON = byXpath(".//input[@data-l='t,confirm']");
 
+
     public GroupsPage() {
         checkPage();
     }
 
-    @Override
     public boolean checkPage() {
-        $(CREATE_GROUP_BUTTON).shouldBe(
-                visible.because("Не отобразилась кнопка создания группы.")
+        $(GROUP_SEARCH_FIELD).shouldBe(
+                visible.because("Не отобразился поисковик по группам.")
         );
-        LOG.info("Перешли на страницу актуальных групп.");
         return true;
+    }
+
+    public OfficialGroupsPage openOfficialGroupsCatalog() {
+        LOG.info("Открываем страницу с официальными группами.");
+        $(OFFICIAL_GROUPS_BUTTON).shouldBe(
+                visible.because("Не отобразилась кнопка для перехода к официальным группам.")
+        ).click();
+        return new OfficialGroupsPage();
     }
 
     public GroupsPage clickCreateGroup() {
@@ -76,11 +83,11 @@ public class GroupsPage extends BaseGroupsPage {
         return this;
     }
 
-    public GroupFeedPage clickCreate() {
+    public MyGroupMainPage clickCreate() {
         LOG.info("Подтверждаем создание группы.");
         $(CREATE_BUTTON).shouldBe(
                 visible.because("Не отобразилась кнопка создания группы.")
         ).click();
-        return new GroupFeedPage();
+        return new MyGroupMainPage();
     }
 }

@@ -3,8 +3,7 @@ package ru.siobko.testing.tasks.patterns.core.login;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.patterns.core.BasePage;
-import ru.siobko.testing.tasks.patterns.core.main.user.feed.MyProfileMainPage;
+import ru.siobko.testing.tasks.patterns.core.main.user.MyProfileMainPage;
 import ru.siobko.testing.tasks.patterns.models.TestBot;
 
 import static com.codeborne.selenide.Condition.exist;
@@ -13,7 +12,7 @@ import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byValue;
 import static com.codeborne.selenide.Selenide.$;
 
-public class LoginPage extends BasePage {
+public class LoginPage {
     private static final Logger LOG = LoggerFactory.getLogger(LoginPage.class);
     private static final By LOGIN_FIELD = byName("st.email");
     private static final By PASSWORD_FIELD = byName("st.password");

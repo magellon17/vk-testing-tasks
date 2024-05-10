@@ -3,14 +3,13 @@ package ru.siobko.testing.tasks.patterns.core.settings;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.patterns.core.BasePage;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byClassName;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
-public abstract class SettingsBasePage extends BasePage {
+public abstract class SettingsBasePage {
     private static final Logger LOG = LoggerFactory.getLogger(SettingsBasePage.class);
 
     protected static final By PROFILE_BUTTON = byClassName("compact-profile_a");
@@ -22,7 +21,6 @@ public abstract class SettingsBasePage extends BasePage {
         checkPage();
     }
 
-    @Override
     protected boolean checkPage() {
         $(SETTINGS_NAVIGATION_MENU).shouldBe(
                 visible.because("Не отобразилась панель навигации по настройкам.")

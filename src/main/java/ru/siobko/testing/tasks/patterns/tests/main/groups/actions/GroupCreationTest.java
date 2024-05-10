@@ -8,9 +8,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.patterns.core.main.user.feed.MyProfileMainPage;
+import ru.siobko.testing.tasks.patterns.core.main.user.MyProfileMainPage;
 import ru.siobko.testing.tasks.patterns.core.main.groups.GroupsPage;
-import ru.siobko.testing.tasks.patterns.core.main.group.feed.GroupFeedPage;
+import ru.siobko.testing.tasks.patterns.core.main.group.MyGroupMainPage;
 import ru.siobko.testing.tasks.patterns.tests.main.groups.BaseGroupsTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -31,14 +31,14 @@ public class GroupCreationTest extends BaseGroupsTest {
     @ValueSource(strings = {GROUP_NAME_ON_ENGLISH, GROUP_NAME_ON_RUSSIAN})
     public void testGroupCreation(String groupName) {
         TESTLOG.info("Создаем группу.");
-        GroupFeedPage groupFeedPage = new GroupsPage()
+        MyGroupMainPage myGroupMainPage = new GroupsPage()
                 .clickCreateGroup()
                 .clickGroupByInterest()
                 .enterGroupName(groupName)
                 .expandThematicsList()
                 .clickAutoThematic()
                 .clickCreate();
-        assertEquals(groupFeedPage.getGroupName(),groupName,
+        assertEquals(myGroupMainPage.getGroupName(),groupName,
                 "Название группы не совпало с ожидаемым."
         );
     }
@@ -46,7 +46,7 @@ public class GroupCreationTest extends BaseGroupsTest {
     @AfterEach
     public void deleteGroup() {
         TESTLOG.info("Удаляем группу.");
-        new GroupFeedPage()
+        new MyGroupMainPage()
                 .clickMoreActions()
                 .clickDelete()
                 .confirmDeletion();

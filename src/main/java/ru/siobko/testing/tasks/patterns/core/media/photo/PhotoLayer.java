@@ -1,4 +1,4 @@
-package ru.siobko.testing.tasks.patterns.core.media;
+package ru.siobko.testing.tasks.patterns.core.media.photo;
 
 import org.openqa.selenium.By;
 import org.slf4j.Logger;

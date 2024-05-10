@@ -1,29 +1,27 @@
-package ru.siobko.testing.tasks.patterns.core.main.group.members.elements;
+package ru.siobko.testing.tasks.patterns.core.main.elements;
 
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
-public class GroupMembersSearch {
-    private final SelenideElement item = $(byXpath(".//*[contains(@hrefattrs, 'MembersSearch')]"));
-    private static final By QUERY_FIELD = byXpath(".//*[@id='search']");
+public class QueryField {
+    private final SelenideElement field = $(byXpath(".//*[@name='st.query']"));
 
-    public GroupMembersSearch() {
+    public QueryField() {
         check();
     }
 
     public boolean check(){
-        item.shouldBe(
+        field.shouldBe(
                 visible.because("Не отобразился поисковик по учатсникам группы")
         );
         return true;
     }
 
     public void enter(String s){
-        item.$(QUERY_FIELD).shouldBe(
+        field.shouldBe(
                 visible.because("Не отобразилось поле ввода")
         ).setValue(s);
     }

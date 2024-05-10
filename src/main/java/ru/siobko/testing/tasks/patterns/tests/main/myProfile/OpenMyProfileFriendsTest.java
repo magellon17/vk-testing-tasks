@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.siobko.testing.tasks.patterns.core.main.user.friends.MyUserFriendsPage;
-import ru.siobko.testing.tasks.patterns.core.main.user.feed.MyProfilePage;
+import ru.siobko.testing.tasks.patterns.core.main.user.MyUserProfilePage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -19,7 +19,7 @@ public class OpenMyProfileFriendsTest extends BaseMyProfilePageTest {
     @DisplayName("Проверка открытия страницы друзей моего профиля.")
     public void testOpenProfileFriends() {
         TESTLOG.info("Открываем страницу с друзьями моего профиля.");
-        MyUserFriendsPage myUserFriendsPage = new MyProfilePage()
+        MyUserFriendsPage myUserFriendsPage = new MyUserProfilePage()
                 .openMyProfileFriends();
         assertTrue(myUserFriendsPage.checkPage(),
                 "Страница с официальными группами не открылась."

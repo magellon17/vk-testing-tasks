@@ -7,5 +7,5 @@ import org.junit.platform.suite.api.Suite;
 @Suite
 @SelectPackages("ru.siobko.testing.tasks.patterns.tests.main.profiles.myProfilePage")
 @IncludeTags("myProfile")
-public class MyUserFeedPageSuiteTest {
+public class MyUserMainPageSuiteTest {
 }

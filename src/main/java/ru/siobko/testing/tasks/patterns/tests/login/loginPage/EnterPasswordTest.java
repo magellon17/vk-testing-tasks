@@ -19,8 +19,8 @@ public class EnterPasswordTest extends BaseTest {
     public void testEnterPassword() {
         TESTLOG.info("Вводим пароль.");
         LoginPage loginPage = new LoginPage()
-                .enterPassword(BOT.getPassword());
-        assertEquals(loginPage.getPasswordFieldText(), BOT.getPassword(),
+                .enterPassword(BOT.password());
+        assertEquals(loginPage.getPasswordFieldText(), BOT.password(),
                 "Значение текстового поля пароля не совпадает с ожидаемым."
         );
     }

@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.siobko.testing.tasks.patterns.core.main.elements.SideNavigationBlock;
 import ru.siobko.testing.tasks.patterns.core.main.elements.UserCardToolBar;
-import ru.siobko.testing.tasks.patterns.core.main.groups.GroupsPage;
+import ru.siobko.testing.tasks.patterns.core.main.groups.GroupsMainPage;
 import ru.siobko.testing.tasks.patterns.core.media.photo.PhotoLayer;
 import ru.siobko.testing.tasks.patterns.core.media.PostLayer;
 
@@ -48,10 +48,10 @@ public class MyUserMainPage {
         return true;
     }
 
-    public GroupsPage openGroupsPage() {
+    public GroupsMainPage openGroupsPage() {
         LOG.info("Переходим на страницу с группами.");
         sideNavigationBlock.clickOnGroups();
-        return new GroupsPage();
+        return new GroupsMainPage();
     }
 
     public MyUserProfilePage openProfilePage() {

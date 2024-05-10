@@ -20,10 +20,10 @@ public class LoginTest extends BaseTest {
     public void testLogin() {
         TESTLOG.info("Логинимся в аккаунт.");
         MyProfileMainPage myProfileMainPage = new LoginPage()
-                .enterLogin(BOT.getLogin())
-                .enterPassword(BOT.getPassword())
+                .enterLogin(BOT.login())
+                .enterPassword(BOT.password())
                 .clickSubmit();
-        assertTrue(myProfileMainPage.checkProfileNameContains(BOT.getLogin()),
+        assertTrue(myProfileMainPage.checkProfileNameContains(BOT.login()),
                 "Имя профиля, в который выполнен вход, не совпадает с ожидаемым."
         );
     }

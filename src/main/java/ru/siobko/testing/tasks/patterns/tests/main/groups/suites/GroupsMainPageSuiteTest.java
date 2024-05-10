@@ -7,5 +7,5 @@ import org.junit.platform.suite.api.Suite;
 @Suite
 @SelectPackages("ru.siobko.testing.tasks.patterns.tests.main.groups.groupsPage")
 @IncludeTags("groupsPage")
-public class GroupsPageSuiteTest {
+public class GroupsMainPageSuiteTest {
 }

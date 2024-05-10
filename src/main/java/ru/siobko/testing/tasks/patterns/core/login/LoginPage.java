@@ -62,8 +62,8 @@ public class LoginPage {
 
     public MyProfileMainPage login(TestBot bot) {
         LOG.info("Выполняем вход в аккаунт.");
-        return enterLogin(bot.getLogin())
-                .enterPassword(bot.getPassword())
+        return enterLogin(bot.login())
+                .enterPassword(bot.password())
                 .clickSubmit();
     }
 

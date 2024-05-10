@@ -8,7 +8,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.patterns.core.main.user.MyProfileMainPage;
 import ru.siobko.testing.tasks.patterns.core.main.user.MyUserMainPage;
 import ru.siobko.testing.tasks.patterns.core.settings.SettingsGeneralPage;
 import ru.siobko.testing.tasks.patterns.core.settings.SettingsGeneralPersonalInformationPage;
@@ -50,7 +49,7 @@ public class ChangeUserNameTest extends BaseMainTest {
     public static void returnUsername() {
         TESTLOG.info("Возвращаем изначальное имя пользователя.");
         new SettingsGeneralPersonalInformationPage()
-                .enterName(BOT.getLogin())
+                .enterName(BOT.login())
                 .clickSubmit();
     }
 }

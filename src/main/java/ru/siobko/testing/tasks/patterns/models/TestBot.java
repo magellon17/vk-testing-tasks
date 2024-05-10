@@ -1,19 +1,4 @@
 package ru.siobko.testing.tasks.patterns.models;
 
-public class TestBot {
-    private final String login;
-    private final String password;
-
-    public TestBot(String login, String password) {
-        this.login = login;
-        this.password = password;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
+public record TestBot(String login, String password) {
 }

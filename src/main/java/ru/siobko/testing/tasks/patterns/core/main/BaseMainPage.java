@@ -8,7 +8,7 @@ import ru.siobko.testing.tasks.patterns.core.login.LoginPage;
 import ru.siobko.testing.tasks.patterns.core.main.elements.SideNavigationBlock;
 import ru.siobko.testing.tasks.patterns.core.main.elements.UserCardToolBar;
 import ru.siobko.testing.tasks.patterns.core.main.groups.GroupsPage;
-import ru.siobko.testing.tasks.patterns.core.main.myProfile.MyProfilePage;
+import ru.siobko.testing.tasks.patterns.core.main.user.feed.MyProfilePage;
 import ru.siobko.testing.tasks.patterns.core.media.PhotoLayer;
 import ru.siobko.testing.tasks.patterns.core.media.PostLayer;
 

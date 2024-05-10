@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.patterns.core.main.myProfile.MyProfileFeedPage;
+import ru.siobko.testing.tasks.patterns.core.main.user.feed.MyProfileMainPage;
 import ru.siobko.testing.tasks.patterns.core.login.LoginPage;
 import ru.siobko.testing.tasks.patterns.tests.main.BaseMainTest;
 
@@ -19,7 +19,7 @@ public class LogoutTest extends BaseMainTest {
     @DisplayName("Проверка выхода из аккаунта.")
     public void testLogin() {
         TESTLOG.info("Выходим из аккаунта.");
-        new MyProfileFeedPage()
+        new MyProfileMainPage()
                 .expandUserCardToolbar()
                 .logout()
                 .confirmLogout();

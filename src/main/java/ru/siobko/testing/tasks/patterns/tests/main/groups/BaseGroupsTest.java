@@ -3,7 +3,7 @@ package ru.siobko.testing.tasks.patterns.tests.main.groups;
 import org.junit.jupiter.api.BeforeAll;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.patterns.core.main.myProfile.MyProfileFeedPage;
+import ru.siobko.testing.tasks.patterns.core.main.user.feed.MyProfileMainPage;
 import ru.siobko.testing.tasks.patterns.tests.main.BaseMainTest;
 
 public abstract class BaseGroupsTest extends BaseMainTest {
@@ -15,6 +15,6 @@ public abstract class BaseGroupsTest extends BaseMainTest {
     @BeforeAll
     public static void openGroupsPage() {
         TESTLOG.info("Открываем страницу с группами.");
-        new MyProfileFeedPage().openGroupsPage();
+        new MyProfileMainPage().openGroupsPage();
     }
 }

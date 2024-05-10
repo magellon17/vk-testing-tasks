@@ -8,7 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.patterns.core.main.myProfile.MyProfileFeedPage;
+import ru.siobko.testing.tasks.patterns.core.main.user.feed.MyProfileMainPage;
 import ru.siobko.testing.tasks.patterns.core.settings.SettingsGeneralPage;
 import ru.siobko.testing.tasks.patterns.core.settings.SettingsGeneralPersonalInformationPage;
 import ru.siobko.testing.tasks.patterns.tests.main.BaseMainTest;
@@ -24,7 +24,7 @@ public class ChangeUserNameTest extends BaseMainTest {
     @BeforeAll
     public static void openPersonalInformationPage() {
         TESTLOG.info("Откываем страницу с настройкой личной информации.");
-        new MyProfileFeedPage()
+        new MyProfileMainPage()
                 .openMyProfilePage()
                 .openProfileSettings()
                 .openPersonalInformationPage();

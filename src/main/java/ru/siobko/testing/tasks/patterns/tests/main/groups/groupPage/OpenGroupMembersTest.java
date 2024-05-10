@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.patterns.core.main.groups.myGroup.GroupFeedPage;
-import ru.siobko.testing.tasks.patterns.core.main.groups.myGroup.GroupMembersPage;
+import ru.siobko.testing.tasks.patterns.core.main.group.feed.GroupFeedPage;
+import ru.siobko.testing.tasks.patterns.core.main.group.members.MyGroupMembersPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -19,9 +19,9 @@ public class OpenGroupMembersTest extends BaseGroupPageTest {
     @DisplayName("Проверка открытия страницы участников группы")
     public void testOpenMembers() {
         TESTLOG.info("Открываем страницу с участниками группы.");
-        GroupMembersPage groupMembersPage = new GroupFeedPage()
+        MyGroupMembersPage myGroupMembersPage = new GroupFeedPage()
                 .openGroupMembersPage();
-        assertTrue(groupMembersPage.checkPage(),
+        assertTrue(myGroupMembersPage.checkPage(),
                 "Не открылась страница с участниками группы."
         );
     }

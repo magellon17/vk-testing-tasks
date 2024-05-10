@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.patterns.core.main.groups.myGroup.GroupFeedPage;
-import ru.siobko.testing.tasks.patterns.core.main.groups.myGroup.GroupPhotosPage;
+import ru.siobko.testing.tasks.patterns.core.main.group.feed.GroupFeedPage;
+import ru.siobko.testing.tasks.patterns.core.main.group.photos.GroupPhotosPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

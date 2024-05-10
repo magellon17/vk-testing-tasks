@@ -8,9 +8,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.patterns.core.main.myProfile.MyProfileFeedPage;
+import ru.siobko.testing.tasks.patterns.core.main.user.feed.MyProfileMainPage;
 import ru.siobko.testing.tasks.patterns.core.main.groups.GroupsPage;
-import ru.siobko.testing.tasks.patterns.core.main.groups.myGroup.GroupFeedPage;
+import ru.siobko.testing.tasks.patterns.core.main.group.feed.GroupFeedPage;
 import ru.siobko.testing.tasks.patterns.tests.main.groups.BaseGroupsTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -23,7 +23,7 @@ public class GroupCreationTest extends BaseGroupsTest {
     @BeforeAll
     public static void openGroupsPage() {
         TESTLOG.info("Откроем страницу с группами.");
-        new MyProfileFeedPage().openGroupsPage();
+        new MyProfileMainPage().openGroupsPage();
     }
 
     @DisplayName("Проверка создания группы")

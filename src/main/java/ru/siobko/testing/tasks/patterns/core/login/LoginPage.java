@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.siobko.testing.tasks.patterns.core.BasePage;
-import ru.siobko.testing.tasks.patterns.core.main.myProfile.MyProfileFeedPage;
+import ru.siobko.testing.tasks.patterns.core.main.user.feed.MyProfileMainPage;
 import ru.siobko.testing.tasks.patterns.models.TestBot;
 
 import static com.codeborne.selenide.Condition.exist;
@@ -53,15 +53,15 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public MyProfileFeedPage clickSubmit() {
+    public MyProfileMainPage clickSubmit() {
         LOG.info("Кликаем на кнопку входа.");
         $(SUBMIT_BUTTON).shouldBe(
                 visible.because("Не отобразилась кнопка входа.")
         ).click();
-        return new MyProfileFeedPage();
+        return new MyProfileMainPage();
     }
 
-    public MyProfileFeedPage login(TestBot bot) {
+    public MyProfileMainPage login(TestBot bot) {
         LOG.info("Выполняем вход в аккаунт.");
         return enterLogin(bot.getLogin())
                 .enterPassword(bot.getPassword())

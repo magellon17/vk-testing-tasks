@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Tag("loginPage")
 public class EnterLoginTest extends BaseTest {
-    private static final Logger TESTLOG = LoggerFactory.getLogger(EnterPasswordTest.class);
+    private static final Logger TESTLOG = LoggerFactory.getLogger(EnterLoginTest.class);
 
     @Test
     @DisplayName("Проверка ввода логина")

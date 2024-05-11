@@ -3,7 +3,7 @@ package ru.siobko.testing.tasks.patterns.core.login;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.patterns.core.main.user.MyProfileMainPage;
+import ru.siobko.testing.tasks.patterns.core.main.user.MyUserMainPage;
 import ru.siobko.testing.tasks.patterns.models.TestBot;
 
 import static com.codeborne.selenide.Condition.exist;
@@ -52,15 +52,15 @@ public class LoginPage {
         return this;
     }
 
-    public MyProfileMainPage clickSubmit() {
+    public MyUserMainPage clickSubmit() {
         LOG.info("Кликаем на кнопку входа.");
         $(SUBMIT_BUTTON).shouldBe(
                 visible.because("Не отобразилась кнопка входа.")
         ).click();
-        return new MyProfileMainPage();
+        return new MyUserMainPage();
     }
 
-    public MyProfileMainPage login(TestBot bot) {
+    public MyUserMainPage login(TestBot bot) {
         LOG.info("Выполняем вход в аккаунт.");
         return enterLogin(bot.login())
                 .enterPassword(bot.password())

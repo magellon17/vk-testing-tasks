@@ -7,7 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.patterns.core.main.user.MyProfileMainPage;
+import ru.siobko.testing.tasks.patterns.core.main.user.MyUserMainPage;
 import ru.siobko.testing.tasks.patterns.core.media.PostLayer;
 import ru.siobko.testing.tasks.patterns.tests.main.BaseMainTest;
 
@@ -25,7 +25,7 @@ public class PublishPostTest extends BaseMainTest {
     @ValueSource(strings = {ENGLISH_TEXT, RUSSIAN_TEXT})
     public void testPublishPost(String text) {
         TESTLOG.info("Публикуем пост.");
-        PostLayer postLayer = new MyProfileMainPage()
+        PostLayer postLayer = new MyUserMainPage()
                 .clickPublish()
                 .clickPublishPost()
                 .enterPostText(text)

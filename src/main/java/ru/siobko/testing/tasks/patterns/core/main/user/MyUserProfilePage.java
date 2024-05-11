@@ -14,11 +14,8 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class MyUserProfilePage {
     private static final Logger LOG = LoggerFactory.getLogger(MyUserProfilePage.class);
-
     private final UserNavigation horizontalNavigation = new UserNavigation();
-
     private static final By SETTINGS_BUTTON = byXpath(".//li[@data-l='outlandertarget,settings,t,settings']");
-
 
     public MyUserProfilePage() {
         checkPage();

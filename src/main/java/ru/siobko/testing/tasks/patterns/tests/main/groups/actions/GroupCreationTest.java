@@ -9,9 +9,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.patterns.core.main.user.MyProfileMainPage;
 import ru.siobko.testing.tasks.patterns.core.main.groups.GroupsMainPage;
 import ru.siobko.testing.tasks.patterns.core.main.group.MyGroupMainPage;
+import ru.siobko.testing.tasks.patterns.core.main.user.MyUserMainPage;
 import ru.siobko.testing.tasks.patterns.models.group.Group;
 import ru.siobko.testing.tasks.patterns.models.group.GroupCategory;
 import ru.siobko.testing.tasks.patterns.models.group.GroupType;
@@ -33,7 +33,7 @@ public class GroupCreationTest extends BaseGroupsTest {
     @BeforeAll
     public static void openGroupsPage() {
         TESTLOG.info("Откроем страницу с группами.");
-        new MyProfileMainPage().openGroupsPage();
+        new MyUserMainPage().openGroupsPage();
     }
 
     @DisplayName("Проверка создания группы")
@@ -49,11 +49,11 @@ public class GroupCreationTest extends BaseGroupsTest {
                 .selectGroupCategory(group.category())
                 .clickCreate();
         assertAll(
-                "",
+                "Проверка названия и категории группы",
                 () -> assertEquals(myGroupMainPage.getGroupName(), group.name(),
                         "Название группы не совпало с ожидаемым."),
                 () -> assertEquals(myGroupMainPage.getGroupCategory(), group.category().toString(),
-                        "Название группы не совпало с ожидаемым.")
+                        "Категория группы не совпала с ожидаемым.")
         );
     }
 

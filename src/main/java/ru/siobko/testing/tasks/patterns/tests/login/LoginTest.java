@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.siobko.testing.tasks.patterns.core.login.LoginPage;
-import ru.siobko.testing.tasks.patterns.core.main.user.MyProfileMainPage;
+import ru.siobko.testing.tasks.patterns.core.main.user.MyUserMainPage;
 import ru.siobko.testing.tasks.patterns.tests.BaseTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -19,11 +19,11 @@ public class LoginTest extends BaseTest {
     @DisplayName("Проверка входа в аккаунт")
     public void testLogin() {
         TESTLOG.info("Логинимся в аккаунт.");
-        MyProfileMainPage myProfileMainPage = new LoginPage()
+        MyUserMainPage mainPage = new LoginPage()
                 .enterLogin(BOT.login())
                 .enterPassword(BOT.password())
                 .clickSubmit();
-        assertTrue(myProfileMainPage.checkProfileNameContains(BOT.login()),
+        assertTrue(mainPage.checkProfileNameContains(BOT.login()),
                 "Имя профиля, в который выполнен вход, не совпадает с ожидаемым."
         );
     }

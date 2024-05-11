@@ -3,7 +3,6 @@ package ru.siobko.testing.tasks.patterns.tests.main.myProfile;
 import org.junit.jupiter.api.BeforeAll;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.patterns.core.main.user.MyProfileMainPage;
 import ru.siobko.testing.tasks.patterns.core.main.user.MyUserMainPage;
 import ru.siobko.testing.tasks.patterns.tests.main.BaseMainTest;
 

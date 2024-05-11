@@ -7,7 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.patterns.core.main.user.MyProfileMainPage;
+import ru.siobko.testing.tasks.patterns.core.main.user.MyUserMainPage;
 import ru.siobko.testing.tasks.patterns.core.media.photo.PhotoLayer;
 import ru.siobko.testing.tasks.patterns.tests.main.BaseMainTest;
 
@@ -25,9 +25,9 @@ public class PublishPhotoTest extends BaseMainTest {
     @ValueSource(strings = {JPG_PHOTO, PNG_PHOTO})
     public void testPublishPhoto(String filename) {
         TESTLOG.info("Публикуем фото.");
-        PhotoLayer photoLayer = new MyProfileMainPage()
+        PhotoLayer photoLayer = new MyUserMainPage()
                 .clickPublish()
-                .clickPublishPhoto(filename)
+                .uploadPhoto(filename)
                 .openPhoto();
         assertTrue(photoLayer.checkImage(),
                 "Отсутствует фото."

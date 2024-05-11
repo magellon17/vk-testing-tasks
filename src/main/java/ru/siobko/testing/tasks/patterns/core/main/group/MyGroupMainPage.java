@@ -19,6 +19,7 @@ public class MyGroupMainPage extends GroupMainPage {
 
     private static final By ABOUT_GROUP_PANEL = byXpath(".//div[@data-module='GroupInfoPanel']");
     private static final By GROUP_NAME = byClassName("group-name_h");
+    private static final By GROUP_INFO = byClassName("group-name_info");
     private static final By GROUP_FEED = byXpath(".//div[@data-l='fL,group']");
     private static final By MORE_ACTIONS_BUTTON = byXpath(".//li[@class='u-menu_li expand-action-item']");
 
@@ -79,6 +80,12 @@ public class MyGroupMainPage extends GroupMainPage {
     public String getGroupName() {
         return $(GROUP_NAME).shouldBe(
                 visible.because("Не отобразилось название группы.")
+        ).getText();
+    }
+
+    public String getGroupCategory() {
+        return $(GROUP_INFO).shouldBe(
+                visible.because("Не отобразилась категория группы")
         ).getText();
     }
 }

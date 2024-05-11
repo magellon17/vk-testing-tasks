@@ -17,8 +17,10 @@ import ru.siobko.testing.tasks.patterns.models.group.GroupCategory;
 import ru.siobko.testing.tasks.patterns.models.group.GroupType;
 import ru.siobko.testing.tasks.patterns.tests.main.groups.BaseGroupsTest;
 
+
 import java.util.stream.Stream;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DisplayName("Создание группы")
@@ -46,8 +48,12 @@ public class GroupCreationTest extends BaseGroupsTest {
                 .expandCategoriesList()
                 .selectGroupCategory(group.category())
                 .clickCreate();
-        assertEquals(myGroupMainPage.getGroupName(),group.name(),
-                "Название группы не совпало с ожидаемым."
+        assertAll(
+                "",
+                () -> assertEquals(myGroupMainPage.getGroupName(), group.name(),
+                        "Название группы не совпало с ожидаемым."),
+                () -> assertEquals(myGroupMainPage.getGroupCategory(), group.category().toString(),
+                        "Название группы не совпало с ожидаемым.")
         );
     }
 

@@ -9,7 +9,9 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MyUserFriendsPage extends UserFriendsPage {
+
     private static final Logger log = LoggerFactory.getLogger(MyUserFriendsPage.class);
+
     private static final By FRIEND_REQUESTS_BUTTON = byXpath(".//a[@data-l='t,userFriendRequest']");
     private static final By FRIEND_SUGGESTS_BUTTON = byXpath(".//a[@data-l='t,userFriendSuggest']");
 

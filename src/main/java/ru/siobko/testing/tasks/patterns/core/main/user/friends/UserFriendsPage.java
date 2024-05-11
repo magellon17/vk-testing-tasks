@@ -9,7 +9,9 @@ import static com.codeborne.selenide.Selectors.byClassName;
 import static com.codeborne.selenide.Selenide.$;
 
 public class UserFriendsPage {
+
     private static final Logger log = LoggerFactory.getLogger(UserFriendsPage.class);
+
     private static final By FRIENDS_MENU = byClassName("friends-menu");
 
     public UserFriendsPage() {

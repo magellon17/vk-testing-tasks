@@ -15,8 +15,11 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class PublishingMenuForm extends MyUserMainPage implements UIComponent {
+
     private static final Logger log = LoggerFactory.getLogger(PublishingMenuForm.class);
+
     private final SelenideElement form = $(byXpath(".//*[contains(@class, 'dropdown-list__')]"));
+
     private static final By PHOTO_INPUT = byXpath(".//input[@accept='image/*, video/*, .heic,']");
     private static final By POST_BUTTON = byXpath(".//*[@data-l='t,feed.posting.ui.input']");
 

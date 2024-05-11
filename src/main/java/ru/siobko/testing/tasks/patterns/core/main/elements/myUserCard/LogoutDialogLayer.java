@@ -11,7 +11,9 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class LogoutDialogLayer implements UIComponent {
+
     private static final Logger log = LoggerFactory.getLogger(LogoutDialogLayer.class);
+
     private static final By CONFIRM_LOGOUT_BUTTON = byXpath(".//input[@data-l='t,logout']");
 
     public LogoutDialogLayer() {

@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 @Tag("myUserProfilePage")
 public class OpenMyProfileFriendsTest extends OpenMyProfilePagesSteps {
+
     private final OpenMyProfilePagesSteps steps = new OpenMyProfilePagesSteps();
 
     @BeforeEach

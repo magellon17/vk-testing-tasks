@@ -12,8 +12,11 @@ import static com.codeborne.selenide.Selectors.byId;
 import static com.codeborne.selenide.Selenide.$;
 
 public class UserProfilePage {
-    private static final Logger LOG = LoggerFactory.getLogger(UserProfilePage.class);
-    protected final UserNavigationMenu horizontalNavigation = new UserNavigationMenu();
+
+    private static final Logger log = LoggerFactory.getLogger(UserProfilePage.class);
+
+    protected final UserNavigationMenu userNavigation = new UserNavigationMenu();
+
     protected static final By ABOUT_USER_BLOCK = byId("hook_Block_AboutUserRB");
 
     public UserProfilePage() {
@@ -23,19 +26,19 @@ public class UserProfilePage {
     public boolean checkPage() {
         $(ABOUT_USER_BLOCK).shouldBe(
                 visible.because("Не отобразилась панель 'О себе'"));
-        LOG.info("Перешли на страницу профиля пользователя");
+        log.info("Перешли на страницу профиля пользователя");
         return true;
     }
 
     public UserFriendsPage openProfileFriends() {
-        LOG.info("Открываем друзей моего профиля.");
-        horizontalNavigation.clickOnFriends();
+        log.info("Открываем друзей моего профиля.");
+        userNavigation.clickOnFriends();
         return new UserFriendsPage();
     }
 
     public UserPhotosPage openProfilePhotos() {
-        LOG.info("Открываем фотки моего профиля.");
-        horizontalNavigation.clickOnPhotos();
+        log.info("Открываем фотки моего профиля.");
+        userNavigation.clickOnPhotos();
         return new UserPhotosPage();
     }
 }

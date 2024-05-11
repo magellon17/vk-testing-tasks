@@ -11,7 +11,9 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class ChooseGroupTypeDialog implements UIComponent {
+
     private static final Logger log = LoggerFactory.getLogger(ChooseGroupTypeDialog.class);
+
     private static final By GROUP_BY_INTEREST_BUTTON = byXpath(".//a[@data-l='t,INTEREST']");
     private static final By BUSINESS_GROUP_BUTTON = byXpath(".//a[@data-l='t,PAGE']");
     private static final By EVENT_BUTTON = byXpath(".//a[@data-l='t,HAPPENING']");

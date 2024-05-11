@@ -11,7 +11,9 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class CategoriesList extends CreateGroupForm implements UIComponent {
-    private static final Logger LOG = LoggerFactory.getLogger(CategoriesList.class);
+
+    private static final Logger log = LoggerFactory.getLogger(CategoriesList.class);
+
     private static final By CARS_CATEGORY_BUTTON = byXpath(".//*[text()='Автомобили']");
     private static final By CAR_WOSH_CATEGORY_BUTTON = byXpath(".//*[text()='Автомойка']");
 
@@ -29,7 +31,7 @@ public class CategoriesList extends CreateGroupForm implements UIComponent {
     }
 
     public CreateGroupForm selectGroupCategory(GroupTopic topic) {
-        LOG.info("Выбираем тематику группы");
+        log.info("Выбираем тематику группы");
         switch (topic) {
             case CARS:
                 $(CARS_CATEGORY_BUTTON).shouldBe(

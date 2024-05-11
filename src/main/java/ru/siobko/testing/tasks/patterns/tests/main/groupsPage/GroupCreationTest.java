@@ -23,7 +23,9 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GroupCreationTest extends BaseMainTest {
+
     private static final Logger log = LoggerFactory.getLogger(GroupCreationTest.class);
+
     private static final Group group1 = new Group(GroupType.BY_INTERESTS, GroupTopic.CARS, RandomString.make(10));
     private static final Group group2 = new Group(GroupType.BUSINESS, GroupTopic.CAR_WASH, RandomString.make(10));
 
@@ -48,7 +50,7 @@ public class GroupCreationTest extends BaseMainTest {
                 "Проверка названия и категории группы",
                 () -> assertEquals(myGroupMainPage.getGroupName(), group.name(),
                         "Название группы не совпало с ожидаемым."),
-                () -> assertEquals(myGroupMainPage.getGroupCategory(), group.topic().toString(),
+                () -> assertEquals(myGroupMainPage.getGroupTopic(), group.topic().toString(),
                         "Категория группы не совпала с ожидаемым.")
         );
     }

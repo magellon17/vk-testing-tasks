@@ -9,7 +9,9 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class GroupActionsMenu {
-    private static final Logger LOG = LoggerFactory.getLogger(GroupActionsMenu.class);
+
+    private static final Logger log = LoggerFactory.getLogger(GroupActionsMenu.class);
+
     private static final By DELETE_BUTTON = byText("Удалить");
 
     public GroupActionsMenu(){
@@ -24,7 +26,7 @@ public class GroupActionsMenu {
     }
 
     public RemoveGroupForm clickOnDelete() {
-        LOG.info("Кликаем на кнопку 'Удалить' для удаления группы.");
+        log.info("Кликаем на кнопку 'Удалить' для удаления группы.");
         $(DELETE_BUTTON).shouldBe(
                 visible.because("Не появилась кнопка 'Удалить'.")
         ).click();

@@ -10,11 +10,13 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class RemoveGroupForm {
-    private static final Logger LOG = LoggerFactory.getLogger(RemoveGroupForm.class);
+
+    private static final Logger log = LoggerFactory.getLogger(RemoveGroupForm.class);
+
     private static final By CONFIRM_DELETION_BUTTON = byXpath(".//*[@data-l='t,confirm']");
 
     public GroupsMainPage confirmDeletion() {
-        LOG.info("Подтверждаем удаление группы.");
+        log.info("Подтверждаем удаление группы.");
         $(CONFIRM_DELETION_BUTTON).shouldBe(
                 visible.because("Не появилась кнопка пожтверждения удаления.")
         ).click();

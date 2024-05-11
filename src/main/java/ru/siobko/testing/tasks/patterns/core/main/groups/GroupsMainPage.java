@@ -10,7 +10,9 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 
 public class GroupsMainPage {
+
     private static final Logger log = LoggerFactory.getLogger(GroupsMainPage.class);
+
     private static final By GROUP_SEARCH_FIELD = byXpath(".//group-search-input[@data-bundle-name='search_group-search-input']");
     private static final By CREATE_GROUP_BUTTON = byText("Создать группу");
 

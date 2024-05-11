@@ -9,7 +9,9 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MyUserPhotosPage extends UserPhotosPage {
+
     private static final Logger log = LoggerFactory.getLogger(MyUserPhotosPage.class);
+
     private static final By CREATE_ALBUM_BUTTON = byText("Создать альбом");
 
     public MyUserPhotosPage() {

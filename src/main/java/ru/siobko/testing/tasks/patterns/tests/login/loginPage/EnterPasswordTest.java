@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Tag("LoginPageTextFields")
 public class EnterPasswordTest extends BaseTest {
+
     private static final Logger log = LoggerFactory.getLogger(EnterPasswordTest.class);
 
     @Test

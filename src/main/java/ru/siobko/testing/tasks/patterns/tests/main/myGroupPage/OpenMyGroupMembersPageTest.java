@@ -1,8 +1,6 @@
 package ru.siobko.testing.tasks.patterns.tests.main.myGroupPage;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import ru.siobko.testing.tasks.patterns.tests.main.BaseMainTest;
 
 @Tag("openMyGroupPages")
@@ -15,12 +13,12 @@ public class OpenMyGroupMembersPageTest extends BaseMainTest {
     }
 
     @Test
-    public void testOpenMembersPage() {
-        steps.openMembersPageAndCheckPage();
+    public void testOpenMyGroupMembersPage() {
+        steps.openMyGroupMembersPageAndCheckPage();
     }
 
-    @BeforeEach
+    @AfterEach
     public void afterTest() {
-        steps.tearDown();
+        steps.removeGroupFromGroupMembersPage();
     }
 }

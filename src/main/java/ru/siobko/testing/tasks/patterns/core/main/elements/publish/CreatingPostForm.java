@@ -15,7 +15,9 @@ import static com.codeborne.selenide.Selenide.$;
  * Форма с текстовым полем для написания текста поста
  */
 public class CreatingPostForm extends MyUserMainPage implements UIComponent {
+
     private static final Logger log = LoggerFactory.getLogger(SideNavigationBlock.class);
+
     private static final By POST_TEXT_BOX = byXpath(".//div[@data-module='postingForm/mediaText']");
     private static final By SUBMIT_BUTTON = byXpath(".//button[@data-l='t,button.submit']");
 

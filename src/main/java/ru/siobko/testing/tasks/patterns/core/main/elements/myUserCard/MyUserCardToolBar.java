@@ -15,8 +15,11 @@ import static com.codeborne.selenide.Selenide.$;
  * Раскрывающееся меню пользователя
  */
 public class MyUserCardToolBar implements UIComponent {
+
     private static final Logger log = LoggerFactory.getLogger(MyUserCardToolBar.class);
+
     private static final SelenideElement toolbar = $(byId("user-dropdown-menu"));
+
     private static final By LOGOUT_BUTTON = byXpath(".//a[@data-l='t,logout']");
 
     public MyUserCardToolBar() {

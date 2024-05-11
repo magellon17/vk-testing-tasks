@@ -9,10 +9,11 @@ import ru.siobko.testing.tasks.patterns.models.TestBot;
 import static com.codeborne.selenide.WebDriverRunner.clearBrowserCache;
 
 public abstract class BaseTest {
+
     protected static final String BROWSER = "chrome";
     protected static final String BASE_URL = "https://ok.ru";
+
     protected static final TestBot BOT = new TestBot("technopol72", "technopolisPassword");
-    protected static final TestBot EXTRA_BOT = new TestBot("technopol54", "technopolisPassword");
 
     @BeforeAll
     public static void setUp() {

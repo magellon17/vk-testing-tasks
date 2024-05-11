@@ -11,6 +11,7 @@ import ru.siobko.testing.tasks.patterns.tests.main.BaseMainTest;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class OpenMyProfilePagesSteps extends BaseMainTest {
+
     private static final Logger log = LoggerFactory.getLogger(OpenMyProfilePagesSteps.class);
 
     public void prepareTest() {

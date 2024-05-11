@@ -17,8 +17,11 @@ import static com.codeborne.selenide.Selenide.$;
  * Блок уведомления, который появляется после создания поста
  */
 public class PublishedPostNotifyBlock extends MyUserMainPage implements UIComponent {
+
     private static final Logger log = LoggerFactory.getLogger(PublishedPostNotifyBlock.class);
+
     private static final SelenideElement block = $(byId("hook_Block_TipBlock"));
+
     private static final By OPEN_PUBLISHED_POST_BUTTON = byXpath(".//a[@class='js-tip-block-url al']");
 
     public PublishedPostNotifyBlock(){

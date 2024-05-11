@@ -12,7 +12,9 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class CreateGroupForm implements UIComponent {
+
     private static final Logger log = LoggerFactory.getLogger(CreateGroupForm.class);
+
     private static final By GROUP_NAME_FIELD = byName("st.layer.name");
     private static final By EXPAND_CATEGORIES_LIST = byXpath(".//*[@class='it js-multi-select_visual-input']");
     private static final By CREATE_BUTTON = byXpath(".//input[@data-l='t,confirm']");

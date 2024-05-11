@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Tag("auth")
 public class LogoutTest extends BaseMainTest {
+
     private static final Logger log = LoggerFactory.getLogger(LogoutTest.class);
 
     @Test

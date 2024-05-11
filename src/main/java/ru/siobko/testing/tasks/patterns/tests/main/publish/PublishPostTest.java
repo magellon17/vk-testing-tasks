@@ -14,7 +14,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Tag("publishMedia")
 public class PublishPostTest extends BaseMainTest {
+
     private static final Logger log = LoggerFactory.getLogger(PublishPostTest.class);
+
     private static final String ENGLISH_TEXT = "Hello, World";
     private static final String RUSSIAN_TEXT = "Лена Пранова самая лучшая!!!";
 

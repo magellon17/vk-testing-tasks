@@ -9,7 +9,9 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class UserPhotosPage {
+
     private static final Logger log = LoggerFactory.getLogger(UserPhotosPage.class);
+
     private static final By ALBUMS_SEARCH = byText("Поиск по альбомам");
 
     public UserPhotosPage() {

@@ -18,8 +18,11 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selectors.byXpath;
 
 public class MyUserMainPage {
-    private static final Logger LOG = LoggerFactory.getLogger(MyUserMainPage.class);
+
+    private static final Logger log = LoggerFactory.getLogger(MyUserMainPage.class);
+
     private final SideNavigationBlock sideNavigationBlock = new SideNavigationBlock();
+
     private static final By USER_CARD_TOOLBAR_DROPDOWN = byXpath(".//button[@aria-label='Настройки профиля']");
     private static final By PUBLISH_BUTTON = byXpath(".//button[@data-testid='ddm-button']");
     private static final By OPEN_PUBLISHED_PHOTO_BUTTON = byXpath(".//up-photo-midget[@data-l='t,view-photo']");
@@ -36,19 +39,19 @@ public class MyUserMainPage {
     }
 
     public GroupsMainPage openGroupsPage() {
-        LOG.info("Переходим на страницу с группами.");
+        log.info("Переходим на страницу с группами.");
         sideNavigationBlock.clickOnGroups();
         return new GroupsMainPage();
     }
 
     public MyUserProfilePage openProfilePage() {
-        LOG.info("Переходим на страницу профиля.");
+        log.info("Переходим на страницу профиля.");
         sideNavigationBlock.clickOnMyProfile();
         return new MyUserProfilePage();
     }
 
     public PublishingMenuForm clickPublish() {
-        LOG.info("Кликаем на кнопку 'Опубликовать'.");
+        log.info("Кликаем на кнопку 'Опубликовать'.");
         $(PUBLISH_BUTTON).shouldBe(
                 visible.because("Нет кнопки 'Опубликовать'.")
         ).click();
@@ -56,7 +59,7 @@ public class MyUserMainPage {
     }
 
     public MyUserCardToolBar expandUserCardToolbar() {
-        LOG.info("Открываем карточку пользователя");
+        log.info("Открываем карточку пользователя");
         $(USER_CARD_TOOLBAR_DROPDOWN).shouldBe(
                 visible.because("Нет карточки пользователя на странице.")
         ).click();
@@ -64,7 +67,7 @@ public class MyUserMainPage {
     }
 
     public PhotoLayer openPhoto() {
-        LOG.info("Открываем фото.");
+        log.info("Открываем фото.");
         $(OPEN_PUBLISHED_PHOTO_BUTTON).shouldBe(
                 visible.because("Не найдено фото.")
         ).click();

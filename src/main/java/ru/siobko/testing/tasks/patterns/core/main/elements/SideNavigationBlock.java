@@ -10,7 +10,6 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class SideNavigationBlock {
     private static final Logger LOG = LoggerFactory.getLogger(SideNavigationBlock.class);
-
     private static final By GROUPS_BUTTON = byXpath(".//a[@data-l='t,userAltGroup']");
     private static final By MY_PROFILE_BUTTON = byXpath(".//a[@data-l='t,userPage']");
 

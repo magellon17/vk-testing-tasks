@@ -3,7 +3,7 @@ package ru.siobko.testing.tasks.patterns.core.main.user;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.patterns.core.main.elements.PublishingMenuForm;
+import ru.siobko.testing.tasks.patterns.core.main.elements.publish.PublishingMenuForm;
 import ru.siobko.testing.tasks.patterns.core.main.elements.SideNavigationBlock;
 import ru.siobko.testing.tasks.patterns.core.main.elements.UserCardToolBar;
 import ru.siobko.testing.tasks.patterns.core.main.groups.GroupsMainPage;
@@ -12,7 +12,6 @@ import ru.siobko.testing.tasks.patterns.core.media.PostLayer;
 
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byId;
 import static com.codeborne.selenide.Selenide.$;
 
 import static com.codeborne.selenide.Selectors.byXpath;

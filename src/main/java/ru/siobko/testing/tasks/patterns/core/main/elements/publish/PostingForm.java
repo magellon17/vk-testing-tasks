@@ -1,8 +1,9 @@
-package ru.siobko.testing.tasks.patterns.core.main.elements;
+package ru.siobko.testing.tasks.patterns.core.main.elements.publish;
 
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.siobko.testing.tasks.patterns.core.main.elements.SideNavigationBlock;
 import ru.siobko.testing.tasks.patterns.core.main.user.MyUserMainPage;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -15,7 +16,7 @@ public class PostingForm extends MyUserMainPage {
     private static final By SUBMIT_BUTTON = byXpath(".//button[@data-l='t,button.submit']");
 
     public PostingForm enterPostText(String postText) {
-        LOG.info("Вводим текст поста.");
+        LOG.info("Вводим текст поста");
         $(POST_TEXT_BOX).shouldBe(
                 visible.because("Не отобразилось поле ввода текста поста.")
         ).setValue(postText);
@@ -23,7 +24,7 @@ public class PostingForm extends MyUserMainPage {
     }
 
     public MyUserMainPage clickSubmit() {
-        LOG.info("Публикуем пост.");
+        LOG.info("Публикуем пост");
         $(SUBMIT_BUTTON).shouldBe(
                 visible.because("Не отобразилась кнопка подтвержденря публикации поста.")
         ).click();

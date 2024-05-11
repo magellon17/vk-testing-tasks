@@ -61,8 +61,8 @@ public class GroupCreationTest extends BaseGroupsTest {
     public void deleteGroup() {
         TESTLOG.info("Удаляем группу.");
         new MyGroupMainPage()
-                .clickMoreActions()
-                .clickDelete()
+                .dropdownActionsMenu()
+                .clickOnDelete()
                 .confirmDeletion();
     }
 

@@ -1,4 +1,4 @@
-package ru.siobko.testing.tasks.patterns.core.main.elements;
+package ru.siobko.testing.tasks.patterns.core.main.elements.publish;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;

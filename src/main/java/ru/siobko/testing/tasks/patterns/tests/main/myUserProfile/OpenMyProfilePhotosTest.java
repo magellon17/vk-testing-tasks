@@ -1,6 +1,5 @@
-package ru.siobko.testing.tasks.patterns.tests.main.myProfile;
+package ru.siobko.testing.tasks.patterns.tests.main.myUserProfile;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -13,12 +12,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @Tag("profiles")
 @Tag("myProfile")
 public class OpenMyProfilePhotosTest extends BaseMyProfilePageTest {
-    private static final Logger TESTLOG = LoggerFactory.getLogger(OpenMyProfilePhotosTest.class);
+    private static final Logger log = LoggerFactory.getLogger(OpenMyProfilePhotosTest.class);
 
     @Test
-    @DisplayName("Проверка открытия страницы фото моего профиля.")
     public void testOpenMyProfilePhotos() {
-        TESTLOG.info("Открываем страницу с фотографиями моего профиля.");
+        log.info("Открываем страницу с фотографиями моего профиля.");
         MyUserPhotosPage myUserPhotosPage = new MyUserProfilePage()
                 .openMyProfilePhotos();
         assertTrue(myUserPhotosPage.checkPage(),

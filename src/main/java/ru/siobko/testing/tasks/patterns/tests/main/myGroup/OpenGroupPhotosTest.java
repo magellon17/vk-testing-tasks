@@ -1,4 +1,4 @@
-package ru.siobko.testing.tasks.patterns.tests.main.groups.groupPage;
+package ru.siobko.testing.tasks.patterns.tests.main.myGroup;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -13,12 +13,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @Tag("groups")
 @Tag("groupPage")
 public class OpenGroupPhotosTest extends BaseGroupPageTest {
-    private static final Logger TESTLOG = LoggerFactory.getLogger(OpenGroupPhotosTest.class);
+    private static final Logger log = LoggerFactory.getLogger(OpenGroupPhotosTest.class);
 
     @Test
     @DisplayName("Проверка открытия страницы фото группы")
     public void testOpenPhotos() {
-        TESTLOG.info("Открываем страницу с фотками группы.");
+        log.info("Открываем страницу с фотками группы.");
         GroupPhotosPage groupPhotosPage = new MyGroupMainPage()
                 .openGroupPhotosPage();
         assertTrue(groupPhotosPage.checkPage(),

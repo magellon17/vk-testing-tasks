@@ -12,14 +12,6 @@ public class GroupNavigation extends HorizontalNavigation {
     private static final Logger LOG = LoggerFactory.getLogger(GroupNavigation.class);
     protected static final By MEMBERS_BUTTON = byText("Участники");
 
-    public GroupNavigation() {
-        check();
-    }
-
-    public boolean check() {
-        return true;
-    }
-
     public void clickOnMembers() {
         LOG.info("Кликаем на участников");
         navi.$(MEMBERS_BUTTON).shouldBe(

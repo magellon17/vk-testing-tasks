@@ -1,4 +1,4 @@
-package ru.siobko.testing.tasks.patterns.tests.main.myProfile;
+package ru.siobko.testing.tasks.patterns.tests.main.myUserProfile;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.slf4j.Logger;

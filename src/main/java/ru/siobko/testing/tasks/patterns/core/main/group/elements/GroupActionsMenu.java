@@ -12,6 +12,17 @@ public class GroupActionsMenu {
     private static final Logger LOG = LoggerFactory.getLogger(GroupActionsMenu.class);
     private static final By DELETE_BUTTON = byText("Удалить");
 
+    public GroupActionsMenu(){
+        check();
+    }
+
+    public boolean check(){
+        $(DELETE_BUTTON).shouldBe(
+                visible.because("Не появилась кнопка 'Удалить'.")
+        );
+        return true;
+    }
+
     public RemoveGroupForm clickOnDelete() {
         LOG.info("Кликаем на кнопку 'Удалить' для удаления группы.");
         $(DELETE_BUTTON).shouldBe(

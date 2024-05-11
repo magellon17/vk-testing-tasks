@@ -1,5 +1,6 @@
 package ru.siobko.testing.tasks.patterns.tests.main.groups;
 
+import net.bytebuddy.utility.RandomString;
 import org.junit.jupiter.api.BeforeAll;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,14 +8,11 @@ import ru.siobko.testing.tasks.patterns.core.main.user.MyUserMainPage;
 import ru.siobko.testing.tasks.patterns.tests.main.BaseMainTest;
 
 public abstract class BaseGroupsTest extends BaseMainTest {
-    private static final Logger TESTLOG = LoggerFactory.getLogger(BaseGroupsTest.class);
-
-    protected static final String GROUP_NAME_ON_ENGLISH = "my Group";
-    protected static final String GROUP_NAME_ON_RUSSIAN = "моя Группа";
+    private static final Logger log = LoggerFactory.getLogger(BaseGroupsTest.class);
 
     @BeforeAll
     public static void openGroupsPage() {
-        TESTLOG.info("Открываем страницу с группами.");
+        log.info("Открываем страницу с группами.");
         new MyUserMainPage().openGroupsPage();
     }
 }

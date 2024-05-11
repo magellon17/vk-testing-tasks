@@ -1,4 +1,4 @@
-package ru.siobko.testing.tasks.patterns.tests.main.myProfile.suites;
+package ru.siobko.testing.tasks.patterns.tests.main.myUserProfile.suites;
 
 import org.junit.platform.suite.api.IncludeTags;
 import org.junit.platform.suite.api.SelectPackages;

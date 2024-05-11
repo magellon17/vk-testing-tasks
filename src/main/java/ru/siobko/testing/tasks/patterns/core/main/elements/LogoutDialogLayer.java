@@ -14,10 +14,12 @@ public class LogoutDialogLayer {
     private static final By CONFIRM_LOGOUT_BUTTON = byXpath(".//input[@data-l='t,logout']");
 
     public LogoutDialogLayer() {
-
+        check();
     }
 
     public boolean check() {
+        $(CONFIRM_LOGOUT_BUTTON).shouldBe(
+                visible.because("Не отобразилась кнопка подтверждения выхода"));
         return true;
     }
 

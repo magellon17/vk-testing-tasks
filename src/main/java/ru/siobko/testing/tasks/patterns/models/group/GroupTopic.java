@@ -1,14 +1,14 @@
 package ru.siobko.testing.tasks.patterns.models.group;
 
-public enum GroupCategory {
-    CARS {
+public enum GroupTopic {
+    CARS{
         public String toString() {
             return "Автомобили";
         }
     },
-    CAR_WASH {
+    CAR_WASH{
         public String toString() {
             return "Автомойка";
         }
-    },
+    }
 }

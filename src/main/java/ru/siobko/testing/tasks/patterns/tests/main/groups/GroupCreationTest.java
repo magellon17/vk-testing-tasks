@@ -1,6 +1,6 @@
-package ru.siobko.testing.tasks.patterns.tests.main.groups.actions;
+package ru.siobko.testing.tasks.patterns.tests.main.groups;
 
-import org.junit.jupiter.api.DisplayName;
+import net.bytebuddy.utility.RandomString;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.AfterEach;
@@ -13,9 +13,8 @@ import ru.siobko.testing.tasks.patterns.core.main.groups.GroupsMainPage;
 import ru.siobko.testing.tasks.patterns.core.main.group.MyGroupMainPage;
 import ru.siobko.testing.tasks.patterns.core.main.user.MyUserMainPage;
 import ru.siobko.testing.tasks.patterns.models.group.Group;
-import ru.siobko.testing.tasks.patterns.models.group.GroupCategory;
+import ru.siobko.testing.tasks.patterns.models.group.GroupTopic;
 import ru.siobko.testing.tasks.patterns.models.group.GroupType;
-import ru.siobko.testing.tasks.patterns.tests.main.groups.BaseGroupsTest;
 
 
 import java.util.stream.Stream;
@@ -23,50 +22,48 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@DisplayName("Создание группы")
 @Tag("groups")
 public class GroupCreationTest extends BaseGroupsTest {
-    private static final Logger TESTLOG = LoggerFactory.getLogger(GroupCreationTest.class);
-    private static final Group group1 = new Group(GroupType.BY_INTERESTS, GroupCategory.CARS, GROUP_NAME_ON_ENGLISH);
-    private static final Group group2 = new Group(GroupType.BUSINESS, GroupCategory.CAR_WASH, GROUP_NAME_ON_RUSSIAN);
+    private static final Logger log = LoggerFactory.getLogger(GroupCreationTest.class);
+    private static final Group group1 = new Group(GroupType.BY_INTERESTS, GroupTopic.CARS, RandomString.make(10));
+    private static final Group group2 = new Group(GroupType.BUSINESS, GroupTopic.CAR_WASH, RandomString.make(10));
 
     @BeforeAll
     public static void openGroupsPage() {
-        TESTLOG.info("Откроем страницу с группами.");
+        log.info("Откроем страницу с группами.");
         new MyUserMainPage().openGroupsPage();
     }
 
-    @DisplayName("Проверка создания группы")
     @ParameterizedTest(name = "Группа: {0}")
-    @ArgumentsSource(Params.class)
+    @ArgumentsSource(GroupsParams.class)
     public void testGroupCreation(Group group) {
-        TESTLOG.info("Создаем группу.");
+        log.info("Создаем группу.");
         MyGroupMainPage myGroupMainPage = new GroupsMainPage()
                 .clickCreateGroup()
                 .selectGroupType(group.type())
                 .enterGroupName(group.name())
                 .expandCategoriesList()
-                .selectGroupCategory(group.category())
+                .selectGroupCategory(group.topic())
                 .clickCreate();
         assertAll(
                 "Проверка названия и категории группы",
                 () -> assertEquals(myGroupMainPage.getGroupName(), group.name(),
                         "Название группы не совпало с ожидаемым."),
-                () -> assertEquals(myGroupMainPage.getGroupCategory(), group.category().toString(),
+                () -> assertEquals(myGroupMainPage.getGroupCategory(), group.topic().toString(),
                         "Категория группы не совпала с ожидаемым.")
         );
     }
 
     @AfterEach
     public void deleteGroup() {
-        TESTLOG.info("Удаляем группу.");
+        log.info("Удаляем группу");
         new MyGroupMainPage()
                 .dropdownActionsMenu()
                 .clickOnDelete()
                 .confirmDeletion();
     }
 
-    static class Params implements ArgumentsProvider {
+    static class GroupsParams implements ArgumentsProvider {
         @Override
         public Stream<? extends Arguments> provideArguments(ExtensionContext extensionContext) throws Exception {
             return Stream.of(

@@ -1,9 +1,9 @@
-package ru.siobko.testing.tasks.patterns.core.main.groups.elements;
+package ru.siobko.testing.tasks.patterns.core.main.groups.elements.create;
 
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.patterns.models.group.GroupCategory;
+import ru.siobko.testing.tasks.patterns.models.group.GroupTopic;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
@@ -26,9 +26,9 @@ public class CategoriesList extends CreateGroupForm {
         return true;
     }
 
-    public CreateGroupForm selectGroupCategory(GroupCategory groupCategory) {
+    public CreateGroupForm selectGroupCategory(GroupTopic topic) {
         LOG.info("Выбираем тематику группы");
-        switch (groupCategory) {
+        switch (topic) {
             case CARS:
                 $(CARS_CATEGORY_BUTTON).shouldBe(
                         visible.because("Автомобильной тематики нет в списке.")

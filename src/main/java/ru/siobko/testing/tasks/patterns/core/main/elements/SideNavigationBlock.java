@@ -9,22 +9,19 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class SideNavigationBlock {
-    private static final Logger LOG = LoggerFactory.getLogger(SideNavigationBlock.class);
+    private static final Logger log = LoggerFactory.getLogger(SideNavigationBlock.class);
     private static final By GROUPS_BUTTON = byXpath(".//a[@data-l='t,userAltGroup']");
     private static final By MY_PROFILE_BUTTON = byXpath(".//a[@data-l='t,userPage']");
 
-    public SideNavigationBlock() {
-    }
-
     public void clickOnGroups() {
-        LOG.info("Кликаем на группы");
+        log.info("Кликаем на группы");
         $(GROUPS_BUTTON).shouldBe(
                 visible.because("Нет кнопки для перехода к группам.")
         ).click();
     }
 
     public void clickOnMyProfile() {
-        LOG.info("Кликаем на мой профиль");
+        log.info("Кликаем на мой профиль");
         $(MY_PROFILE_BUTTON).shouldBe(
                 visible.because("Нет кнопки для перехода в профиль.")
         ).click();

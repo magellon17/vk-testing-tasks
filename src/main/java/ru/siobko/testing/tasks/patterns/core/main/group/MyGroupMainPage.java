@@ -44,7 +44,7 @@ public class MyGroupMainPage extends GroupMainPage {
 
     @Override
     public GroupPhotosPage openGroupPhotosPage() {
-        LOG.info("Открываем страницу фоток группы");
+        LOG.info("Открываем страницу фотографий группы");
         groupNavigation.clickOnMembers();
         return new MyGroupPhotosPage();
     }

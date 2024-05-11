@@ -1,6 +1,5 @@
 package ru.siobko.testing.tasks.patterns.tests.login.loginPage;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -12,12 +11,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Tag("loginPage")
 public class EnterLoginTest extends BaseTest {
-    private static final Logger TESTLOG = LoggerFactory.getLogger(EnterLoginTest.class);
+    private static final Logger log = LoggerFactory.getLogger(EnterLoginTest.class);
 
     @Test
-    @DisplayName("Проверка ввода логина")
     public void testEnterLogin() {
-        TESTLOG.info("Вводим пароль.");
+        log.info("Вводим пароль.");
         LoginPage loginPage = new LoginPage()
                 .enterLogin(BOT.login());
         assertEquals(loginPage.getLoginFieldText(), BOT.login(),

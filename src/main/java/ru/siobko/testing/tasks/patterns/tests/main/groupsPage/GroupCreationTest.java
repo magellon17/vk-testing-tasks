@@ -14,6 +14,7 @@ import ru.siobko.testing.tasks.patterns.core.main.user.MyUserMainPage;
 import ru.siobko.testing.tasks.patterns.models.group.Group;
 import ru.siobko.testing.tasks.patterns.models.group.GroupTopic;
 import ru.siobko.testing.tasks.patterns.models.group.GroupType;
+import ru.siobko.testing.tasks.patterns.tests.main.BaseMainTest;
 
 
 import java.util.stream.Stream;
@@ -21,7 +22,7 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class GroupCreationTest {
+public class GroupCreationTest extends BaseMainTest {
     private static final Logger log = LoggerFactory.getLogger(GroupCreationTest.class);
     private static final Group group1 = new Group(GroupType.BY_INTERESTS, GroupTopic.CARS, RandomString.make(10));
     private static final Group group2 = new Group(GroupType.BUSINESS, GroupTopic.CAR_WASH, RandomString.make(10));

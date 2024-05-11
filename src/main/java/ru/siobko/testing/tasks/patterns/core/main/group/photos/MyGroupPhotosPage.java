@@ -5,12 +5,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byXpath;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MyGroupPhotosPage extends GroupPhotosPage {
     private static final Logger LOG = LoggerFactory.getLogger(MyGroupPhotosPage.class);
-    private static final By CREATE_ALBUM_BUTTON = byXpath(".//a[text()='Создать альбом']");
+    private static final By CREATE_ALBUM_BUTTON = byText("Создать альбом");
 
     public MyGroupPhotosPage() {
         checkPage();

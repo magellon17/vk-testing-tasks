@@ -3,7 +3,6 @@ package ru.siobko.testing.tasks.patterns.core.main.groups;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.patterns.core.main.groups.elements.GroupsNavigationMenu;
 import ru.siobko.testing.tasks.patterns.core.main.groups.elements.creatingGroup.ChooseGroupTypeDialog;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -12,7 +11,6 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class GroupsMainPage {
     private static final Logger log = LoggerFactory.getLogger(GroupsMainPage.class);
-    private final GroupsNavigationMenu navigationMenu = new GroupsNavigationMenu();
     private static final By GROUP_SEARCH_FIELD = byXpath(".//group-search-input[@data-bundle-name='search_group-search-input']");
     private static final By CREATE_GROUP_BUTTON = byText("Создать группу");
 
@@ -28,12 +26,6 @@ public class GroupsMainPage {
                 visible.because("Не отобразился поисковик по группам")
         );
         return true;
-    }
-
-    public OfficialGroupsPage openOfficialGroupsCatalog() {
-        log.info("Открываем страницу с официальными группами");
-        navigationMenu.clickOnOfficialGroups();
-        return new OfficialGroupsPage();
     }
 
     public ChooseGroupTypeDialog clickCreateGroup() {

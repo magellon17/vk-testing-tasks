@@ -15,7 +15,7 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MyGroupMainPage extends GroupMainPage {
-    private static final Logger LOG = LoggerFactory.getLogger(MyGroupMainPage.class);
+    private static final Logger log = LoggerFactory.getLogger(MyGroupMainPage.class);
     private static final By ABOUT_GROUP_PANEL = byXpath(".//div[@data-module='GroupInfoPanel']");
     private static final By GROUP_NAME = byClassName("group-name_h");
     private static final By GROUP_INFO = byClassName("group-name_info");
@@ -31,26 +31,26 @@ public class MyGroupMainPage extends GroupMainPage {
                 visible.because("Не отобразилась панель 'О группе'."));
         $(GROUP_FEED).shouldBe(
                 visible.because("Не отобразилась лента группы."));
-        LOG.info("Перешли на страницу ленты группы");
+        log.info("Перешли на страницу ленты группы");
         return true;
     }
 
     @Override
     public GroupMembersPage openGroupMembersPage() {
-        LOG.info("Открываем страницу участников группы");
+        log.info("Открываем страницу участников группы");
         groupNavigation.clickOnMembers();
         return new MyGroupMembersPage();
     }
 
     @Override
     public GroupPhotosPage openGroupPhotosPage() {
-        LOG.info("Открываем страницу фотографий группы");
-        groupNavigation.clickOnMembers();
+        log.info("Открываем страницу фотографий группы");
+        groupNavigation.clickOnPhotos();
         return new MyGroupPhotosPage();
     }
 
     public GroupActionsMenu dropdownActionsMenu() {
-        LOG.info("Кликаем на кнопку дополнитльных действий с группой ('Еще').");
+        log.info("Кликаем на кнопку дополнитльных действий с группой ('Еще').");
         $(DROPDOWN_ACTIONS_MENU).shouldBe(
                 visible.because("Кнопка 'Ещё' должны быть видимой на странице ленты группы.")
         ).click();

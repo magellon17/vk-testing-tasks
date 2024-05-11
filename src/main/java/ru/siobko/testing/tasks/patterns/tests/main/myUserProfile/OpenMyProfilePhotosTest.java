@@ -9,9 +9,8 @@ import ru.siobko.testing.tasks.patterns.core.main.user.photos.MyUserPhotosPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@Tag("profiles")
-@Tag("myProfile")
-public class OpenMyProfilePhotosTest extends BaseMyProfilePageTest {
+@Tag("myUserProfilePage")
+public class OpenMyProfilePhotosTest extends OpenMyProfilePagesSteps {
     private static final Logger log = LoggerFactory.getLogger(OpenMyProfilePhotosTest.class);
 
     @Test

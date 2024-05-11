@@ -1,7 +1,6 @@
 package ru.siobko.testing.tasks.patterns.tests.main.groups;
 
 import net.bytebuddy.utility.RandomString;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -22,8 +21,7 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@Tag("groups")
-public class GroupCreationTest extends BaseGroupsTest {
+public class GroupCreationTest {
     private static final Logger log = LoggerFactory.getLogger(GroupCreationTest.class);
     private static final Group group1 = new Group(GroupType.BY_INTERESTS, GroupTopic.CARS, RandomString.make(10));
     private static final Group group2 = new Group(GroupType.BUSINESS, GroupTopic.CAR_WASH, RandomString.make(10));

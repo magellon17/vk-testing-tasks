@@ -3,7 +3,7 @@ package ru.siobko.testing.tasks.patterns.core.main.group;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.siobko.testing.tasks.patterns.core.main.group.elements.GroupNavigation;
+import ru.siobko.testing.tasks.patterns.core.main.group.elements.GroupNavigationMenu;
 import ru.siobko.testing.tasks.patterns.core.main.group.members.GroupMembersPage;
 import ru.siobko.testing.tasks.patterns.core.main.group.photos.GroupPhotosPage;
 
@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class GroupMainPage {
     private static final Logger LOG = LoggerFactory.getLogger(GroupMainPage.class);
-    protected final GroupNavigation groupNavigation = new GroupNavigation();
+    protected final GroupNavigationMenu groupNavigation = new GroupNavigationMenu();
     protected static final By GROUP_MEMBERS_BUTTON = byXpath(".//a[@data-l='outlandermenu,altGroupMembers']");
     protected static final By GROUP_PHOTOS_BUTTON = byXpath(".//a[@data-l='outlandermenu,altGroupAlbums']");
 

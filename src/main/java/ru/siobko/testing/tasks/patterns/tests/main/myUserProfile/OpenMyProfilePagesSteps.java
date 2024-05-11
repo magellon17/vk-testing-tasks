@@ -6,12 +6,12 @@ import org.slf4j.LoggerFactory;
 import ru.siobko.testing.tasks.patterns.core.main.user.MyUserMainPage;
 import ru.siobko.testing.tasks.patterns.tests.main.BaseMainTest;
 
-public class BaseMyProfilePageTest extends BaseMainTest {
-    private static final Logger TESTLOG = LoggerFactory.getLogger(BaseMyProfilePageTest.class);
+public class OpenMyProfilePagesSteps extends BaseMainTest {
+    private static final Logger log = LoggerFactory.getLogger(OpenMyProfilePagesSteps.class);
 
     @BeforeAll
     public static void openMyProfilePage() {
-        TESTLOG.info("Открываем страницу моего профиля.");
+        log.info("Открываем страницу моего профиля.");
         new MyUserMainPage().openProfilePage();
     }
 }

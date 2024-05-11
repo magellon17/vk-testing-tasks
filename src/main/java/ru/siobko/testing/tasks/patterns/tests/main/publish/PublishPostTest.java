@@ -12,7 +12,7 @@ import ru.siobko.testing.tasks.patterns.tests.main.BaseMainTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@Tag("publish")
+@Tag("publishMedia")
 public class PublishPostTest extends BaseMainTest {
     private static final Logger log = LoggerFactory.getLogger(PublishPostTest.class);
 

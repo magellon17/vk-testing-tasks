@@ -1,6 +1,7 @@
 package ru.siobko.testing.tasks.patterns.tests.main;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.siobko.testing.tasks.patterns.core.login.LoginPage;

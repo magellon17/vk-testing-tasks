@@ -10,7 +10,7 @@ import ru.siobko.testing.tasks.patterns.tests.main.BaseMainTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@Tag("userCardToolbar")
+@Tag("auth")
 public class LogoutTest extends BaseMainTest {
     private static final Logger log = LoggerFactory.getLogger(LogoutTest.class);
 

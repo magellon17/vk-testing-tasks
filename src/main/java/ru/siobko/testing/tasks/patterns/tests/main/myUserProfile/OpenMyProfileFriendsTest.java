@@ -9,9 +9,8 @@ import ru.siobko.testing.tasks.patterns.core.main.user.MyUserProfilePage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@Tag("profiles")
-@Tag("myProfile")
-public class OpenMyProfileFriendsTest extends BaseMyProfilePageTest {
+@Tag("myUserProfilePage")
+public class OpenMyProfileFriendsTest extends OpenMyProfilePagesSteps {
     private static final Logger log = LoggerFactory.getLogger(OpenMyProfileFriendsTest.class);
 
     @Test

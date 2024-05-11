@@ -9,7 +9,7 @@ import ru.siobko.testing.tasks.patterns.tests.BaseTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@Tag("loginPage")
+@Tag("LoginPageTextFields")
 public class EnterLoginTest extends BaseTest {
     private static final Logger log = LoggerFactory.getLogger(EnterLoginTest.class);
 

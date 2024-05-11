@@ -2,13 +2,13 @@ package ru.siobko.testing.tasks.patterns.core.main.user;
 
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
-import ru.siobko.testing.tasks.patterns.core.main.user.elements.UserNavigation;
+import ru.siobko.testing.tasks.patterns.core.main.user.elements.UserNavigationMenu;
 import ru.siobko.testing.tasks.patterns.core.main.user.friends.MyUserFriendsPage;
 import ru.siobko.testing.tasks.patterns.core.main.user.photos.MyUserPhotosPage;
 
 public class MyUserProfilePage {
     private static final Logger LOG = LoggerFactory.getLogger(MyUserProfilePage.class);
-    private final UserNavigation horizontalNavigation = new UserNavigation();
+    private final UserNavigationMenu horizontalNavigation = new UserNavigationMenu();
 
     public MyUserProfilePage() {
         checkPage();

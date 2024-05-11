@@ -10,8 +10,8 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
-public abstract class HorizontalNavigation {
-    private static final Logger LOG = LoggerFactory.getLogger(HorizontalNavigation.class);
+public abstract class GroupsAndProfilesNavigationMenu {
+    private static final Logger LOG = LoggerFactory.getLogger(GroupsAndProfilesNavigationMenu.class);
     protected final SelenideElement navi = $(byXpath(".//*[@data-l='t,horizontalNavigation']"));
     protected static final By PHOTOS_BUTTON = byText("Фото");
 

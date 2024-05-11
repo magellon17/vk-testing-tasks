@@ -10,7 +10,7 @@ import ru.siobko.testing.tasks.patterns.tests.BaseTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@Tag("login")
+@Tag("auth")
 public class LoginTest extends BaseTest {
     private static final Logger log = LoggerFactory.getLogger(LoginTest.class);
 

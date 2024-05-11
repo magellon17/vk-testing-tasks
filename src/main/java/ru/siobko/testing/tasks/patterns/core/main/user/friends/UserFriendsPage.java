@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class UserFriendsPage {
-    private static final Logger LOG = LoggerFactory.getLogger(UserFriendsPage.class);
+    private static final Logger log = LoggerFactory.getLogger(UserFriendsPage.class);
     private static final By FRIEND_REQUESTS_BUTTON = byXpath(".//a[@data-l='t,userFriendRequest']");
     private static final By FRIEND_SUGGESTS_BUTTON = byXpath(".//a[@data-l='t,userFriendSuggest']");
 
@@ -24,7 +24,7 @@ public class UserFriendsPage {
         $(FRIEND_SUGGESTS_BUTTON).shouldBe(
                 visible.because("Navigation menu of profile feed should be visible on my profile page.")
         );
-        LOG.info("Перешли на страницу друзей моего профиля.");
+        log.info("Перешли на страницу друзей моего профиля.");
         return true;
     }
 }

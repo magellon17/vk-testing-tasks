@@ -24,4 +24,5 @@ public abstract class GroupsAndProfilesNavigationMenu {
                 visible.because("Не отобразилась кнопка фоток")
         ).click();
     }
+    // и так далее...
 }

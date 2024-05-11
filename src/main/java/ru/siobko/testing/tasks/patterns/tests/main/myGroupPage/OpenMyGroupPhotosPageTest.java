@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import ru.siobko.testing.tasks.patterns.tests.main.BaseMainTest;
 
-@Tag("openMyGroupPage")
+@Tag("openMyGroupPages")
 public class OpenMyGroupPhotosPageTest extends BaseMainTest {
     private final OpenMyGroupPagesSteps steps = new OpenMyGroupPagesSteps();
 
@@ -17,5 +17,10 @@ public class OpenMyGroupPhotosPageTest extends BaseMainTest {
     @Test
     public void testOpenPhotosPage() {
         steps.openPhotosPageAndCheckPage();
+    }
+
+    @BeforeEach
+    public void afterTest() {
+        steps.tearDown();
     }
 }

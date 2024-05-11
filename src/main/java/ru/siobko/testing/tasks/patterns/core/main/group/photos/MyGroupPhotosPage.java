@@ -19,9 +19,8 @@ public class MyGroupPhotosPage extends GroupPhotosPage {
     @Override
     public boolean checkPage() {
         $(CREATE_ALBUM_BUTTON).shouldBe(
-                visible.because("Не отобразилась кнопка для создания альбома группы.")
-        );
-        LOG.info("Перешли на страницу фотографий группы.");
+                visible.because("Не отобразилась кнопка для создания альбома группы"));
+        LOG.info("Перешли на страницу фотографий собственной группы");
         return true;
     }
 }

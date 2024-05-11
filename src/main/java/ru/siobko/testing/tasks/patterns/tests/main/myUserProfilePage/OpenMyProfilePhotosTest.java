@@ -15,6 +15,6 @@ public class OpenMyProfilePhotosTest extends OpenMyProfilePagesSteps {
 
     @Test
     public void testOpenMyProfilePhotos() {
-        steps.openMyProfileFriendsPageAndCheckPage();
+        steps.openMyProfilePhotosPageAndCheckPage();
     }
 }

@@ -48,4 +48,12 @@ public class OpenMyGroupPagesSteps {
                 "Не открылась страница с фотками группы."
         );
     }
+
+    public void tearDown() {
+        log.info("Удаляем группу");
+        new MyGroupMainPage()
+                .dropdownActionsMenu()
+                .clickOnDelete()
+                .confirmDeletion();
+    }
 }

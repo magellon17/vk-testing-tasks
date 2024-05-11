@@ -1,4 +1,4 @@
-package ru.siobko.testing.tasks.patterns.tests.main.myGroup;
+package ru.siobko.testing.tasks.patterns.tests.main.myGroupPage;
 
 import net.bytebuddy.utility.RandomString;
 import org.slf4j.Logger;

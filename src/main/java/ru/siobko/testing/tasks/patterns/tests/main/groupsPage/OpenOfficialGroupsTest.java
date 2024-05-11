@@ -1,4 +1,4 @@
-package ru.siobko.testing.tasks.patterns.tests.main.groups;
+package ru.siobko.testing.tasks.patterns.tests.main.groupsPage;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;

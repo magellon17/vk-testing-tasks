@@ -1,4 +1,4 @@
-package ru.siobko.testing.tasks.patterns.tests.main.groups;
+package ru.siobko.testing.tasks.patterns.tests.main.groupsPage;
 
 import net.bytebuddy.utility.RandomString;
 import org.junit.jupiter.api.BeforeAll;

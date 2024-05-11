@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.siobko.testing.tasks.patterns.core.main.groups.elements.GroupsNavigationMenu;
-import ru.siobko.testing.tasks.patterns.core.main.groups.elements.create.ChooseGroupTypeDialog;
+import ru.siobko.testing.tasks.patterns.core.main.groups.elements.creatingGroup.ChooseGroupTypeDialog;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;

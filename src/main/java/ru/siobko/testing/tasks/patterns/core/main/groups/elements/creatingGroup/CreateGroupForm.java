@@ -1,4 +1,4 @@
-package ru.siobko.testing.tasks.patterns.core.main.groups.elements.create;
+package ru.siobko.testing.tasks.patterns.core.main.groups.elements.creatingGroup;
 
 import org.openqa.selenium.By;
 import org.slf4j.Logger;

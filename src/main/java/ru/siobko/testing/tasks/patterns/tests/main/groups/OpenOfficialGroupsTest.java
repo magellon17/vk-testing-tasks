@@ -1,4 +1,4 @@
-package ru.siobko.testing.tasks.patterns.tests.main.groupsPage;
+package ru.siobko.testing.tasks.patterns.tests.main.groups;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.siobko.testing.tasks.patterns.core.main.groups.GroupsMainPage;
 import ru.siobko.testing.tasks.patterns.core.main.groups.OfficialGroupsPage;
-import ru.siobko.testing.tasks.patterns.tests.main.groups.BaseGroupsTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

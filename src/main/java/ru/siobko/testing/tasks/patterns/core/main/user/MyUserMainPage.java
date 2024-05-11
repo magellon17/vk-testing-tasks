@@ -7,10 +7,12 @@ import ru.siobko.testing.tasks.patterns.core.main.elements.publish.PublishingMen
 import ru.siobko.testing.tasks.patterns.core.main.elements.SideNavigationBlock;
 import ru.siobko.testing.tasks.patterns.core.main.elements.myUserCard.MyUserCardToolBar;
 import ru.siobko.testing.tasks.patterns.core.main.groups.GroupsMainPage;
+import ru.siobko.testing.tasks.patterns.core.main.user.profile.MyUserProfilePage;
 import ru.siobko.testing.tasks.patterns.core.media.photo.PhotoLayer;
 
 
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byId;
 import static com.codeborne.selenide.Selenide.$;
 
 import static com.codeborne.selenide.Selectors.byXpath;
@@ -21,15 +23,15 @@ public class MyUserMainPage {
     private static final By USER_CARD_TOOLBAR_DROPDOWN = byXpath(".//button[@aria-label='Настройки профиля']");
     private static final By PUBLISH_BUTTON = byXpath(".//button[@data-testid='ddm-button']");
     private static final By OPEN_PUBLISHED_PHOTO_BUTTON = byXpath(".//up-photo-midget[@data-l='t,view-photo']");
+    private static final By FEED_WRAPPER = byId("hook_Block_MainFeedsWrapper");
 
     public MyUserMainPage() {
         checkPage();
     }
 
     public boolean checkPage() {
-        $(PUBLISH_BUTTON).shouldBe(
-                visible.because("Не отобразилась кнопка публикации.")
-        );
+        $(FEED_WRAPPER).shouldBe(
+                visible.because("Не отобразилась лента пользователя"));
         return true;
     }
 

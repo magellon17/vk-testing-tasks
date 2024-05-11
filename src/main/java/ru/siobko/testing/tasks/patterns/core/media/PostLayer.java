@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class PostLayer {
-    private static final Logger LOG = LoggerFactory.getLogger(PostLayer.class);
+    private static final Logger log = LoggerFactory.getLogger(PostLayer.class);
 
     private static final By DELETE_POST_BUTTON = byXpath(".//a[contains(@hrefattrs, 'deleteButton')]");
     private static final By CLOSE_POST_BUTTON = byXpath(".//button[@data-l='t,mtLayerClose']");
@@ -28,7 +28,7 @@ public class PostLayer {
         $(TEXT_BOX).shouldBe(
                 visible.because("Не отобразился текст поста.")
         );
-        LOG.info("Перешли на страницу поста.");
+        log.info("Перешли на страницу поста.");
         return true;
     }
 
@@ -46,7 +46,7 @@ public class PostLayer {
      * Клик по кнопке удаления
      */
     public PostLayer clickOnDelete() {
-        LOG.info("Удаляем пост");
+        log.info("Удаляем пост");
         executeJavaScript("arguments[0].click();", $(DELETE_POST_BUTTON));
         return this;
     }
@@ -55,7 +55,7 @@ public class PostLayer {
      * Закрывает леер поста
      */
     public void closeLayer() {
-        LOG.info("Закрываем леер поста");
+        log.info("Закрываем леер поста");
         executeJavaScript("arguments[0].click();", $(CLOSE_POST_BUTTON));
     }
 }

@@ -35,6 +35,7 @@ public class PublishPhotoTest extends BaseMainTest {
     public void deletePhoto() {
         log.info("Удаляем фото.");
         new PhotoLayer()
+                .expandActionsMenu()
                 .deletePhoto()
                 .closeLayer();
     }

@@ -5,25 +5,20 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byXpath;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MyUserPhotosPage extends UserPhotosPage {
     private static final Logger log = LoggerFactory.getLogger(MyUserPhotosPage.class);
-    private static final By ALBUMS_BUTTON = byXpath(".//a[@data-l='t,albums_new']");
-    private static final By SHARED_ALBUMS_BUTTON = byXpath(".//a[@data-l='t,shared-albums']");
+    private static final By CREATE_ALBUM_BUTTON = byText("Создать альбом");
 
     public MyUserPhotosPage() {
         checkPage();
     }
 
     public boolean checkPage() {
-        $(ALBUMS_BUTTON).shouldBe(
-                visible.because("Feed filter menu should be visible on my profile page.")
-        );
-        $(SHARED_ALBUMS_BUTTON).shouldBe(
-                visible.because("Navigation menu of profile feed should be visible on my profile page.")
-        );
+        $(CREATE_ALBUM_BUTTON).shouldBe(
+                visible.because("Не отобразилась кнопка создания альбома"));
         log.info("Перешли на страницу фотографий моего профиля.");
         return true;
     }

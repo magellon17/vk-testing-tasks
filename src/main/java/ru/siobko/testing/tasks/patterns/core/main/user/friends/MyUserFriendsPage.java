@@ -19,11 +19,9 @@ public class MyUserFriendsPage extends UserFriendsPage {
 
     public boolean checkPage() {
         $(FRIEND_REQUESTS_BUTTON).shouldBe(
-                visible.because("Feed filter menu should be visible on my profile page.")
-        );
+                visible.because("Feed filter menu should be visible on my profile page."));
         $(FRIEND_SUGGESTS_BUTTON).shouldBe(
-                visible.because("Navigation menu of profile feed should be visible on my profile page.")
-        );
+                visible.because("Navigation menu of profile feed should be visible on my profile page."));
         log.info("Перешли на страницу друзей моего профиля.");
         return true;
     }

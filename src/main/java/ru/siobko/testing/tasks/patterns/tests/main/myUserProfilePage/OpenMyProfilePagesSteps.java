@@ -3,7 +3,7 @@ package ru.siobko.testing.tasks.patterns.tests.main.myUserProfilePage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.siobko.testing.tasks.patterns.core.main.user.MyUserMainPage;
-import ru.siobko.testing.tasks.patterns.core.main.user.MyUserProfilePage;
+import ru.siobko.testing.tasks.patterns.core.main.user.profile.MyUserProfilePage;
 import ru.siobko.testing.tasks.patterns.core.main.user.friends.UserFriendsPage;
 import ru.siobko.testing.tasks.patterns.core.main.user.photos.UserPhotosPage;
 import ru.siobko.testing.tasks.patterns.tests.main.BaseMainTest;

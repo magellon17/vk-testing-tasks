@@ -14,7 +14,7 @@ public class MyGroupMembersPage extends GroupMembersPage {
     private static final By TODO_BLOCK = byId("groupTODO");
 
     public MyGroupMembersPage() {
-        super();
+        checkPage();
     }
 
     @Override

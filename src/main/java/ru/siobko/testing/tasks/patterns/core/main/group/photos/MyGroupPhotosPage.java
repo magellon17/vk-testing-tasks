@@ -16,6 +16,7 @@ public class MyGroupPhotosPage extends GroupPhotosPage {
         checkPage();
     }
 
+    @Override
     public boolean checkPage() {
         $(CREATE_ALBUM_BUTTON).shouldBe(
                 visible.because("Не отобразилась кнопка для создания альбома группы.")

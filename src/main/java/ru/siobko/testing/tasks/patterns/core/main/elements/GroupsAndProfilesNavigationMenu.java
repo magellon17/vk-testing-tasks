@@ -10,13 +10,16 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
+/**
+ * Общее меню навигации для группы и профиля пользователя
+ */
 public abstract class GroupsAndProfilesNavigationMenu {
-    private static final Logger LOG = LoggerFactory.getLogger(GroupsAndProfilesNavigationMenu.class);
+    private static final Logger log = LoggerFactory.getLogger(GroupsAndProfilesNavigationMenu.class);
     protected final SelenideElement navi = $(byXpath(".//*[@data-l='t,horizontalNavigation']"));
     protected static final By PHOTOS_BUTTON = byText("Фото");
 
     public void clickOnPhotos() {
-        LOG.info("Кликаем на фото");
+        log.info("Кликаем на фото");
         navi.$(PHOTOS_BUTTON).shouldBe(
                 visible.because("Не отобразилась кнопка фоток")
         ).click();

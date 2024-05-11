@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
-public class MyUserPhotosPage {
+public class MyUserPhotosPage extends UserPhotosPage {
     private static final Logger LOG = LoggerFactory.getLogger(MyUserPhotosPage.class);
 
     private static final By ALBUMS_BUTTON = byXpath(".//a[@data-l='t,albums_new']");

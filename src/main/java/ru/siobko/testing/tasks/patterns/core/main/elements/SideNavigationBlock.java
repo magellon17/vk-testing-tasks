@@ -8,6 +8,9 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
+/**
+ * Меню навигации в левой колонке с разделами
+ */
 public class SideNavigationBlock {
     private static final Logger log = LoggerFactory.getLogger(SideNavigationBlock.class);
     private static final By GROUPS_BUTTON = byXpath(".//a[@data-l='t,userAltGroup']");

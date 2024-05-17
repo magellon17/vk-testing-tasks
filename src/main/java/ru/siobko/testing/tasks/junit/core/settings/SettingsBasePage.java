@@ -1,6 +1,8 @@
 package ru.siobko.testing.tasks.junit.core.settings;
 
 import org.openqa.selenium.By;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.siobko.testing.tasks.junit.core.BasePage;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -9,35 +11,35 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public abstract class SettingsBasePage extends BasePage {
-    protected static final By profileButton = byClassName("compact-profile_a");
-    protected static final By settingsNavigationMenu = byXpath(".//div[@data-l='eueContainer,settings']");
-    protected static final By privacySettingsButton = byXpath(".//a[@data-l='t,privacy']");
-    protected static final By generalSettingsButton = byXpath(".//a[@data-l='t,personal_info']");
+    private static final Logger LOG = LoggerFactory.getLogger(SettingsBasePage.class);
 
-    private static final String SETTINGS_NAVIGATION_MENU_LOG_INFO = "Settings navigation menu should be visible on all settings pages.";
-    private static final String PRIVACY_SETTINGS_BUTTON_LOG_INFO = "Button 'Публичность' should be visible on all settings pages.";
-    private static final String GENERAL_SETTINGS_BUTTON_LOG_INFO = "Button 'Основные' menu should be visible on all settings pages.";
-    private static final String PROFILE_BUTTON_LOG_INFO = "Profile button should be visible on all settings pages.";
+    protected static final By PROFILE_BUTTON = byClassName("compact-profile_a");
+    protected static final By SETTINGS_NAVIGATION_MENU = byXpath(".//div[@data-l='eueContainer,settings']");
+    protected static final By PRIVACY_SETTINGS_BUTTON = byXpath(".//a[@data-l='t,privacy']");
+    protected static final By GENERAL_SETTINGS_BUTTON = byXpath(".//a[@data-l='t,personal_info']");
 
     protected SettingsBasePage() {
         checkPage();
     }
 
-    private void checkPage() {
-        $(settingsNavigationMenu).shouldBe(
-                visible.because(SETTINGS_NAVIGATION_MENU_LOG_INFO)
+    @Override
+    protected boolean checkPage() {
+        $(SETTINGS_NAVIGATION_MENU).shouldBe(
+                visible.because("Не отобразилась панель навигации по настройкам.")
         );
-        $(privacySettingsButton).shouldBe(
-                visible.because(PRIVACY_SETTINGS_BUTTON_LOG_INFO)
+        $(PRIVACY_SETTINGS_BUTTON).shouldBe(
+                visible.because("Не отобразилась кнопка настроек приватности.")
         );
-        $(generalSettingsButton).shouldBe(
-                visible.because(GENERAL_SETTINGS_BUTTON_LOG_INFO)
+        $(GENERAL_SETTINGS_BUTTON).shouldBe(
+                visible.because("Не отобразилась кнопка основных настроек.")
         );
+        return true;
     }
 
     public boolean checkProfileNameContains(String newUserName) {
-        return $(profileButton).shouldBe(
-                        visible.because(PROFILE_BUTTON_LOG_INFO)
+        LOG.info("Проверяем, что имя профиля содержит {}", newUserName);
+        return $(PROFILE_BUTTON).shouldBe(
+                        visible.because("Не отобразилась кнопка профиля.")
                 ).getText()
                 .contains(newUserName);
     }

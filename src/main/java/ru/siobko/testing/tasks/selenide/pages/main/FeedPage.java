@@ -1,42 +1,38 @@
 package ru.siobko.testing.tasks.selenide.pages.main;
 
-import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selectors.byId;
+import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class FeedPage extends BaseMainPage {
-    private final SelenideElement profileAvatar = $(byId("hook_Block_Avatar"));
-    private final SelenideElement onlineFriendsPanel = $(byId("online-fr_block"));
-    private final SelenideElement feedFilterMenu = $(byXpath(".//hybrid-feed-filter[@data-bundle-name='contents_hybrid-feed-filter']"));
-    private final SelenideElement publishPostButton = $(byXpath(".//*[@class='item-container__7e56q']"));
-
-    //Поля окон, которые появляются в процессе создания текстового поста.
-    private final SelenideElement postTextBox = $(byXpath(".//div[@data-module='postingForm/mediaText']"));
-    private final SelenideElement submitButton = $(byXpath(".//button[@data-l='t,button.submit']"));
+    private static final By profileAvatar = byId("hook_Block_Avatar");
+    private static final By onlineFriendsPanel = byId("online-fr_block");
+    private static final By feedFilterMenu = byXpath(".//hybrid-feed-filter[@data-bundle-name='contents_hybrid-feed-filter']");
 
     public FeedPage() {
         checkPage();
     }
 
-    private void checkPage() {
-        profileAvatar.shouldBe(visible);
-        feedFilterMenu.shouldBe(visible);
-        onlineFriendsPanel.shouldBe(visible);
+    public boolean checkPage() {
+        $(profileAvatar).shouldBe(
+                visible.because("Profile avatar should be visible on page 'Лента'.")
+        );
+        $(feedFilterMenu).shouldBe(
+                visible.because("Feed filter menu should be visible on page 'Лента'.")
+        );
+        $(onlineFriendsPanel).shouldBe(
+                visible.because("Panel 'Друзья на сайте' should be visible on page 'Лента'.")
+        );
+        return true;
     }
 
-    public void publishTextPost(String postText) {
-        publishButton.click();
-        publishPostButton.click();
-        postTextBox.setValue(postText);
-        submitButton.click();
+    public boolean checkProfileNameContains(String email) {
+        return $(myProfileButton).shouldBe(
+                        visible.because("My profile button should be visible on all main pages.")
+                ).getText()
+                .contains(email);
     }
-
-    public MyProfilePage openMyProfilePage() {
-        myProfileButton.click();
-        return new MyProfilePage();
-    }
-
 }

@@ -55,15 +55,13 @@ public class OpenMyGroupPagesSteps {
 
     public void removeGroupFromGroupMembersPage() {
         log.info("Открываем главную страницу группы со страницы участников");
-        new MyGroupMembersPage()
-                .openGroupMainPage();
+        new MyGroupMembersPage().openGroupMainPage();
         removeGroupFromGroupMainPage();
     }
 
     public void removeGroupFromGroupPhotosPage() {
         log.info("Открываем главную страницу группы со страницы фотографий");
-        new MyGroupPhotosPage()
-                .openGroupMainPage();
+        new MyGroupPhotosPage().openGroupMainPage();
         removeGroupFromGroupMainPage();
     }
 

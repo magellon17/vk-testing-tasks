@@ -16,7 +16,6 @@ import ru.siobko.testing.tasks.patterns.models.group.GroupTopic;
 import ru.siobko.testing.tasks.patterns.models.group.GroupType;
 import ru.siobko.testing.tasks.patterns.tests.main.BaseMainTest;
 
-
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertAll;

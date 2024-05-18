@@ -17,13 +17,13 @@ public class PublishPostTest extends BaseMainTest {
 
     private static final Logger log = LoggerFactory.getLogger(PublishPostTest.class);
 
-    private static final String ENGLISH_TEXT = "Hello, World";
-    private static final String RUSSIAN_TEXT = "Лена Пранова самая лучшая!!!";
+    private static final String ENGLISH_TEXT = "Life moves pretty fast. If you don't stop and look around once in a while, you could miss it.";
+    private static final String AUF_TEXT = "Лучше один день прожить волком, чем сто лет-шакалом.";
 
     @ParameterizedTest(name = "Текст: {0}")
-    @ValueSource(strings = {ENGLISH_TEXT, RUSSIAN_TEXT})
+    @ValueSource(strings = {ENGLISH_TEXT, AUF_TEXT})
     public void testPublishPost(String text) {
-        log.info("Публикуем пост.");
+        log.info("Публикуем пост");
         PostLayer postLayer = new MyUserMainPage()
                 .clickPublish()
                 .clickOnPublishPost()
@@ -36,8 +36,8 @@ public class PublishPostTest extends BaseMainTest {
     }
 
     @AfterEach
-    public void deleteStatus() {
-        log.info("Удаляем пост.");
+    public void deletePost() {
+        log.info("Удаляем пост");
         new PostLayer()
                 .clickOnDelete()
                 .closeLayer();

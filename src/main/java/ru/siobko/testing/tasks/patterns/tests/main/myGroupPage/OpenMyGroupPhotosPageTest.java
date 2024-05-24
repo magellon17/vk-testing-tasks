@@ -4,10 +4,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import ru.siobko.testing.tasks.patterns.tests.main.BaseMainTest;
+import ru.siobko.testing.tasks.patterns.tests.main.RequiredLoginTest;
 
 @Tag("openMyGroupPages")
-public class OpenMyGroupPhotosPageTest extends BaseMainTest {
+public class OpenMyGroupPhotosPageTest extends RequiredLoginTest {
 
     private final OpenMyGroupPagesSteps steps = new OpenMyGroupPagesSteps();
 

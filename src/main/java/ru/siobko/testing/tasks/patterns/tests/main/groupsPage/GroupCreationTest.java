@@ -14,14 +14,14 @@ import ru.siobko.testing.tasks.patterns.core.main.user.MyUserMainPage;
 import ru.siobko.testing.tasks.patterns.models.group.Group;
 import ru.siobko.testing.tasks.patterns.models.group.GroupTopic;
 import ru.siobko.testing.tasks.patterns.models.group.GroupType;
-import ru.siobko.testing.tasks.patterns.tests.main.BaseMainTest;
+import ru.siobko.testing.tasks.patterns.tests.main.RequiredLoginTest;
 
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class GroupCreationTest extends BaseMainTest {
+public class GroupCreationTest extends RequiredLoginTest {
 
     private static final Logger log = LoggerFactory.getLogger(GroupCreationTest.class);
 

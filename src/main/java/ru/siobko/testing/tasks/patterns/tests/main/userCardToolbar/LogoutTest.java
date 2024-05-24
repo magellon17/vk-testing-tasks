@@ -6,12 +6,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.siobko.testing.tasks.patterns.core.login.LoginPage;
 import ru.siobko.testing.tasks.patterns.core.main.user.MyUserMainPage;
-import ru.siobko.testing.tasks.patterns.tests.main.BaseMainTest;
+import ru.siobko.testing.tasks.patterns.tests.main.RequiredLoginTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Tag("auth")
-public class LogoutTest extends BaseMainTest {
+public class LogoutTest extends RequiredLoginTest {
 
     private static final Logger log = LoggerFactory.getLogger(LogoutTest.class);
 

@@ -8,12 +8,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.siobko.testing.tasks.patterns.core.main.user.MyUserMainPage;
 import ru.siobko.testing.tasks.patterns.core.media.photo.PhotoLayer;
-import ru.siobko.testing.tasks.patterns.tests.main.BaseMainTest;
+import ru.siobko.testing.tasks.patterns.tests.main.RequiredLoginTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Tag("publishMedia")
-public class PublishPhotoTest extends BaseMainTest {
+public class PublishPhotoTest extends RequiredLoginTest {
 
     private static final Logger log = LoggerFactory.getLogger(PublishPhotoTest.class);
 

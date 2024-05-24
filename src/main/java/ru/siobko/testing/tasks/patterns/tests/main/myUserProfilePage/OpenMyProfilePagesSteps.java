@@ -6,11 +6,11 @@ import ru.siobko.testing.tasks.patterns.core.main.user.MyUserMainPage;
 import ru.siobko.testing.tasks.patterns.core.main.user.profile.MyUserProfilePage;
 import ru.siobko.testing.tasks.patterns.core.main.user.friends.UserFriendsPage;
 import ru.siobko.testing.tasks.patterns.core.main.user.photos.UserPhotosPage;
-import ru.siobko.testing.tasks.patterns.tests.main.BaseMainTest;
+import ru.siobko.testing.tasks.patterns.tests.main.RequiredLoginTest;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class OpenMyProfilePagesSteps extends BaseMainTest {
+public class OpenMyProfilePagesSteps extends RequiredLoginTest {
 
     private static final Logger log = LoggerFactory.getLogger(OpenMyProfilePagesSteps.class);
 

@@ -1,39 +1,65 @@
 package ru.siobko.testing.tasks.selenide.pages.main;
 
-import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selectors.byClassName;
+import static com.codeborne.selenide.Selectors.byXpath;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class GroupPage extends BaseMainPage {
-    private final SelenideElement aboutGroupPanel = $(byXpath(".//div[@data-module='GroupInfoPanel']"));
-    private final SelenideElement groupMembersButton = $(byXpath(".//a[@data-l='outlandermenu,altGroupMembers']"));
-    private final SelenideElement groupName = $(byClassName("group-name_h"));
-    private final SelenideElement groupFeed = $(byXpath(".//div[@data-l='fL,group']"));
-    private final SelenideElement moreActionsButton = $(byXpath(".//li[@class='u-menu_li expand-action-item']"));
+    private static final By aboutGroupPanel = byXpath(".//div[@data-module='GroupInfoPanel']");
+    private static final By groupMembersButton = byXpath(".//a[@data-l='outlandermenu,altGroupMembers']");
+    private static final By groupName = byClassName("group-name_h");
+    private static final By groupFeed = byXpath(".//div[@data-l='fL,group']");
+    private static final By moreActionsButton = byXpath(".//li[@class='u-menu_li expand-action-item']");
 
-    //Ниже идут поля окон, которые появляются в процессе удаления группы.
-    private final SelenideElement deleteButton = $(byText("Удалить"));
-    private final SelenideElement confirmDeletionButton = $(byXpath(".//*[@data-l='t,confirm']"));
+    //Поля окон, которые появляются в процессе удаления группы.
+    private static final By deleteButton = byText("Удалить");
+    private static final By confirmDeletionButton = byXpath(".//*[@data-l='t,confirm']");
 
     public GroupPage() {
         checkPage();
     }
 
-    private void checkPage() {
-        aboutGroupPanel.shouldBe(visible);
-        groupFeed.shouldBe(visible);
-        groupMembersButton.shouldBe(visible);
+    public boolean checkPage() {
+        $(aboutGroupPanel).shouldBe(
+                visible.because("Panel 'О группе' should be visible on group page.")
+        );
+        $(groupFeed).shouldBe(
+                visible.because("Group feed should be visible on group page.")
+        );
+        $(groupMembersButton).shouldBe(
+                visible.because("Button 'Участники' should be visible on group page.")
+        );
+        return true;
     }
 
-    public String getGroupName() {
-        return groupName.getText();
+    public GroupPage clickMoreActions() {
+        $(moreActionsButton).shouldBe(
+                visible.because("More actions button should be visible on group page.")
+        ).click();
+        return this;
     }
 
-    public void deleteGroup() {
-        moreActionsButton.click();
-        deleteButton.click();
-        confirmDeletionButton.click();
+    public GroupPage clickDelete() {
+        $(deleteButton).shouldBe(
+                visible.because("Button 'Удалить' should be visible on more actions menu.")
+        ).click();
+        return this;
+    }
+
+    public void confirmDeletion() {
+        $(confirmDeletionButton).shouldBe(
+                visible.because("Confirm deletion button should be visible while deleting a group.")
+        ).click();
+    }
+
+    public boolean checkGroupNameEquals(String myGroup) {
+        return $(groupName).shouldBe(
+                        visible.because("Group name should be visible on group page.")
+                ).getText()
+                .equals(myGroup);
     }
 }

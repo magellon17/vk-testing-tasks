@@ -1,75 +1,161 @@
 package ru.siobko.testing.tasks.junit.core.main;
 
 import org.openqa.selenium.By;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.siobko.testing.tasks.junit.core.BasePage;
+import ru.siobko.testing.tasks.junit.core.main.groups.GroupsPage;
+import ru.siobko.testing.tasks.junit.core.main.profile.myProfile.MyProfilePage;
+import ru.siobko.testing.tasks.junit.core.media.PhotoPage;
+import ru.siobko.testing.tasks.junit.core.media.PostPage;
 
+import java.io.File;
+
+import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
+import static com.codeborne.selenide.Selectors.byXpath;
+
 public abstract class BaseMainPage extends BasePage {
-    protected static final By groupsButton = byXpath(".//a[@data-l='t,userAltGroup']");
-    protected static final By myProfileButton = byXpath(".//a[@data-l='t,userPage']");
-    protected static final By navigationMenu = byXpath(".//div[@data-l='t,navigation']");
-    protected static final By paymentsMenu = byXpath(".//ul[@data-l='t,secondTierLeftMenu']");
-    protected static final By publishButton = byXpath(".//button[@data-testid='ddm-button']");
-    protected static final By publishPostButton = byXpath(".//*[@class='item-container__7e56q']");
-    private static final By userCardToolbarDropdown = byXpath(".//button[@aria-label='Настройки профиля']");
-    private static final By userCardToolbarLogoutButton = byXpath(".//a[@data-l='t,logout']");
-    private static final By confirmLogoutButton = byXpath(".//input[@data-l='t,logout']");
+    private static final Logger LOG = LoggerFactory.getLogger(BaseMainPage.class);
 
-    //Поля окон, которые появляются в процессе создания текстового поста.
-    protected static final By postTextBox = byXpath(".//div[@data-module='postingForm/mediaText']");
-    protected static final By submitButton = byXpath(".//button[@data-l='t,button.submit']");
+    // Боковая навигация
+    protected static final By GROUPS_BUTTON = byXpath(".//a[@data-l='t,userAltGroup']");
+    protected static final By MY_PROFILE_BUTTON = byXpath(".//a[@data-l='t,userPage']");
+    protected static final By NAVIGATION_MENU = byXpath(".//div[@data-l='t,navigation']");
+    protected static final By PAYMENTS_MENU = byXpath(".//ul[@data-l='t,secondTierLeftMenu']");
 
-    protected static final String PAYMENTS_MENU_LOG_INFO = "Payments menu should be exist on all main pages.";
-    protected static final String NAVIGATION_MENU_LOG_INFO = "Navigation menu should be visible on all main pages.";
-    protected static final String PUBLISH_BUTTON_LOG_INFO = "Button 'Опубликовать' should be visible on all main pages.";
-    protected static final String GROUPS_BUTTON_LOG_INFO = "Button 'Группы' should be visible on all main pages.";
-    protected static final String MY_PROFILE_BUTTON_LOG_INFO = "My profile button should be visible on all main pages.";
-    protected static final String USER_CARD_TOOLBAR_DROPDOWN_LOG_INFO = "User card toolbar dropdown should be visible  on all main pages.";
-    protected static final String USER_CARD_TOOLBAR_LOGOUT_BUTTON_LOG_INFO = "Button 'Выйти' should be visible after open user card toolbar.";
-    protected static final String CONFIRM_LOGOUT_BUTTON_LOG_INFO = "Confirm Button 'Выйти' should be visible after clicking user card toolbar button 'Выйти''.";
+    // Публикация
+    protected static final By PUBLISH_BUTTON = byXpath(".//button[@data-testid='ddm-button']");
+    protected static final By PUBLISH_POST_BUTTON = byXpath(".//*[@class='item-container__7e56q']");
+    protected static final By PUBLISH_PHOTO_BUTTON = byXpath(".//input[@accept='image/*, video/*, .heic,']");
+
+    // Тулбар настройки профиля
+    protected static final By USER_CARD_TOOLBAR_DROPDOWN = byXpath(".//button[@aria-label='Настройки профиля']");
+    protected static final By USER_CARD_TOOLBAR_LOGOUT_BUTTON = byXpath(".//a[@data-l='t,logout']");
+    protected static final By CONFIRM_LOGOUT_BUTTON = byXpath(".//input[@data-l='t,logout']");
+
+    //Страница поста
+    protected static final By OPEN_PUBLISHED_POST_BUTTON = byXpath(".//a[@class='js-tip-block-url al']");
+
+    //Страница фото
+    protected static final By OPEN_PUBLISHED_PHOTO_BUTTON = byXpath(".//up-photo-midget[@data-l='t,view-photo']");
+
+    //Публикация поста
+    protected static final By POST_TEXT_BOX = byXpath(".//div[@data-module='postingForm/mediaText']");
+    protected static final By SUBMIT_BUTTON = byXpath(".//button[@data-l='t,button.submit']");
 
     protected BaseMainPage() {
         checkPage();
     }
 
-    private void checkPage() {
-        $(paymentsMenu).shouldBe(
-                visible.because(PAYMENTS_MENU_LOG_INFO)
+    @Override
+    protected boolean checkPage() {
+        $(PAYMENTS_MENU).shouldBe(
+                visible.because("Не отобразилось бизнес меню.")
         );
-        $(navigationMenu).shouldBe(
-                visible.because(NAVIGATION_MENU_LOG_INFO)
+        $(NAVIGATION_MENU).shouldBe(
+                visible.because("Не отобразилось меню навигации.")
         );
-        $(publishButton).shouldBe(
-                visible.because(PUBLISH_BUTTON_LOG_INFO)
+        $(PUBLISH_BUTTON).shouldBe(
+                visible.because("Не отобразилась кнопка публикации.")
         );
+        return true;
     }
 
-    public void openGroupsPage() {
-        $(groupsButton).shouldBe(
-                visible.because(GROUPS_BUTTON_LOG_INFO)
+    public GroupsPage openGroupsPage() {
+        LOG.info("Переходим на страницу с группами.");
+        $(GROUPS_BUTTON).shouldBe(
+                visible.because("Нет кнопки для перехода к группам.")
         ).click();
+        return new GroupsPage();
     }
 
-    public BaseMainPage openUserCardToolbar() {
-        $(userCardToolbarDropdown).shouldBe(
-                visible.because(USER_CARD_TOOLBAR_DROPDOWN_LOG_INFO)
+    public MyProfilePage openMyProfilePage() {
+        LOG.info("Переходим на страницу профиля.");
+        $(MY_PROFILE_BUTTON).shouldBe(
+                visible.because("Нет кнопки для перехода в профиль.")
+        ).click();
+        return new MyProfilePage();
+    }
+
+    public BaseMainPage clickPublish() {
+        LOG.info("Кликаем на кнопку 'Опубликовать'.");
+        $(PUBLISH_BUTTON).shouldBe(
+                visible.because("Нет кнопки 'Опубликовать'.")
+        ).click();
+        return this;
+    }
+
+    public BaseMainPage clickPublishPhoto(String filename) {
+        LOG.info("Публикуем фотку.");
+        $(PUBLISH_PHOTO_BUTTON).shouldBe(
+                exist.because("Не отобразилась кнопка загрзуки фото.")
+        ).uploadFile(new File(filename));
+        return this;
+    }
+
+    public BaseMainPage clickPublishPost() {
+        LOG.info("Кликаем на кнопку публикации поста.");
+        $(PUBLISH_POST_BUTTON).shouldBe(
+                visible.because("Не отобразилась кнопка публикации поста.")
+        ).click();
+        return this;
+    }
+
+    public BaseMainPage enterPostText(String postText) {
+        LOG.info("Вводим текст поста.");
+        $(POST_TEXT_BOX).shouldBe(
+                visible.because("Не отобразилось поле ввода текста поста.")
+        ).setValue(postText);
+        return this;
+    }
+
+    public BaseMainPage clickSubmit() {
+        LOG.info("Публикуем пост.");
+        $(SUBMIT_BUTTON).shouldBe(
+                visible.because("Не отобразилась кнопка подтвержденря публикации поста.")
+        ).click();
+        return this;
+    }
+
+    public BaseMainPage expandUserCardToolbar() {
+        LOG.info("Открываем карточку пользователя.");
+        $(USER_CARD_TOOLBAR_DROPDOWN).shouldBe(
+                visible.because("Нет карточки пользователя на странице.")
         ).click();
         return this;
     }
 
     public BaseMainPage logout() {
-        $(userCardToolbarLogoutButton).shouldBe(
-                visible.because(USER_CARD_TOOLBAR_LOGOUT_BUTTON_LOG_INFO)
+        LOG.info("Выходим из аккаунта.");
+        $(USER_CARD_TOOLBAR_LOGOUT_BUTTON).shouldBe(
+                visible.because("Не отобразилась кнопка выхода из аккаунта.")
         ).click();
         return this;
     }
 
     public void confirmLogout() {
-        $(confirmLogoutButton).shouldBe(
-                visible.because(CONFIRM_LOGOUT_BUTTON_LOG_INFO)
+        LOG.info("Подтвеждаем выход из аккаунта.");
+        $(CONFIRM_LOGOUT_BUTTON).shouldBe(
+                visible.because("Не отобразилась кнопка подтверждения выхода из аккаунта.")
         ).click();
+    }
+
+    public PostPage openPost() {
+        LOG.info("Открываем пост.");
+        $(OPEN_PUBLISHED_POST_BUTTON).shouldBe(
+                visible.because("Не найден пост.")
+        ).click();
+        return new PostPage();
+    }
+
+    public PhotoPage openPhoto() {
+        LOG.info("Открываем фото.");
+        $(OPEN_PUBLISHED_PHOTO_BUTTON).shouldBe(
+                visible.because("Не найдено фото.")
+        ).click();
+        return new PhotoPage();
     }
 }

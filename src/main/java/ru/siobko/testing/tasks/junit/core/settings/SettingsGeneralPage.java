@@ -1,40 +1,43 @@
 package ru.siobko.testing.tasks.junit.core.settings;
 
 import org.openqa.selenium.By;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class SettingsGeneralPage extends SettingsBasePage {
-    private static final By personaInformationForm = byXpath(".//a[@data-l='t,profile_form']");
-    private static final By passwordForm = byXpath(".//a[@data-l='t,set_password']");
-    private static final By emailForm = byXpath(".//a[@data-l='t,set_email']");
+    private static final Logger LOG = LoggerFactory.getLogger(SettingsGeneralPage.class);
 
-    private static final String PERSONAL_INFORMATION_FORM_LOG_INFO = "Personal information form should be visible on general settings page.";
-    private static final String PASSWORD_FORM_LOG_INFO = "Password form should be visible on general settings page.";
-    private static final String EMAIL_FORM_LOG_INFO = "Email form should be visible on general settings page.";
+    private static final By PERSONAL_INFORMATION_FORM = byXpath(".//a[@data-l='t,profile_form']");
+    private static final By PASSWORD_FORM = byXpath(".//a[@data-l='t,set_password']");
+    private static final By EMAIL_FORM = byXpath(".//a[@data-l='t,set_email']");
 
     public SettingsGeneralPage() {
         checkPage();
     }
 
-    public static boolean checkPage() {
-        $(personaInformationForm).shouldBe(
-                visible.because(PERSONAL_INFORMATION_FORM_LOG_INFO)
+    @Override
+    public boolean checkPage() {
+        $(PERSONAL_INFORMATION_FORM).shouldBe(
+                visible.because("Не отобразилась форма персональной информации.")
         );
-        $(passwordForm).shouldBe(
-                visible.because(PASSWORD_FORM_LOG_INFO)
+        $(PASSWORD_FORM).shouldBe(
+                visible.because("Не отобразилась форма пароля.")
         );
-        $(emailForm).shouldBe(
-                visible.because(EMAIL_FORM_LOG_INFO)
+        $(EMAIL_FORM).shouldBe(
+                visible.because("Не отобразилась форма почты.")
         );
+        LOG.info("Перешли на страницу основных настроек.");
         return true;
     }
 
     public SettingsGeneralPersonalInformationPage openPersonalInformationPage() {
-        $(personaInformationForm).shouldBe(
-                visible.because(PERSONAL_INFORMATION_FORM_LOG_INFO)
+        LOG.info("Открываем страницу с персональными настройками.");
+        $(PERSONAL_INFORMATION_FORM).shouldBe(
+                visible.because("Не отобразилась форма персональной информации.")
         ).click();
         return new SettingsGeneralPersonalInformationPage();
     }

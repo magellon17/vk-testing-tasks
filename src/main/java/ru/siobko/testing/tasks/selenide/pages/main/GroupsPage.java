@@ -1,40 +1,82 @@
 package ru.siobko.testing.tasks.selenide.pages.main;
 
-import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selectors.byClassName;
+import static com.codeborne.selenide.Selectors.byXpath;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selectors.byId;
 import static com.codeborne.selenide.Selenide.$;
 
 public class GroupsPage extends BaseMainPage {
-    private final SelenideElement groupSearchField = $(byXpath(".//group-search-input[@data-bundle-name='search_group-search-input']"));
-    private final SelenideElement groupsCatalogHeader = $(byClassName("groups-catalog-header"));
-    private final SelenideElement createGroupButton = $(byText("Создать группу"));
+    private static final By groupSearchField = byXpath(".//group-search-input[@data-bundle-name='search_group-search-input']");
+    private static final By groupsCatalogHeader = byClassName("groups-catalog-header");
+    private static final By createGroupButton = byText("Создать группу");
 
     //Поля окон, которые появляются в процессе создания группы.
-    private final SelenideElement chooseGroupByInterest = $(byXpath(".//a[@data-l='t,INTEREST']"));
-    private final SelenideElement groupNameField = $(byId("field_name"));
-    private final SelenideElement thematicsList = $(byXpath(".//div[@class='it js-multi-select_visual-input']"));
-    private final SelenideElement chooseAutoThematic = $(byText("Автомобили"));
-    private final SelenideElement createButton = $(byXpath(".//input[@data-l='t,confirm']"));
+    private static final By groupByInterestButton = byXpath(".//a[@data-l='t,INTEREST']");
+    private static final By groupNameField = byId("field_name");
+    private static final By thematicsList = byXpath(".//div[@class='it js-multi-select_visual-input']");
+    private static final By autoThematicButton = byText("Автомобили");
+    private static final By createButton = byXpath(".//input[@data-l='t,confirm']");
 
     public GroupsPage() {
         checkPage();
     }
 
-    private void checkPage() {
-        createGroupButton.shouldBe(visible);
-        groupSearchField.shouldBe(visible);
-        groupsCatalogHeader.shouldBe(visible);
+    public boolean checkPage() {
+        $(createGroupButton).shouldBe(
+                visible.because("Button 'Создать группу' should be visible on page 'Группы'.")
+        );
+        $(groupSearchField).shouldBe(
+                visible.because("Group search field should be visible on page 'Группы'.")
+        );
+        $(groupsCatalogHeader).shouldBe(
+                visible.because("Groups catalog header should be visible on page 'Группы'.")
+        );
+        return true;
     }
 
-    public GroupPage createGroup(String Name) {
-        createGroupButton.click();
-        chooseGroupByInterest.click();
-        groupNameField.setValue(Name);
-        thematicsList.click();
-        chooseAutoThematic.click();
-        createButton.click();
+    public GroupsPage clickCreateGroup() {
+        $(createGroupButton).shouldBe(
+                visible.because("Button 'Создать группу' should be visible on page 'Группы'.")
+        ).click();
+        return this;
+    }
+
+    public GroupsPage clickGroupByInterest() {
+        $(groupByInterestButton).shouldBe(
+                visible.because("Button 'Группа по интересам' should be visible after clicking button 'Создать группу'.")
+        ).click();
+        return this;
+    }
+
+    public GroupsPage enterGroupName(String Name) {
+        $(groupNameField).shouldBe(
+                visible.because("Field 'Название' should be visible while creating a group.")
+        ).setValue(Name);
+        return this;
+    }
+
+    public GroupsPage expandThematicsList() {
+        $(thematicsList).shouldBe(
+                visible.because("List 'Тематика' should be visible while creating a group.")
+        ).click();
+        return this;
+    }
+
+    public GroupsPage clickAutoThematic() {
+        $(autoThematicButton).shouldBe(
+                visible.because("Thematic 'Автомобили' should be visible after opening thematic list.")
+        ).click();
+        return this;
+    }
+
+    public GroupPage clickCreate() {
+        $(createButton).shouldBe(
+                visible.because("Button 'Создать' should be visible while creating a group.")
+        ).click();
         return new GroupPage();
     }
 }

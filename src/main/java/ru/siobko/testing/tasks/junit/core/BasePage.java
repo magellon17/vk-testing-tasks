@@ -8,27 +8,20 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public abstract class BasePage {
-    protected static final By navigationToolBar = byXpath(".//div[@data-l='t,navigationToolbar']");
-    protected static final By queryField = byName("st.query");
-    protected static final By ecosystemButton = byXpath(".//div[@data-module='VkEcosystem']");
-
-    private static final String NAVIGATION_TOOLBAR_LOG_INFO = "Navigation toolbar should be visible on all pages.";
-    private static final String QUERY_FIELD_LOG_INFO = "Query Filed should be visible on all pages.";
-    private static final String ECOSYSTEM_BUTTON_LOG_INFO = "Ecosystem button should be visible on all pages.";
+    protected static final By QUERY_FIELD = byName("st.query");
+    protected static final By ECOSYSTEM_BUTTON = byXpath(".//div[@data-module='VkEcosystem']");
 
     protected BasePage() {
         checkPage();
     }
 
-    private void checkPage() {
-        $(navigationToolBar).shouldBe(
-                visible.because(NAVIGATION_TOOLBAR_LOG_INFO)
+    protected boolean checkPage() {
+        $(QUERY_FIELD).shouldBe(
+                visible.because("Не отобразился поисковик по сайту.")
         );
-        $(queryField).shouldBe(
-                visible.because(QUERY_FIELD_LOG_INFO)
+        $(ECOSYSTEM_BUTTON).shouldBe(
+                visible.because("Не отобразилась кнопка экосистемы.")
         );
-        $(ecosystemButton).shouldBe(
-                visible.because(ECOSYSTEM_BUTTON_LOG_INFO)
-        );
+        return true;
     }
 }

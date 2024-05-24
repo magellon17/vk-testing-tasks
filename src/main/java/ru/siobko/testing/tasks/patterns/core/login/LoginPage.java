@@ -13,7 +13,9 @@ import static com.codeborne.selenide.Selectors.byValue;
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage {
-    private static final Logger LOG = LoggerFactory.getLogger(LoginPage.class);
+
+    private static final Logger log = LoggerFactory.getLogger(LoginPage.class);
+
     private static final By LOGIN_FIELD = byName("st.email");
     private static final By PASSWORD_FIELD = byName("st.password");
     private static final By SUBMIT_BUTTON = byValue("Войти в Одноклассники");
@@ -32,12 +34,12 @@ public class LoginPage {
         $(SUBMIT_BUTTON).shouldBe(
                 exist.because("Не отобразилась кнопка входа.")
         );
-        LOG.info("Перешли на страницу входа.");
+        log.info("Перешли на страницу входа.");
         return true;
     }
 
     public LoginPage enterLogin(String login) {
-        LOG.info("Вводим логин.");
+        log.info("Вводим логин.");
         $(LOGIN_FIELD).shouldBe(
                 visible.because("Не отобразилось поле логина.")
         ).setValue(login);
@@ -45,7 +47,7 @@ public class LoginPage {
     }
 
     public LoginPage enterPassword(String password) {
-        LOG.info("Вводим пароль.");
+        log.info("Вводим пароль.");
         $(PASSWORD_FIELD).shouldBe(
                 visible.because("Не отобразилось поле пароля.")
         ).setValue(password);
@@ -53,7 +55,7 @@ public class LoginPage {
     }
 
     public MyUserMainPage clickSubmit() {
-        LOG.info("Кликаем на кнопку входа.");
+        log.info("Кликаем на кнопку входа.");
         $(SUBMIT_BUTTON).shouldBe(
                 visible.because("Не отобразилась кнопка входа.")
         ).click();
@@ -61,7 +63,7 @@ public class LoginPage {
     }
 
     public MyUserMainPage login(TestBot bot) {
-        LOG.info("Выполняем вход в аккаунт.");
+        log.info("Выполняем вход в аккаунт.");
         return enterLogin(bot.login())
                 .enterPassword(bot.password())
                 .clickSubmit();
